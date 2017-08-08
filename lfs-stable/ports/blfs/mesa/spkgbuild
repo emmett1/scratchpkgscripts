@@ -1,8 +1,8 @@
 # description	: OpenGL compatible 3D graphics library
 # homepage	: http://mesa3d.sourceforge.net/
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: libdrm python2 wayland 
-# makedepends	: libvdpau
+# depends	: libdrm python2 wayland libxshmfence libxdamage libxext libxfixes
+# makedepends	: libvdpau libx11 glproto dri2proto dri3proto presentproto
 
 name=mesa
 version=13.0.4
