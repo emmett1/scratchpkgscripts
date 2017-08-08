@@ -1,0 +1,13 @@
+# description	: Certificate Authority certificates, the Public Key Infrastructure
+# homepage	: https://www.mozilla.org/en-US/about/governance/policies/security-group/certs/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: openssl
+
+name=ca-certificates
+version=20170322
+release=1
+source=(certdata.txt make-ca.sh-20170119)
+
+build() {
+  	./make-ca.sh-20170119 -D $PKG
+}

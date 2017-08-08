@@ -1,0 +1,18 @@
+# description	: Toolkit for image loading and pixel buffer manipulation
+# homepage	: https://wiki.gnome.org/Projects/GdkPixbuf
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: glib libjpeg-turbo libpng libtiff
+# makedepends	: gobject-introspection
+
+name=gdk-pixbuf
+version=2.36.6
+release=1
+source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version::4}/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr --with-x11
+	make
+	make DESTDIR=$PKG install
+}

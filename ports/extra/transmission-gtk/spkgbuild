@@ -1,0 +1,24 @@
+# description	: Fast, easy, and free BitTorrent client (GTK+ GUI)
+# homepage	: http://www.transmissionbt.com/
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: curl libevent openssl gtk3 hicolor-icon-theme desktop-file-utils
+# makedepends	: intltool
+# depends : 
+
+name=transmission-gtk
+version=2.92
+release=1
+source=(https://github.com/transmission/transmission-releases/raw/master/transmission-$version.tar.xz)
+
+build() {
+	cd transmission-$version
+
+	./configure --prefix=/usr \
+                    --with-gtk \
+                    --disable-cli \
+                    --disable-daemon
+	make
+	make DESTDIR=$PKG install
+
+	sed -ri '/\[.+\]=/d' $PKG/usr/share/applications/transmission-gtk.desktop
+}

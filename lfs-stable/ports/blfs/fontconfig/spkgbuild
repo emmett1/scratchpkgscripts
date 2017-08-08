@@ -1,0 +1,27 @@
+# description	: A library and support programs used for configuring and customizing font access
+# homepage	: https://www.freedesktop.org/wiki/Software/fontconfig/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: freetype2
+
+name=fontconfig
+version=2.12.1
+release=1
+source=(http://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.1.tar.bz2)
+
+build() {
+	cd $name-$version
+
+  	sed -e '/FC_CHAR_WIDTH/s/CHAR_WIDTH/CHARWIDTH/'             \
+	    -e '/FC_CHARWIDTH/a #define FC_CHAR_WIDTH FC_CHARWIDTH' \
+	    -i fontconfig/fontconfig.h
+	sed 's/CHAR_WIDTH/CHARWIDTH/' -i src/fcobjs.h
+
+	./configure --prefix=/usr        \
+	            --sysconfdir=/etc    \
+	            --localstatedir=/var \
+	            --disable-docs       \
+	            --docdir=/usr/share/doc/$name-$version
+	make
+	make DESTDIR=$PKG install
+}
+

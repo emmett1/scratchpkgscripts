@@ -1,0 +1,39 @@
+# description	: Libraries used for creating graphical user interfaces for applications
+# homepage	: http://www.gtk.org/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: adwaita-icon-theme at-spi2-atk gdk-pixbuf libepoxy pango
+# makedepends	: gobject-introspection
+
+name=gtk3
+version=3.22.16
+release=3
+source=(http://ftp.gnome.org/pub/gnome/sources/gtk+/${version::4}/gtk+-$version.tar.xz)
+
+build() {
+	cd gtk+-$version
+
+	./configure --prefix=/usr             \
+	            --sysconfdir=/etc         \
+	            --enable-broadway-backend \
+	            --enable-x11-backend      \
+	            --disable-wayland-backend
+
+	make
+	make DESTDIR=$PKG install
+
+	mv $PKG/usr/bin/gtk-update-icon-cache{,-gtk3}
+
+cat > $PKG/etc/gtk-3.0/settings.ini << "EOF"
+[Settings]
+gtk-theme-name = Adwaita
+gtk-icon-theme-name = gnome
+gtk-font-name = DejaVu Sans 12
+gtk-cursor-theme-size = 18
+gtk-toolbar-style = GTK_TOOLBAR_BOTH_HORIZ
+gtk-xft-antialias = 1
+gtk-xft-hinting = 1
+gtk-xft-hintstyle = hintslight
+gtk-xft-rgba = rgb
+gtk-cursor-theme-name = Adwaita
+EOF
+}

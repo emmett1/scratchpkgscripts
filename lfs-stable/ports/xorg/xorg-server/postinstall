@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cat >> /etc/sysconfig/createfiles << "EOF"
+### created by xorg-server
+/tmp/.ICE-unix dir 1777 root root
+/tmp/.X11-unix dir 1777 root root
+### end
+EOF

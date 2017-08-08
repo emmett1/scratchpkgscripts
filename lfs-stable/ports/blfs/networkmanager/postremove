@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $(getent group netdev) ]; then
+	echo "removing netdev group..."
+	groupdel netdev
+fi
+
+if [ $(grep ONBOOT /etc/sysconfig/ifconfig.wifi0) = 'ONBOOT="no"' ]; then
+	echo "Enable ONBOOT for wpa_supplicant..."
+	sed -i 's/ONBOOT="no"/ONBOOT="yes"/' /etc/sysconfig/ifconfig.wifi0
+fi

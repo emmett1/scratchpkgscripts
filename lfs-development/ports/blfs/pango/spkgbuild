@@ -1,0 +1,18 @@
+# description	: Library for laying out and rendering of text, with an emphasis on internationalization
+# homepage	: https://www.pango.org/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: cairo harfbuzz
+# makedepends	: fontconfig glib gobject-introspection
+
+name=pango
+version=1.40.6
+release=1
+source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version::4}/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr --sysconfdir=/etc
+	make
+	make DESTDIR=$PKG install
+}

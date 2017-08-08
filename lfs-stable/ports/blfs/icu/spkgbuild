@@ -1,0 +1,19 @@
+# description	: International Components for Unicode library
+# homepage	: http://www.icu-project.org/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+
+name=icu
+version=58.2
+release=2
+source=(http://download.icu-project.org/files/icu4c/$version/icu4c-${version//./_}-src.tgz
+	#icu4c-58.2-fix_enumeration-1.patch)
+	http://www.linuxfromscratch.org/patches/blfs/8.0/icu4c-$version-fix_enumeration-1.patch)
+
+build() {
+	cd icu
+
+	patch -p1 -i $SRC/icu4c-$version-fix_enumeration-1.patch || exit 1
+	cd source
+	./configure --prefix=/usr
+	make DESTDIR=$PKG install
+}

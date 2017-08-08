@@ -1,0 +1,12 @@
+
+Configuring NSS
+
+If p11-kit-0.23.7 is installed, /usr/lib/libp11-kit.so can be used as a drop-in replacement for /usr/lib/libnssckbi.so to transparently make the system CAs available to NSS aware applications, rather than the static list provided by /usr/lib/libnssckbi.so. As the root user, execute the following commands:
+
+if [ -e /usr/lib/libp11-kit.so ]; then
+  readlink /usr/lib/libnssckbi.so ||
+  rm -v /usr/lib/libnssckbi.so    &&
+  ln -sfv libp11-kit.so /usr/lib/libnssckbi.so
+fi
+
+Additionally, for dependent applications that do not use the internal database (/usr/lib/libnssckbi.so), the make-ca.sh script, included on the Certificate Authority Certificates page, will generate a system wide NSS DB.

@@ -1,0 +1,20 @@
+# description	: Library and tools used to manipulate, convert and view Scalable Vector Graphic (SVG) images
+# homepage	: https://wiki.gnome.org/Projects/LibRsvg
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: gdk-pixbuf libcroco pango gtk3
+# makedepends	: gobject-introspection vala
+
+name=librsvg
+version=2.40.18
+release=1
+source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version:0:4}/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr    \
+	            --enable-vala    \
+	            --disable-static
+	make
+	make DESTDIR=$PKG install
+}

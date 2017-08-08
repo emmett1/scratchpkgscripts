@@ -1,0 +1,19 @@
+# description	: Utility useful for non-interactive downloading of files from the Web
+# homepage	: http://www.gnu.org/software/wget/wget.html
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: ca-certificates openssl
+
+name=wget
+version=1.19.1
+release=1
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+  	./configure --prefix=/usr      \
+	            --sysconfdir=/etc  \
+	            --with-ssl=openssl
+	make
+	make DESTDIR=$PKG install
+}

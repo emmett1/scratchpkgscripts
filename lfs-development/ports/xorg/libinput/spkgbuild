@@ -1,0 +1,24 @@
+# description	: library that handles input devices for display servers and other applications that need to directly deal with input devices
+# homepage	: https://www.freedesktop.org/wiki/Software/libinput/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: libevdev mtdev
+
+name=libinput
+version=1.7.3
+release=1
+source=(http://www.freedesktop.org/software/libinput/libinput-$version.tar.xz)
+
+build() {
+	cd libinput-$version
+
+  	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--localstatedir=/var \
+		--disable-static \
+		--disable-libwacom \
+		--with-udev-dir=/lib/udev
+	make
+	make DESTDIR=$PKG install
+}
+

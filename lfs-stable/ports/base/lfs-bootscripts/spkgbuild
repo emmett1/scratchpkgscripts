@@ -1,0 +1,15 @@
+# description	: A set of scripts to start/stop the LFS system at bootup/shutdown
+# homepage	: http://www.linuxfromscratch.org
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# backup	: etc/sysconfig/modules etc/sysconfig/createfiles
+
+name=lfs-bootscripts
+version=20150222
+release=1
+source=(http://www.linuxfromscratch.org/lfs/downloads/8.0/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	make DESTDIR=$PKG install
+}

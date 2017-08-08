@@ -1,0 +1,18 @@
+# description	: Provides the set of accessibility interfaces that are implemented by other toolkits and applications
+# homepage	: https://git.gnome.org/browse/atk
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: glib
+# makedepends	: gobject-introspection
+
+name=atk
+version=2.22.0
+release=1
+source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version::4}/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}

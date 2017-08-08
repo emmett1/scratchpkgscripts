@@ -1,0 +1,32 @@
+# description	: OpenGL compatible 3D graphics library
+# homepage	: http://mesa3d.sourceforge.net/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: libdrm python2 wayland 
+# makedepends	: libvdpau
+
+name=mesa
+version=13.0.4
+release=1
+source=(ftp://ftp.freedesktop.org/pub/$name/$version/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+  	#patch -Np1 -i ../mesa-12.0.1-add_xdemos-1.patch || exit 1
+
+	GLL_DRV="i915,svga"
+
+	sed -i "/pthread_stubs_possible=/s/yes/no/" configure.ac
+	./autogen.sh CFLAGS='-O2' CXXFLAGS='-O2'    \
+	            --prefix=/usr	            \
+	            --sysconfdir=/etc               \
+	            --enable-texture-float          \
+        	    --enable-osmesa                 \
+        	    --enable-xa                     \
+        	    --enable-glx-tls                \
+	            --with-egl-platforms="drm,x11,wayland"  \
+	            --with-gallium-drivers=$GLL_DRV
+	make
+	make DESTDIR=$PKG install
+}
+

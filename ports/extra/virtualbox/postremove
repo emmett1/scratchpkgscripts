@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ $(grep vboxdrv /etc/sysconfig/modules) ]; then
+	sed -i '/vboxdrv/d' /etc/sysconfig/modules
+fi
+if [ $(grep vboxnetadp /etc/sysconfig/modules) ]; then
+	sed -i '/vboxnetadp/d' /etc/sysconfig/modules
+fi
+if [ $(grep vboxnetflt /etc/sysconfig/modules) ]; then
+	sed -i '/vboxnetflt/d' /etc/sysconfig/modules
+fi
+if [ $(grep vboxpci /etc/sysconfig/modules) ]; then
+	sed -i '/vboxpci/d' /etc/sysconfig/modules
+fi

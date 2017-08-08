@@ -1,0 +1,27 @@
+# description	: The Bourne-Again SHell
+# homepage	: http://www.gnu.org/software/bash/bash.html
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: glibc ncurses readline
+
+name=bash
+version=4.4
+release=1
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz
+	http://www.linuxfromscratch.org/patches/lfs/8.0/$name-$version-upstream_fixes-1.patch)
+
+build() {
+	cd $name-$version
+
+	patch -Np1 -i ../bash-4.4-upstream_fixes-1.patch || exit 1
+
+	./configure --prefix=/usr                       \
+	            --docdir=/usr/share/doc/$name-$version \
+	            --without-bash-malloc               \
+	            --with-installed-readline
+	make
+	make DESTDIR=$PKG install
+
+	mkdir -p $PKG/bin
+	mv $PKG/usr/bin/bash $PKG/bin
+	ln -s bash $PKG/bin/sh 
+}

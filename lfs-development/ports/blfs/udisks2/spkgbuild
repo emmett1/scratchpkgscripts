@@ -1,0 +1,21 @@
+# description	: Daemon, tools and libraries to access and manipulate disks and storage devices
+# homepage	: http://www.freedesktop.org/wiki/Software/udisks
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: libatasmart libblockdev libgudev libxslt polkit
+# makedepends	: gobject-introspection docbook-xsl
+
+name=udisks2
+version=2.7.1
+release=1
+source=(https://github.com/storaged-project/udisks/releases/download/udisks-$version/udisks-$version.tar.bz2)
+
+build() {
+	cd udisks-$version
+
+	./configure --prefix=/usr        \
+	            --sysconfdir=/etc    \
+	            --localstatedir=/var \
+	            --disable-static
+	make
+	make DESTDIR=$PKG install
+}

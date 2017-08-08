@@ -1,0 +1,26 @@
+# description	: GNU's tool for secure communication and data storage
+# homepage	: http://www.gnupg.org/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: libassuan libgcrypt libgpg-error libksba npth pinentry
+
+name=gnupg
+version=2.1.18
+release=1
+source=(https://gnupg.org/ftp/gcrypt/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr            \
+	            --enable-symcryptrun     \
+	            --enable-maintainer-mode \
+	            --docdir=/usr/share/doc/$name-$version
+	make
+	make DESTDIR=$PKG install
+
+	for f in gpg gpgv
+	do
+	  ln -svf ${f}2.1 $PKG/usr/share/man/man1/$f.1
+	  ln -svf ${f}2   $PKG/usr/bin/$f
+	done
+}

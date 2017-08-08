@@ -1,0 +1,17 @@
+# description	: Programs for manipulating text files
+# homepage	: http://www.gnu.org/software/gawk/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: glibc mpfr bash
+
+name=gawk
+version=4.1.4
+release=1
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}

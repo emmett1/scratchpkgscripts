@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ -f /etc/hosts ] && [ "$(grep ^'#tmp perl hosts file' /etc/hosts)" ]; then
+	rm /etc/hosts
+fi

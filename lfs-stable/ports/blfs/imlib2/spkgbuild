@@ -1,0 +1,18 @@
+# description	: Graphics library for fast file loading, saving, rendering and manipulation
+# homepage	: http://sourceforge.net/projects/enlightenment/
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: libxext
+
+name=imlib2
+version=1.4.9
+release=1
+source=(http://sourceforge.net/projects/enlightenment/files/$name-src/$version/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+  	./configure --prefix=/usr --disable-static
+	make
+	make DESTDIR=$PKG install
+}
+

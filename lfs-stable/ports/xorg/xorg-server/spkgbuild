@@ -1,0 +1,30 @@
+# description	: The core of the X Window system
+# homepage	: http://xorg.freedesktop.org/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: pixman libepoxy xkeyboard-config openssl nettle
+# makedepends	: libgcrypt mesa
+
+name=xorg-server
+version=1.19.1
+release=1
+source=(http://ftp.x.org/pub/individual/xserver/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+  	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--localstatedir=/var \
+		--disable-static \
+		--enable-glamor          \
+		--enable-install-setuid  \
+		--enable-suid-wrapper    \
+		--disable-systemd-logind \
+		--with-xkb-output=/var/lib/xkb
+	make
+	make DESTDIR=$PKG install
+
+	install -d $PKG/etc/X11/xorg.conf.d
+}
+
