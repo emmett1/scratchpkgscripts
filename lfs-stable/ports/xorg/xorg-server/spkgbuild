@@ -1,7 +1,7 @@
 # description	: The core of the X Window system
 # homepage	: http://xorg.freedesktop.org/
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: pixman libepoxy xkeyboard-config openssl nettle
+# depends	: pixman libepoxy xkeyboard-config openssl nettle xorg-fonts libinput xf86-input-evdev
 # makedepends	: libgcrypt mesa
 
 name=xorg-server

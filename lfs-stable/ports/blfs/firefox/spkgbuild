@@ -2,7 +2,7 @@
 # homepage	: https://www.mozilla.org/firefox/
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: alsa-lib gtk2 gtk3 nss icu libevent libvpx sqlite dbus-glib graphite2 harfbuzz
-# makedepends	: unzip zip autoconf-2.13 yasm
+# makedepends	: unzip zip autoconf2.13 yasm
 
 name=firefox
 version=51.0.1

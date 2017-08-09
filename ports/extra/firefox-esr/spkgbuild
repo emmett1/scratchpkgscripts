@@ -3,7 +3,7 @@
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # conflict	: firefox
 # depends	: gtk3 gtk2 libxt dbus-glib alsa-lib ffmpeg libvpx libevent nss sqlite icu
-# makedepends	: unzip zip diffutils gconf python2 yasm mesa inetutils autoconf-2.13
+# makedepends	: unzip zip diffutils gconf python2 yasm mesa inetutils autoconf2.13
 
 name=firefox-esr
 version=52.2.0

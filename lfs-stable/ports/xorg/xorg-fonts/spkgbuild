@@ -1,0 +1,32 @@
+# description	: X.org misc fonts
+# homepage	: http://ftp.x.org/pub/individual/font
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: encodings font-alias font-util fontconfig
+
+name=xorg-fonts
+version=1.0.3
+release=1
+url=http://ftp.x.org/pub/individual/font
+source=($url/font-adobe-utopia-type1-1.0.4.tar.bz2
+	$url/font-bh-ttf-$version.tar.bz2
+	$url/font-bh-type1-$version.tar.bz2
+	$url/font-ibm-type1-$version.tar.bz2
+	$url/font-misc-ethiopic-$version.tar.bz2
+	$url/font-xfree86-type1-1.0.4.tar.bz2)
+
+build() {
+	for dir in *; do
+		pushd $dir
+		  	./configure \
+				--prefix=/usr \
+				--sysconfdir=/etc \
+				--localstatedir=/var \
+				--disable-static
+			make
+			make DESTDIR=$PKG install
+		popd
+	done
+	
+	find $PKG -name 'fonts.dir' -delete
+	find $PKG -name 'fonts.scale' -delete
+}
