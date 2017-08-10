@@ -10,7 +10,7 @@ source=(https://d1ilhw0800yew8.cloudfront.net/client/$name-lnx.x86_64-$version.t
 	dropbox.desktop
 	dropbox.png)
 
-STRIP_PACKAGE="no"
+NO_STRIP="yes"
 
 build() {
 	install -d $PKG/opt
