@@ -6,7 +6,7 @@
 name=xterm
 version=327
 release=2
-source=(ftp://invisible-island.net/$name/$name-$version.tgz
+source=(ftp://ftp.invisible-island.net/$name/$name-$version.tgz
 	${name}_remove_list)
 
 build() {
