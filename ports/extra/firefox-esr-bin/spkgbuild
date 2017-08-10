@@ -5,7 +5,7 @@
 
 name=firefox-esr-bin
 _name=${name/-bin/}
-version=52.2.1
+version=52.3.0
 release=1
 source=(http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/${version}esr/linux-x86_64/en-US/firefox-${version}esr.tar.bz2
         $_name.desktop 
