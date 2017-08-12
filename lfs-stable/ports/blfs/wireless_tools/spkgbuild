@@ -6,13 +6,14 @@ name=wireless_tools
 version=29
 release=1
 source=(http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/${name}.${version}.tar.gz
-	
-http://www.linuxfromscratch.org/patches/blfs/8.0/wireless_tools-${version}-fix_iwlist_scanning-1.patch)
+	http://www.linuxfromscratch.org/patches/blfs/8.0/wireless_tools-${version}-fix_iwlist_scanning-1.patch)
 
 build() {
 	cd ${name}.${version}
 
-	patch -Np1 -i ../wireless_tools-${version}-fix_iwlist_scanning-1.patch || exit 1
+	patch -Np1 -i ../wireless_tools-${version}-fix_iwlist_scanning-1.patch
 	make
-	make PREFIX=$PKG/usr INSTALL_MAN=$PKG/usr/share/man install
+	make PREFIX=$PKG/usr \
+	     INSTALL_DIR=$PKG/usr/bin \
+	     INSTALL_MAN=$PKG/usr/share/man install
 }

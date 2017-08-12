@@ -15,7 +15,6 @@ source=(http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-cli
 NO_STRIP="yes"
 
 build() {
-	cd $SRC
 
 	bsdtar -xf spotify-client_${version}${_anotherversion}-${_amd64_release}_amd64.deb
 	tar -xzf data.tar.gz -C $PKG

@@ -18,10 +18,9 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	install -d $PKG/etc/gtk-2.0
 	cat > $PKG/etc/gtk-2.0/gtkrc << "EOF"
-include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
-gtk-icon-theme-name = "elementary"
+gtk-icon-theme-name = "Adwaita"
+gtk-theme-name = "Adwaita"
+gtk-font-name = "Cantarell 10"
 EOF
-
 }

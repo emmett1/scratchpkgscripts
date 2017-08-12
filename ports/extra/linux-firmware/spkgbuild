@@ -8,6 +8,8 @@ version=20161122
 release=1
 source=(http://distfiles.serverop.de/$name-$version.tar.xz)
 
+NO_STRIP="yes"
+
 build() {
     cd $name-$version
 
