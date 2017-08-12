@@ -1,10 +1,10 @@
-# description	: X.org framebuffer video driver
-# homepage	: https://xorg.freedesktop.org/
+# description	: 
+# homepage	: 
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: xorg-server
+# depends	: xorg-server mesa
 
-name=xf86-video-fbdev
-version=0.4.4
+name=xf86-video-vmware
+version=13.2.1
 release=1
 source=(http://ftp.x.org/pub/individual/driver/$name-$version.tar.bz2)
 
