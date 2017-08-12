@@ -1,0 +1,24 @@
+# description	: Decoder for a lossy sound compression scheme specified in MPEG-2 Part 7 and MPEG-4 Part 3 standards
+# homepage	: http://www.audiocoding.com/
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+
+name=faad2
+version=2.7
+release=1
+source=(http://downloads.sourceforge.net/faac/$name-$version.tar.bz2
+	http://www.linuxfromscratch.org/patches/blfs/8.0/$name-$version-mp4ff-1.patch)
+
+build() {
+	cd $name-$version
+
+	patch -Np1 -i ../$name-$version-mp4ff-1.patch
+
+		sed -i "s:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:g" configure.in
+	sed -i "s:man_MANS:man1_MANS:g" frontend/Makefile.am
+
+	autoreconf -fi
+
+	./configure --prefix=/usr --disable-static
+	make
+	make DESTDIR=$PKG install
+}
