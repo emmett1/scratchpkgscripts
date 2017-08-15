@@ -13,7 +13,7 @@ build() {
 	cd pygobject-$version
 
 	patch -Np1 -i ../pygobject-$version-fixes-1.patch
-	./configure --prefix=/usr --disable-docs
+	./configure --prefix=/usr --disable-docs --disable-introspection
 	make
 	make DESTDIR=$PKG install
 }

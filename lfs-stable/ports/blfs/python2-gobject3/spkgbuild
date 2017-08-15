@@ -12,8 +12,9 @@ build() {
 	cd pygobject-$version
 	mkdir python2
 	pushd python2
-	../configure --prefix=/usr --with-python=/usr/bin/python
+	../configure --prefix=/usr --with-python=/usr/bin/python2
 	make
 	popd
 	make -C python2 DESTDIR=$PKG install
+	rm -r $PKG/usr/{lib/pkgconfig,include}
 }
