@@ -1,0 +1,19 @@
+# description	: Python3 bindings for PyGObject3
+# homepage	: https://wiki.gnome.org/Projects/PyGObject
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# makedepends	: python3-cairo gobject-introspection
+
+name=python3-gobject3
+version=3.22.0
+release=1
+source=(http://ftp.gnome.org/pub/gnome/sources/pygobject/${version::4}/pygobject-$version.tar.xz)
+
+build() {
+	cd pygobject-$version
+	mkdir python3
+	pushd python3
+	../configure --prefix=/usr --with-python=/usr/bin/python3
+	make
+	popd
+	make -C python3 DESTDIR=$PKG install
+}
