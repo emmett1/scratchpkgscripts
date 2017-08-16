@@ -4,7 +4,7 @@
 # depends	: bc inetutils kmod
 
 name=linux-headers
-version=4.12.3
+version=4.12.7
 release=1
 source=(https://www.kernel.org/pub/linux/kernel/v4.x/linux-$version.tar.xz)
 

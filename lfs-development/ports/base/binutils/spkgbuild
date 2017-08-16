@@ -4,7 +4,7 @@
 # depends	: glibc zlib
 
 name=binutils
-version=2.28
+version=2.29
 release=1
 source=(http://ftp.gnu.org/gnu/binutils/$name-$version.tar.bz2)
 

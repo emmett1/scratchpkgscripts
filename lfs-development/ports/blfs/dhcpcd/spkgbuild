@@ -5,7 +5,7 @@
 name=dhcpcd
 version=6.11.5
 release=1
-source=(ftp://roy.marples.name/pub/dhcpcd/$name-$version.tar.xz
+source=(http://roy.marples.name/downloads/dhcpcd/$name-$version.tar.xz
 	http://anduin.linuxfromscratch.org/BLFS/blfs-bootscripts/blfs-bootscripts-20170611.tar.xz)
 
 build() {

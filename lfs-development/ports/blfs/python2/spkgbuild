@@ -1,7 +1,7 @@
 # description	: Next generation of the python high-level scripting language
 # homepage	: http://www.python.org/
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: libffi
+# depends	: libffi openssl
 
 name=python2
 version=2.7.13
