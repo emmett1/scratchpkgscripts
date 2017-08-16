@@ -12,5 +12,5 @@ build() {
 
 	cd source
 	./configure --prefix=/usr
-	make DESTDIR=$PKG install
+	make -j1 DESTDIR=$PKG install
 }
