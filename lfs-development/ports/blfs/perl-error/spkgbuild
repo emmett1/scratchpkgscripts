@@ -4,7 +4,7 @@
 # depends	: perl
 
 name=perl-error
-version=0.17024
+version=0.17025
 release=1
 source=(http://www.cpan.org/authors/id/S/SH/SHLOMIF/Error-$version.tar.gz)
 

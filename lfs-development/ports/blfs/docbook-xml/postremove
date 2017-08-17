@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xmlcatalog --noout --del file:///etc/xml/docbook-xml /etc/xml/catalog

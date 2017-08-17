@@ -3,7 +3,7 @@
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
 
 name=nspr
-version=4.15
+version=4.16
 release=1
 source=(https://ftp.mozilla.org/pub/mozilla.org/$name/releases/v$version/src/$name-$version.tar.gz)
 

@@ -4,9 +4,9 @@
 # depends	: ca-certificates openssl
 
 name=curl
-version=7.54.1
+version=7.55.0
 release=1
-source=(https://curl.haxx.se/download/$name-$version.tar.lzma)
+source=(https://curl.haxx.se/download/$name-$version.tar.xz)
 
 build() {
 	cd $name-$version

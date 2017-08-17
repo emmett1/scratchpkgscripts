@@ -5,7 +5,7 @@
 # makedepends	: gobject-introspection
 
 name=gtk3
-version=3.22.16
+version=3.22.18
 release=3
 source=(http://ftp.gnome.org/pub/gnome/sources/gtk+/${version::4}/gtk+-$version.tar.xz)
 

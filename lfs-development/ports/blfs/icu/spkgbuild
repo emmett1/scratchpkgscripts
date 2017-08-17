@@ -8,9 +8,11 @@ release=1
 source=(http://download.icu-project.org/files/icu4c/$version/icu4c-${version//./_}-src.tgz)
 
 build() {
-	cd icu
+	cd icu/source
 
-	cd source
+	# fix xlocale.h error caused by glibc 2.26
+	sed s'@xlocale.h@locale.h@' -i i18n/digitlst.cpp
+
 	./configure --prefix=/usr
-	make -j1 DESTDIR=$PKG install
+	make DESTDIR=$PKG install
 }

@@ -1,7 +1,7 @@
 # description	: Mozilla's JavaScript engine written in C
 # homepage	: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases/24
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: autoconf-2.13 nspr
+# depends	: autoconf2.13 nspr
 # makedepends	: libffi python2 zip
 
 name=js
