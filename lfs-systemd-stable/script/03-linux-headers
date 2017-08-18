@@ -1,0 +1,31 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM="linux-4.9.9"
+SOURCE_DIR="/mnt/lfs/sources"
+TARBALL="$PROGRAM.tar.xz"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	make mrproper
+	make INSTALL_HDR_PATH=dest headers_install
+	cp -rv dest/include/* /tools/include
+          
+   }
+}
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

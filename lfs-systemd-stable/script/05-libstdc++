@@ -1,0 +1,41 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM="libstdc++-6.3.0"
+SOURCE_DIR="/mnt/lfs/sources"
+TARBALL="gcc-6.3.0.tar.bz2"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	mkdir -v build
+	cd       build
+	
+	../libstdc++-v3/configure           \
+		--host=$LFS_TGT                 \
+		--prefix=/tools                 \
+		--disable-multilib              \
+		--disable-nls                   \
+		--disable-libstdcxx-threads     \
+		--disable-libstdcxx-pch         \
+		--with-gxx-include-dir=/tools/$LFS_TGT/include/c++/6.3.0
+	make
+	make install
+          
+   }
+}
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

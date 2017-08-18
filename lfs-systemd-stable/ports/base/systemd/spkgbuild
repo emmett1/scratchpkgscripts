@@ -1,0 +1,58 @@
+# description	: Programs for controlling the startup, running, and shutdown of the system
+# homepage	: https://www.github.com/systemd/systemd
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+
+name=systemd
+version=232
+release=1
+source=(http://anduin.linuxfromscratch.org/sources/other/$name/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	sed -i "s:blkid/::" $(grep -rl "blkid/blkid.h")
+
+	sed -e 's@test/udev-test.pl @@'  \
+	    -e 's@test-copy$(EXEEXT) @@' \
+	    -i Makefile.in
+
+	cat > config.cache << "EOF"
+KILL=/bin/kill
+MOUNT_PATH=/bin/mount
+UMOUNT_PATH=/bin/umount
+HAVE_BLKID=1
+BLKID_LIBS="-lblkid"
+BLKID_CFLAGS="-I/tools/include/blkid"
+HAVE_LIBMOUNT=1
+MOUNT_LIBS="-lmount"
+MOUNT_CFLAGS="-I/tools/include/libmount"
+cc_cv_CFLAGS__flto=no
+SULOGIN="/sbin/sulogin"
+XSLTPROC="/usr/bin/xsltproc"
+EOF
+
+	./configure --prefix=/usr            \
+	            --sysconfdir=/etc        \
+	            --localstatedir=/var     \
+	            --config-cache           \
+	            --with-rootprefix=       \
+	            --with-rootlibdir=/lib   \
+	            --enable-split-usr       \
+	            --disable-firstboot      \
+	            --disable-ldconfig       \
+	            --disable-sysusers       \
+	            --without-python         \
+	            --with-default-dnssec=no \
+	            --docdir=/usr/share/doc/$name-$version
+	make LIBRARY_PATH=/tools/lib
+	make LD_LIBRARY_PATH=/tools/lib DESTDIR=$PKG install
+
+	rm -rfv $PKG/usr/lib/rpm
+
+	# Create the Sysvinit compatibility symlinks, so systemd is used as the default init system
+	mkdir -p $PKG/sbin
+	for tool in runlevel reboot shutdown poweroff halt telinit; do
+	     ln -sfv ../bin/systemctl $PKG/sbin/${tool}
+	done
+	ln -sfv ../lib/systemd/systemd $PKG/sbin/init
+}

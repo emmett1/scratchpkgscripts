@@ -1,0 +1,32 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM="bash-4.4"
+SOURCE_DIR="/mnt/lfs/sources"
+TARBALL="$PROGRAM.tar.gz"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	./configure --prefix=/tools --without-bash-malloc
+	make
+	make install
+	ln -sv bash /tools/bin/sh
+          
+   }
+}
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

@@ -1,0 +1,36 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM="util-linux-2.29.1"
+SOURCE_DIR="/mnt/lfs/sources"
+TARBALL="$PROGRAM.tar.xz"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	./configure --prefix=/tools                   \
+				--without-python                  \
+				--disable-makeinstall-chown       \
+				--without-systemdsystemunitdir    \
+				--enable-libmount-force-mountinfo \
+				PKG_CONFIG=""
+	make
+	make install
+          
+   }
+}
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

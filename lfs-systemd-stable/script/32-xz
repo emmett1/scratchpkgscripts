@@ -1,0 +1,31 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM="xz-5.2.3"
+SOURCE_DIR="/mnt/lfs/sources"
+TARBALL="$PROGRAM.tar.xz"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	./configure --prefix=/tools
+	make
+	make install
+          
+   }
+}
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

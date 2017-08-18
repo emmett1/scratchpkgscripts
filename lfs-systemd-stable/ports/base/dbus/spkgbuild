@@ -1,0 +1,29 @@
+# description	: Message bus system, a simple way for applications to talk to one another
+# homepage	: https://wiki.freedesktop.org/www/Software/dbus/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: expat
+
+name=dbus
+version=1.10.14
+release=1
+source=(http://dbus.freedesktop.org/releases/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr                       \
+	              --sysconfdir=/etc                   \
+	              --localstatedir=/var                \
+	              --disable-static                    \
+	              --disable-doxygen-docs              \
+	              --disable-xml-docs                  \
+	              --docdir=/usr/share/doc/$name-$version \
+	              --with-console-auth-dir=/run/console
+	make
+	make DESTDIR=$PKG install
+
+	mv -v $PKG/usr/lib/libdbus-1.so.* $PKG/lib
+	ln -sfv ../../lib/$(readlink $PKG/usr/lib/libdbus-1.so) $PKG/usr/lib/libdbus-1.so
+	ln -sfv /etc/machine-id $PKG/var/lib/dbus
+}
+

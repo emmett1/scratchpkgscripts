@@ -1,0 +1,36 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM="expect5.45"
+SOURCE_DIR="/mnt/lfs/sources"
+TARBALL="$PROGRAM.tar.gz"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	cp -v configure{,.orig}
+	sed 's:/usr/local/bin:/bin:' configure.orig > configure
+	
+	./configure --prefix=/tools       \
+				--with-tcl=/tools/lib \
+				--with-tclinclude=/tools/include
+	make
+	make SCRIPTS="" install
+          
+   }
+}
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

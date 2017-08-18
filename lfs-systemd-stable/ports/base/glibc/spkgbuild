@@ -1,0 +1,84 @@
+# description	: The main C library
+# homepage	: http://www.gnu.org/software/libc
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: linux-headers
+
+name=glibc
+version=2.25
+release=1
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz
+	http://www.linuxfromscratch.org/patches/lfs/8.0/$name-$version-fhs-1.patch)
+
+build() {
+	cd $name-$version
+
+	patch -Np1 -i ../$name-$version-fhs-1.patch
+
+	case $(uname -m) in
+	    x86) 
+		mkdir -p $PKG/lib
+		ln -s ld-linux.so.2 $PKG/lib/ld-lsb.so.3
+	    ;;
+	    x86_64) 
+		mkdir -p $PKG/lib64
+		ln -s ../lib/ld-linux-x86-64.so.2 $PKG/lib64
+	        ln -s ../lib/ld-linux-x86-64.so.2 $PKG/lib64/ld-lsb-x86-64.so.3
+	    ;;
+	esac
+
+	mkdir -v build
+	cd       build
+
+	../configure --prefix=/usr                   \
+	             --enable-kernel=2.6.32          \
+	             --enable-obsolete-rpc           \
+	             --enable-stack-protector=strong \
+	             libc_cv_slibdir=/lib
+	make
+	mkdir -p $PKG/etc
+	touch $PKG/etc/ld.so.conf
+	make install_root=$PKG install
+
+	cp -v ../nscd/nscd.conf $PKG/etc/nscd.conf
+	mkdir -p $PKG/var/cache/nscd
+
+	install -v -Dm644 ../nscd/nscd.tmpfiles $PKG/usr/lib/tmpfiles.d/nscd.conf
+	install -v -Dm644 ../nscd/nscd.service $PKG/lib/systemd/system/nscd.service
+
+	mkdir -p $PKG/usr/lib/locale
+
+	make install_root=$PKG localedata/install-locales
+
+	cat > $PKG/etc/nsswitch.conf << "EOF"
+# Begin /etc/nsswitch.conf
+
+passwd: files
+group: files
+shadow: files
+
+hosts: files dns
+networks: files
+
+protocols: files
+services: files
+ethers: files
+rpc: files
+
+# End /etc/nsswitch.conf
+EOF
+
+cat > $PKG/etc/ld.so.conf << "EOF"
+# Begin /etc/ld.so.conf
+/usr/local/lib
+/opt/lib
+
+EOF
+
+cat >> $PKG/etc/ld.so.conf << "EOF"
+# Add an include directory
+include /etc/ld.so.conf.d/*.conf
+
+EOF
+mkdir -p $PKG/etc/ld.so.conf.d
+
+}

@@ -1,0 +1,35 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM="perl-5.24.1"
+SOURCE_DIR="/mnt/lfs/sources"
+TARBALL="$PROGRAM.tar.bz2"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	sh Configure -des -Dprefix=/tools -Dlibs=-lm
+
+	make
+	
+	cp -v perl cpan/podlators/scripts/pod2man /tools/bin
+	mkdir -pv /tools/lib/perl5/5.24.1
+	cp -Rv lib/* /tools/lib/perl5/5.24.1
+          
+   }
+}
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi
