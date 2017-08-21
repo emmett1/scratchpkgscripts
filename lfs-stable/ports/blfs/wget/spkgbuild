@@ -5,7 +5,7 @@
 
 name=wget
 version=1.19.1
-release=1
+release=2
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 
 build() {
@@ -16,4 +16,6 @@ build() {
 	            --with-ssl=openssl
 	make
 	make DESTDIR=$PKG install
+
+	echo "ca-directory=/etc/ssl/certs" >> $PKG/etc/wgetrc
 }

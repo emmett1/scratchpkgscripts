@@ -18,5 +18,7 @@ build() {
 		--disable-static
 	make
 	make DESTDIR=$PKG install
+	
+	find $PKG -name 'fonts.dir' -delete
 }
 

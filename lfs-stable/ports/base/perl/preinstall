@@ -1,6 +1,0 @@
-#!/bin/bash
-
-if [ ! -f /etc/hosts ]; then
-	echo "#tmp perl hosts file
-	127.0.0.1 localhost $(hostname)" > /etc/hosts
-fi
