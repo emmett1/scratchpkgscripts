@@ -1,0 +1,29 @@
+# description	: Filter that can be run between an arbitrary application and a UTF-8 terminal emulator
+# homepage	: http://xorg.freedesktop.org/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: libfontenc
+# makedepends	: util-macros
+
+name=luit
+version=1.1.1
+release=1
+source=(http://ftp.x.org/pub/individual/app/luit-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	line1="#ifdef _XOPEN_SOURCE"
+	line2="#  undef _XOPEN_SOURCE"
+	line3="#  define _XOPEN_SOURCE 600"
+	line4="#endif"
+
+	sed -i -e "s@#ifdef HAVE_CONFIG_H@$line1\n$line2\n$line3\n$line4\n\n&@" sys.c
+  	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--localstatedir=/var \
+		--disable-static
+	make
+	make DESTDIR=$PKG install
+}
+

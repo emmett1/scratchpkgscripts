@@ -1,0 +1,17 @@
+# description	: Documentation tool for consistent and usable documentation in Ruby
+# homepage	: http://yardoc.org/
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: ruby
+
+_gemname=yard
+name=ruby-$_gemname
+version=0.9.9
+release=1
+source=(http://gems.rubyforge.org/gems/$_gemname-$version.gem)
+
+build() {
+
+	cd "$srcdir"
+	local _gemdir="$(ruby -rubygems -e"puts Gem.default_dir")"
+	gem install --no-user-install --ignore-dependencies -i "$PKG$_gemdir" -n "$PKG/usr/bin" "$_gemname-$version.gem"
+}

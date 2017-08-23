@@ -1,6 +1,7 @@
 # description	: Programs for controlling the startup, running, and shutdown of the system
 # homepage	: https://www.github.com/systemd/systemd
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: linux-pam
 
 name=systemd
 version=232
@@ -10,12 +11,13 @@ source=(http://anduin.linuxfromscratch.org/sources/other/$name/$name-$version.ta
 build() {
 	cd $name-$version
 
-	sed -i "s:blkid/::" $(grep -rl "blkid/blkid.h")
+	[ -d /tools ] && sed -i "s:blkid/::" $(grep -rl "blkid/blkid.h")
 
 	sed -e 's@test/udev-test.pl @@'  \
 	    -e 's@test-copy$(EXEEXT) @@' \
 	    -i Makefile.in
 
+	if [ -d /tools ]; then
 	cat > config.cache << "EOF"
 KILL=/bin/kill
 MOUNT_PATH=/bin/mount
@@ -46,8 +48,44 @@ EOF
 	            --docdir=/usr/share/doc/$name-$version
 	make LIBRARY_PATH=/tools/lib
 	make LD_LIBRARY_PATH=/tools/lib DESTDIR=$PKG install
+else
+
+	cc_cv_CFLAGS__flto=no                \
+	XSLTPROC="/usr/bin/xsltproc"         \
+	./configure --prefix=/usr            \
+	            --sysconfdir=/etc        \
+	            --localstatedir=/var     \
+	            --with-rootprefix=       \
+	            --with-rootlibdir=/lib   \
+	            --enable-split-usr       \
+	            --disable-firstboot      \
+	            --disable-ldconfig       \
+	            --disable-sysusers       \
+	            --without-python         \
+	            --with-default-dnssec=no \
+	            --docdir=/usr/share/doc/$name-$version
+	make
+	make DESTDIR=$PKG install
+fi
 
 	rm -rfv $PKG/usr/lib/rpm
+
+	mkdir -p $PKG/etc/pam.d
+cat > $PKG/etc/pam.d/systemd-user << "EOF"
+# Begin /etc/pam.d/systemd-user
+
+account  required pam_access.so
+account  include  system-account
+
+session  required pam_env.so
+session  required pam_limits.so
+session  include  system-session
+
+auth     required pam_deny.so
+password required pam_deny.so
+
+# End /etc/pam.d/systemd-user
+EOF
 
 	# Create the Sysvinit compatibility symlinks, so systemd is used as the default init system
 	mkdir -p $PKG/sbin

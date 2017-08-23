@@ -1,0 +1,25 @@
+# description	: Python3 bindings to Cairo
+# homepage	: https://pycairo.readthedocs.io/en/latest/
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: python3 cairo
+
+name=python3-cairo
+version=1.10.0
+release=1
+source=(http://cairographics.org/releases/pycairo-$version.tar.bz2
+	http://www.linuxfromscratch.org/patches/blfs/8.0/pycairo-$version-waf_unpack-1.patch
+	http://www.linuxfromscratch.org/patches/blfs/8.0/pycairo-$version-waf_python_3_4-1.patch)
+
+build() {
+	cd pycairo-$version
+
+	patch -Np1 -i ../pycairo-1.10.0-waf_unpack-1.patch
+	wafdir=$(./waf unpack)
+	pushd $wafdir
+	patch -Np1 -i ../../pycairo-1.10.0-waf_python_3_4-1.patch
+	popd
+	unset wafdir
+	PYTHON=/usr/bin/python3 ./waf configure --prefix=/usr
+	./waf build
+	./waf install --destdir=$PKG
+}

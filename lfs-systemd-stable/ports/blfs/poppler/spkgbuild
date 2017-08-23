@@ -1,0 +1,24 @@
+# description	: PDF rendering library and command line tools used to manipulate PDF files
+# homepage	: https://poppler.freedesktop.org/
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: fontconfig cairo libjpeg-turbo libpng nss openjpeg
+
+name=poppler
+version=0.51.0
+release=1
+source=(http://poppler.freedesktop.org/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+  	./configure --prefix=/usr               \
+	            --sysconfdir=/etc           \
+	            --disable-static            \
+	            --enable-build-type=release \
+	            --enable-cmyk               \
+	            --enable-xpdf-headers       \
+	            --with-testdatadir=$PWD/testfiles
+	make
+	make DESTDIR=$PKG install
+}
+

@@ -1,0 +1,17 @@
+# description	: XSLT libraries used for extending libxml2 libraries to support XSLT files
+# homepage	: http://xmlsoft.org/XSLT/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: libxml2
+
+name=libxslt
+version=1.1.29
+release=1
+source=(http://xmlsoft.org/sources/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr --disable-static
+	make
+	make DESTDIR=$PKG install
+}

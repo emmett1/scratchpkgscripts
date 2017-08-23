@@ -1,0 +1,19 @@
+# description	: HTTP and WebDAV client library, with a C interface
+# homepage	: http://www.webdav.org/neon/
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: openssl
+
+name=neon
+version=0.30.2
+release=1
+source=(http://www.webdav.org/neon/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr    \
+	            --with-ssl       \
+	            --enable-shared  \
+	            --disable-static
+	make
+	make DESTDIR=$PKG install
+}

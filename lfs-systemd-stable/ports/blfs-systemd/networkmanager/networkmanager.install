@@ -1,0 +1,3 @@
+post_install() {
+	getent group netdev >/dev/null || groupadd -fg 86 netdev
+}

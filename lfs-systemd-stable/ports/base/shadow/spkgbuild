@@ -1,7 +1,7 @@
 # description	: Programs for handling passwords in a secure way
 # homepage	: https://github.com/shadow-maint/shadow
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: acl bash
+# depends	: acl bash linux-pam
 
 name=shadow
 version=4.4

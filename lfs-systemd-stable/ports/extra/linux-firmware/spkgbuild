@@ -1,0 +1,21 @@
+# description	: Firmware files for Linux
+# homepage	: http://git.kernel.org/?p=linux/kernel/git/firmware/linux-firmware.git;a=summary
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# makedepends	: git
+
+name=linux-firmware
+version=20161122
+release=1
+source=(http://distfiles.serverop.de/$name-$version.tar.xz)
+
+NO_STRIP="yes"
+
+build() {
+    cd $name-$version
+
+    # Build/Package
+    make DESTDIR=$PKG FIRMWAREDIR=/lib/firmware install
+
+    # Cleanup
+    rm $PKG/lib/firmware/{Makefile,README,configure,GPL-{2,3}}
+}

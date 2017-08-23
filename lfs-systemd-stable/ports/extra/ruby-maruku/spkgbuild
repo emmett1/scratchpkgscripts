@@ -1,0 +1,17 @@
+# description	: Maruku is a Markdown-superset interpreter written in Ruby
+# homepage	: http://github.com/bhollis/maruku
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: ruby
+
+_gemname=maruku
+name=ruby-$_gemname
+version=0.7.2
+release=1
+source=(https://rubygems.org/downloads/$_gemname-$version.gem)
+
+build() {
+	
+	local _gemdir="$(ruby -e'puts Gem.default_dir')"
+	gem install --ignore-dependencies --no-user-install -i "$PKG/$_gemdir" -n "$PKG/usr/bin" $_gemname-$version.gem
+	rm "$PKG/$_gemdir/cache/$_gemname-$version.gem"
+}

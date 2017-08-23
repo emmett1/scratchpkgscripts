@@ -23,9 +23,7 @@ mkdir -pv $PKG/usr/{,local/}share/{color,dict,doc,info,locale,man}
 mkdir -v  $PKG/usr/{,local/}share/{misc,terminfo,zoneinfo}
 mkdir -v  $PKG/usr/libexec
 mkdir -pv $PKG/usr/{,local/}share/man/man{1..8}
-case $(uname -m) in
- x86_64) mkdir -v $PKG/lib64 ;;
-esac
+mkdir -v $PKG/lib64
 mkdir -v $PKG/var/{log,mail,spool}
 ln -sv ../run $PKG/var/run
 ln -sv ../run/lock $PKG/var/lock
@@ -38,14 +36,6 @@ root:x:0:0:root:/root:/bin/bash
 bin:x:1:1:bin:/dev/null:/bin/false
 daemon:x:6:6:Daemon User:/dev/null:/bin/false
 messagebus:x:18:18:D-Bus Message Daemon User:/var/run/dbus:/bin/false
-systemd-bus-proxy:x:72:72:systemd Bus Proxy:/:/bin/false
-systemd-journal-gateway:x:73:73:systemd Journal Gateway:/:/bin/false
-systemd-journal-remote:x:74:74:systemd Journal Remote:/:/bin/false
-systemd-journal-upload:x:75:75:systemd Journal Upload:/:/bin/false
-systemd-network:x:76:76:systemd Network Management:/:/bin/false
-systemd-resolve:x:77:77:systemd Resolver:/:/bin/false
-systemd-timesync:x:78:78:systemd Time Synchronization:/:/bin/false
-systemd-coredump:x:79:79:systemd Core Dumper:/:/bin/false
 nobody:x:99:99:Unprivileged User:/dev/null:/bin/false
 EOF
 
@@ -72,17 +62,15 @@ messagebus:x:18:
 systemd-journal:x:23:
 input:x:24:
 mail:x:34:
-systemd-bus-proxy:x:72:
-systemd-journal-gateway:x:73:
-systemd-journal-remote:x:74:
-systemd-journal-upload:x:75:
-systemd-network:x:76:
-systemd-resolve:x:77:
-systemd-timesync:x:78:
-systemd-coredump:x:79:
 nogroup:x:99:
 users:x:999:
 EOF
+
+touch $PKG/var/log/{btmp,lastlog,faillog,wtmp}
+chgrp -v utmp $PKG/var/log/lastlog
+chmod -v 664  $PKG/var/log/lastlog
+chmod -v 600  $PKG/var/log/btmp
+
 
 	mkdir -pv $PKG/etc/systemd/network
 cat > $PKG/etc/systemd/network/10-eth0-static.network << "EOF"
@@ -254,6 +242,7 @@ DISTRIB_CODENAME="Emmett1"
 DISTRIB_DESCRIPTION="Linux From Scratch"
 EOF
 
+	mkdir -pv $PKG/etc
 cat > $PKG/etc/profile << "EOF"
 # Begin /etc/profile
 # Written for Beyond Linux From Scratch

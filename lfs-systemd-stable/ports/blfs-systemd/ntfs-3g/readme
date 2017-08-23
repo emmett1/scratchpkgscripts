@@ -1,0 +1,20 @@
+Enable the following options in the kernel configuration and recompile the kernel if
+necessary:
+
+	File systems  --->
+	  <*/M> FUSE (Filesystem in Userspace) support [CONFIG_FUSE_FS]
+
+Using Ntfs-3g:
+
+To mount a Windows partition at boot time, put a line like this in /etc/fstab:
+
+/dev/sda1 /mnt/windows auto defaults 0 0
+To allow users to mount a usb stick with an NTFS filesystem on it, put a line
+similar to this (change sdc1 to whatever a usb stick would be on your system) in
+/etc/fstab:
+
+/dev/sdc1 /mnt/usb auto user,noauto,umask=0,utf8 0 0
+In order for a user to be able to mount the usb stick, they will need to be able
+to write to /mnt/usb, so as the root user:
+
+chmod -v 777 /mnt/usb

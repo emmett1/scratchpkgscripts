@@ -1,6 +1,6 @@
 # description	: Meta package that list needed package as depends
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: linux-headers man-pages glibc tzdata zlib file binutils gmp mpfr libmpc gcc bzip2 pkg-config ncurses attr acl libcap sed shadow psmisc iana-etc m4 bison flex grep readline bash bc libtool gdbm gperf expat inetutils perl perl-xml-parser intltool autoconf automake xz kmod gettext systemd procps-ng e2fsprogs coreutils diffutils gawk findutils groff grub less gzip iproute2 kbd libpipeline make patch dbus util-linux man-db tar texinfo vim filesystem
+# depends	: linux-headers man-pages glibc tzdata zlib file binutils gmp mpfr libmpc gcc bzip2 pkg-config ncurses attr acl libcap sed shadow psmisc iana-etc m4 bison flex grep readline bash bc libtool gdbm gperf expat inetutils perl perl-xml-parser intltool autoconf automake xz kmod gettext linux-pam systemd procps-ng e2fsprogs coreutils diffutils gawk findutils groff grub less gzip iproute2 kbd libpipeline make patch dbus util-linux man-db tar texinfo vim filesystem
 
 name=base-meta
 version=8.0

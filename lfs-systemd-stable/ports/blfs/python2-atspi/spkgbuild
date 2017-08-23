@@ -1,0 +1,20 @@
+# description	: Python2 bindings for the core components of the GNOME Accessibility
+# homepage	: https://wiki.linuxfoundation.org/en/AT-SPI_on_D-Bus
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: at-spi2-core python2-gobject3
+
+name=python2-atspi
+version=2.20.3
+release=1
+source=(http://ftp.gnome.org/pub/gnome/sources/pyatspi/${version::4}/pyatspi-$version.tar.xz)
+
+build() {
+	cd pyatspi-$version
+	
+	mkdir python2
+	pushd python2
+	../configure --prefix=/usr --with-python=/usr/bin/python
+	make
+	popd
+	make -C python2 DESTDIR=$PKG install
+}

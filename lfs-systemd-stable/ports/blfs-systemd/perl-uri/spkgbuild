@@ -1,0 +1,19 @@
+# description	: Perl that module implements the URI class
+# homepage	: http://search.cpan.org/dist/URI/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: perl
+
+name=perl-uri
+version=1.71
+release=1
+source=(http://www.cpan.org/authors/id/E/ET/ETHER/URI-$version.tar.gz)
+
+build() {
+	cd URI-$version
+
+	perl Makefile.PL
+	make
+	make DESTDIR=$PKG install
+
+	rm $PKG/usr/lib/perl5/5.24.1/x86_64-linux/perllocal.pod
+}

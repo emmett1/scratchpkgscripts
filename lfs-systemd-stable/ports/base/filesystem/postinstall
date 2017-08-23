@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bash /lib/udev/init-net-rules.sh

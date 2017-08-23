@@ -1,0 +1,17 @@
+# description	: Library that defines common error values for all GnuPG components
+# homepage	: https://www.gnupg.org/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+
+name=libgpg-error
+version=1.26
+release=1
+source=(ftp://ftp.gnupg.org/gcrypt/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+  	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+

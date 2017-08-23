@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# regenerate module dependencies
+/sbin/depmod
+
+echo "vboxdrv
+vboxnetadp
+vboxnetflt
+vboxpci" >> /etc/sysconfig/modules

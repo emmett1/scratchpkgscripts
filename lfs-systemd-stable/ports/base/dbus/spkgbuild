@@ -24,6 +24,22 @@ build() {
 
 	mv -v $PKG/usr/lib/libdbus-1.so.* $PKG/lib
 	ln -sfv ../../lib/$(readlink $PKG/usr/lib/libdbus-1.so) $PKG/usr/lib/libdbus-1.so
+	
+if [ -d /tools ]; then
 	ln -sfv /etc/machine-id $PKG/var/lib/dbus
+else
+mkdir -p $PKG/etc/dbus-1
+cat > $PKG/etc/dbus-1/session-local.conf << "EOF"
+<!DOCTYPE busconfig PUBLIC
+ "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+<busconfig>
+
+  <!-- Search for .service files in /usr/local -->
+  <servicedir>/usr/local/share/dbus-1/services</servicedir>
+
+</busconfig>
+EOF
+fi
 }
 

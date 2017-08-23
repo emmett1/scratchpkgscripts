@@ -18,6 +18,7 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
+	ln -sv vim $PKG/usr/bin/vi
 	for L in  $PKG/usr/share/man/{,*/}man1/vim.1; do
 	    ln -sv vim.1 $(dirname $L)/vi.1
 	done
