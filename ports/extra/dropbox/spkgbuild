@@ -4,7 +4,7 @@
 # depends	: libxslt libsm libxmu glib
 
 name=dropbox
-version=30.4.22
+version=33.4.23
 release=1
 source=(https://d1ilhw0800yew8.cloudfront.net/client/$name-lnx.x86_64-$version.tar.gz
 	dropbox.desktop
