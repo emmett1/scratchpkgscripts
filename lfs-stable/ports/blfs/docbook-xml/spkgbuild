@@ -2,7 +2,7 @@
 # homepage	: http://www.oasis-open.org/docbook/
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: libxml2 sgml-common
-# makedepends	: unzip
+# makedepends	: libarchive
 
 name=docbook-xml
 version=4.5
