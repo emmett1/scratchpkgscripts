@@ -1,3 +1,6 @@
 post_install() {
 	systemd-machine-id-setup
+
+	# enable some services by default, but don't track them
+	systemctl enable getty@tty1.service remote-fs.target
 }

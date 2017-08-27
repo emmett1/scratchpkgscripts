@@ -87,6 +87,10 @@ password required pam_deny.so
 # End /etc/pam.d/systemd-user
 EOF
 
+	# don't write units to /etc by default. some of these will be re-enabled on post_install
+	#rm -r "$PKG/etc/systemd/system/"*.wants
+	#rm -r "$PKG/etc/systemd/system/"*.service
+
 	# Create the Sysvinit compatibility symlinks, so systemd is used as the default init system
 	mkdir -p $PKG/sbin
 	for tool in runlevel reboot shutdown poweroff halt telinit; do
