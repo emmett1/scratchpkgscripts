@@ -1,11 +1,11 @@
 # description	: PDF rendering library and command line tools used to manipulate PDF files
 # homepage	: https://poppler.freedesktop.org/
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: fontconfig cairo libjpeg-turbo libpng nss openjpeg
+# depends	: fontconfig cairo libjpeg-turbo libpng nss openjpeg glib
 
 name=poppler
 version=0.51.0
-release=1
+release=2
 source=(http://poppler.freedesktop.org/$name-$version.tar.xz)
 
 build() {
@@ -17,6 +17,7 @@ build() {
 	            --enable-build-type=release \
 	            --enable-cmyk               \
 	            --enable-xpdf-headers       \
+		    --enable-poppler-glib	\
 	            --with-testdatadir=$PWD/testfiles
 	make
 	make DESTDIR=$PKG install
