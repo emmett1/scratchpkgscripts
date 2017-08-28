@@ -5,12 +5,9 @@
 
 name=scrot
 version=0.8.17
-_version=0.8-17
 release=2
-#source=(http://scrot.sourcearchive.com/downloads/${version%.*}-${version##*.}/${name}_${version%.*}.orig.tar.gz
-#	http://scrot.sourcearchive.com/downloads/${version%.*}-${version##*.}/${name}_${version%.*}-${version##*.}.debian.tar.gz)
-source=(http://scrot.sourcearchive.com/downloads/${_version}/scrot_${version::3}.orig.tar.gz
-	http://scrot.sourcearchive.com/downloads/${_version}/scrot_${_version}.debian.tar.xz)
+source=(http://scrot.sourcearchive.com/downloads/${version%.*}-${version##*.}/${name}_${version%.*}.orig.tar.gz
+	http://scrot.sourcearchive.com/downloads/${version%.*}-${version##*.}/${name}_${version%.*}-${version##*.}.debian.tar.xz)
 
 build() {
 	for patch in $(<$SRC/debian/patches/series); do
