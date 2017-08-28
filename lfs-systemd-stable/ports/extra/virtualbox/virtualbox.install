@@ -1,0 +1,27 @@
+pre_install() {
+	getent group vboxusers >/dev/null || groupadd vboxusers
+}
+
+post_install() {
+	/sbin/depmod
+
+echo "vboxdrv
+vboxnetadp
+vboxnetflt
+vboxpci" >> /etc/sysconfig/modules
+
+	# build vbox modules
+	if [ -d /usr/src/linux-$(uname -r) ]; then
+		make -C /opt/VirtualBox/src/vboxhost \
+		    MODULE_DIR=/lib/modules/$(uname -r)/extra install
+	else
+		msg "Read virtualbox readme to build virtualbox modules"
+	fi
+	msg "Run this command to install virtualbox Extension Packs:"
+	echo "	VBoxManage extpack install /opt/VirtualBox/ExtensionPacks/*.vbox-extpack"
+}
+
+post_remove() {
+	rm -fr /opt/VirtualBox
+}
+	

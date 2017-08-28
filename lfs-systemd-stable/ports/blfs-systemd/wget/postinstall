@@ -1,3 +1,0 @@
-#!/bin/bash
-
-echo ca-directory=/etc/ssl/certs >> /etc/wgetrc
