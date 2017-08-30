@@ -1,11 +1,11 @@
 # description	: D-Bus thumbnailing service based on the thumbnail management D-Bus specification
 # homepage	: http://www.xfce.org/
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: dbus-glib gdk-pixbuf ffmpegthumbnailer
+# depends	: dbus-glib gdk-pixbuf ffmpegthumbnailer poppler
 
 name=tumbler
 version=0.1.31
-release=1
+release=2
 source=(http://archive.xfce.org/src/apps/$name/${version%.*}/$name-$version.tar.bz2)
 
 build() {
