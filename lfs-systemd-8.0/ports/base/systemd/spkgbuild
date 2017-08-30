@@ -88,7 +88,7 @@ password required pam_deny.so
 EOF
 
 	# don't write units to /etc by default. some of these will be re-enabled on post_install
-	#rm -r "$PKG/etc/systemd/system/"*.wants
+	rm -r "$PKG/etc/systemd/system/"*.wants
 	#rm -r "$PKG/etc/systemd/system/"*.service
 
 	# Create the Sysvinit compatibility symlinks, so systemd is used as the default init system

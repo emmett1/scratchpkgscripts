@@ -38,9 +38,5 @@ build() {
 
 	install -d $PKG/usr/lib/pkgconfig
 	install -v -m644 Linux*/lib/pkgconfig/nss.pc  $PKG/usr/lib/pkgconfig
-
-	readlink $PKG/usr/lib/libnssckbi.so || \
-	mv -v $PKG/usr/lib/libnssckbi.so $PKG/usr/lib/libnssckbi.so.orig
-	ln -sfv libp11-kit.so $PKG/usr/lib/libnssckbi.so
 }
 
