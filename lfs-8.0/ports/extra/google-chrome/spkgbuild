@@ -4,16 +4,16 @@
 # depends	: alsa-lib gconf gtk3 libxtst nss cups
 
 name=google-chrome
-version=60.0.3112.90
+version=60.0.3112.113
 release=1
 _channel=stable
-source=(https://dl.google.com/linux/direct/$name-${_channel}_current_amd64.deb
+source=($name-${_channel}_${version}_amd64.deb::https://dl.google.com/linux/direct/$name-${_channel}_current_amd64.deb
 	$name-$_channel.sh)
 
 NO_STRIP="yes"
 
 build() {
-	bsdtar -xf $name-${_channel}_current_amd64.deb
+	bsdtar -xf $name-${_channel}_${version}_amd64.deb
 	bsdtar -xf data.tar.xz -C $PKG/
 
 	# Launcher
