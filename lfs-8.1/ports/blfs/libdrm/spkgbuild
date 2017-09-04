@@ -1,0 +1,19 @@
+# description	: Provides a user space library for accessing the DRM, direct rendering manager, on operating systems that support the ioctl interface
+# homepage	: http://dri.freedesktop.org/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: libpciaccess
+# makedepends	: util-macros
+
+name=libdrm
+version=2.4.82
+release=1
+source=(http://dri.freedesktop.org/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr --enable-udev
+	make
+	make DESTDIR=$PKG install
+}
+

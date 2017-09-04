@@ -1,0 +1,27 @@
+# description	: Fast, easy, and free BitTorrent client (QT GUI)
+# homepage	: http://www.transmissionbt.com/
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: curl libevent openssl qt5 desktop-file-utils
+# makedepends	: intltool
+
+name=transmission-qt
+version=2.92
+release=1
+source=(https://github.com/transmission/transmission-releases/raw/master/transmission-$version.tar.xz)
+
+build() {
+	cd transmission-$version
+
+	./configure --prefix=/usr
+	make
+	pushd qt
+	  qmake qtr.pro
+	  make
+	popd
+	make -C qt INSTALL_ROOT=$PKG/usr install
+
+	install -Dm644 qt/icons/transmission.png \
+	    $PKG/usr/share/pixmaps/transmission-qt.png
+	install -Dm644 qt/transmission-qt.desktop \
+	    $PKG/usr/share/applications/transmission-qt.desktop
+}

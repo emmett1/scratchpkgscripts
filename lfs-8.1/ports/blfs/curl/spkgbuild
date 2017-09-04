@@ -1,0 +1,21 @@
+# description	: Utility and a library used for transferring files
+# homepage	: https://curl.haxx.se/
+# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# depends	: ca-certificates openssl
+
+name=curl
+version=7.55.1
+release=2
+source=(https://curl.haxx.se/download/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+  	./configure --prefix=/usr              \
+	            --disable-static           \
+	            --enable-threaded-resolver \
+		    --with-ca-path=/etc/ssl/certs
+	make
+	make DESTDIR=$PKG install
+}
+

@@ -1,0 +1,16 @@
+# description	: Tools and Ruby libraries for the CSS3 extension languages: Sass and SCSS
+# homepage	: http://sass-lang.com/
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: ruby-yard ruby-maruku
+
+_name=sass
+name=ruby-$_name
+version=3.4.25
+release=1
+source=(http://gems.rubyforge.org/gems/$_name-$version.gem)
+
+build() {
+	
+	local _gemdir="$(ruby -rubygems -e"puts Gem.default_dir")"
+	gem install --no-user-install --ignore-dependencies -i "$PKG$_gemdir" -n "$PKG/usr/bin" "$_name-$version.gem"
+}
