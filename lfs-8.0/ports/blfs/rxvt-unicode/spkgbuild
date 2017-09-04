@@ -4,7 +4,7 @@
 
 name=rxvt-unicode
 version=9.22
-release=2
+release=3
 source=(http://dist.schmorp.de/$name/Attic/$name-$version.tar.bz2
 	URxvt)
 
@@ -23,7 +23,8 @@ build() {
 		--enable-font-styles \
 		--enable-unicode3
 	make
-	make DESTDIR=$PKG install
+	mkdir -p $PKG/usr/share/terminfo
+	TERMINFO=$PKG/usr/share/terminfo make DESTDIR=$PKG install
 
 	install -Dm 644 $SRC/URxvt $PKG/etc/X11/app-defaults/URxvt
 
