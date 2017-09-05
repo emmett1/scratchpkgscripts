@@ -6,8 +6,7 @@
 #define border   "#040405" /* unselectbordercolor */
 
 /* appearance */
-//static const char font[]            = "-*-terminus2-medium-r-*-*-12-*-*-*-*-*-*-*";
-static const char font[]            = "-xos4-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
+static const char font[]            = "-*-terminus2-medium-r-*-*-12-*-*-*-*-*-*-*";
 static const char normbordercolor[] = border;
 static const char normbgcolor[]     = barbg;
 static const char normfgcolor[]     = normfont;
@@ -70,7 +69,7 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
-static const char *firefox[]  = { "firefox", "google.com", NULL };
+static const char *firefox[]  = { "xdg-open", "https://www.google.com", NULL };
 static const char *fm[]       = { "thunar", NULL };
 static const char *rootfm[]   = { "sudo", "thunar", "/", NULL };
 static const char *gcolor2[]  = { "gcolor2", NULL };
