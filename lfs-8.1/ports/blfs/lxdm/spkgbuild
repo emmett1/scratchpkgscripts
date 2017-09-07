@@ -2,12 +2,12 @@
 # homepage	: http://lxde.org/
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # backup	: etc/lxdm/lxdm.conf
-# depends	: gtk2 iso-codes consolekit2 linux-pam xorg-server
+# depends	: gtk3 iso-codes consolekit2 linux-pam xorg-server
 # makedepends	: librsvg
 
 name=lxdm
 version=0.5.3
-release=1
+release=2
 BOOTSCRIPTS_VERSION=20170731
 source=(http://downloads.sourceforge.net/$name/$name-$version.tar.xz
 	http://anduin.linuxfromscratch.org/BLFS/blfs-bootscripts/blfs-bootscripts-$BOOTSCRIPTS_VERSION.tar.xz)
@@ -45,6 +45,7 @@ sed -e 's/^bg/#&/'        \
 	            --sysconfdir=/etc \
 	            --with-pam        \
 		    --disable-nls     \
+		    --enable-gtk3     \
 	            --with-systemdsystemunitdir=no
 	make
 	make DESTDIR=$PKG install
