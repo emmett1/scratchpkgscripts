@@ -24,6 +24,7 @@ static const char *tags[] = { "term", "www", "fm", "edit", "media", "irc", "work
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",						NULL,       NULL,       	0,				True,		-1 },
+	{ "Google-chrome",				NULL,       NULL,      		1 << 1,			False,		-1 },
 	{ "Firefox",					NULL,       NULL,      		1 << 1,			False,		-1 },
 	{ "Firefox",					"Dialog",   NULL,      		1 << 1,			True,		-1 },
 	{ "Thunar",						NULL,       NULL,      		1 << 2,			False,		-1 },
@@ -69,7 +70,7 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
-static const char *firefox[]  = { "xdg-open", "https://www.google.com", NULL };
+static const char *firefox[]  = { "google-chrome-stable", NULL };
 static const char *fm[]       = { "thunar", NULL };
 static const char *rootfm[]   = { "sudo", "thunar", "/", NULL };
 static const char *gcolor2[]  = { "gcolor2", NULL };

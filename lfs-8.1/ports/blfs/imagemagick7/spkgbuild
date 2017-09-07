@@ -2,15 +2,15 @@
 # homepage	: http://www.imagemagick.org
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: fontconfig lcms2 libtool libxext libxt perl
-# makedepends	: libxml2 libraw librsvg
+# makedepends	: libxml2 librsvg
 
 name=imagemagick7
-version=7.0.6
+version=7.0.6.10
 release=1
-source=(ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-$version-4.tar.xz)
+source=(ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-${version%.*}-${version##*.}.tar.xz)
 
 build() {
-	cd ImageMagick-$version-4
+	cd ImageMagick-${version%.*}-${version##*.}
 	
 	./configure --prefix=/usr     \
 	            --sysconfdir=/etc \
