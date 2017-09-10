@@ -22,6 +22,6 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	mkdir -p       $PKG/usr/share/doc/$name-$version
-	cp -R -v docs/doc/* $PKG/usr/share/doc/$name-$version
+	mkdir -p       $PKG/usr/share/doc/$name
+	cp -R -v docs/doc/* $PKG/usr/share/doc/$name
 }

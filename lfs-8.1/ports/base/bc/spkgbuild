@@ -23,10 +23,6 @@ sed -e '$ s/$/0}/' \
     -i libmath.h
 EOF
 
-	mkdir -p $PKG/usr/lib
-	ln -sv /tools/lib/libncursesw.so.6 $PKG/usr/lib/libncursesw.so.6
-	ln -sv libncurses.so.6 $PKG/usr/lib/libncurses.so
-	
 	sed -i -e '/flex/s/as_fn_error/: ;; # &/' configure
 
 	./configure --prefix=/usr           \
@@ -35,6 +31,4 @@ EOF
 	            --infodir=/usr/share/info
 	make
 	make DESTDIR=$PKG install
-
-	rm $PKG/usr/lib/{libncursesw.so.6,libncurses.so}
 }

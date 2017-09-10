@@ -19,6 +19,6 @@ build() {
 	make
 	make html
 	make DESTDIR=$PKG install
-	install -d -m755           $PKG/usr/share/doc/$name-$version
-	install -m644 doc/sed.html $PKG/usr/share/doc/$name-$version
+	install -d -m755           $PKG/usr/share/doc/$name
+	install -m644 doc/sed.html $PKG/usr/share/doc/$name
 }

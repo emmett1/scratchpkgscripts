@@ -16,5 +16,4 @@ build() {
 	            --bindir=/bin
 	make
 	make DESTDIR=$PKG install
-	make -C doc install-html docdir=$PKG/usr/share/doc/$name-$version
 }

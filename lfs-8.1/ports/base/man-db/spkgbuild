@@ -12,7 +12,6 @@ build() {
 	cd $name-$version
 
 	./configure --prefix=/usr                        \
-	            --docdir=/usr/share/doc/$name-$version \
 	            --sysconfdir=/etc                    \
 	            --disable-setuid                     \
 	            --enable-cache-owner=bin             \

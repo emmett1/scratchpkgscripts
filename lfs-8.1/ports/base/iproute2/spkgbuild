@@ -17,5 +17,5 @@ build() {
 	sed -i 's/m_ipt.o//' tc/Makefile
 
 	make
-	make DOCDIR=/usr/share/doc/$name-$version DESTDIR=$PKG install
+	make DESTDIR=$PKG install
 }

@@ -7,15 +7,19 @@ name=bzip2
 version=1.0.6
 release=1
 source=(http://www.bzip.org/$version/$name-$version.tar.gz
-	http://www.linuxfromscratch.org/patches/lfs/8.0/$name-$version-install_docs-1.patch)
+	http://www.linuxfromscratch.org/patches/lfs/8.1/$name-$version-install_docs-1.patch)
 
 build() {
 	cd $name-$version
 
-	patch -Np1 -i ../bzip2-1.0.6-install_docs-1.patch
+	patch -Np1 -i ../$name-$version-install_docs-1.patch
 
 	sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile
 	sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile
+
+	# use our optimization
+	sed -i "s|-O2|${CFLAGS}|g" Makefile
+	sed -i "s|-O2|${CFLAGS}|g" Makefile-libbz2_so
 
 	make -f Makefile-libbz2_so
 	make clean
@@ -30,4 +34,6 @@ build() {
 	rm -v $PKG/usr/bin/{bunzip2,bzcat,bzip2}
 	ln -sv bzip2 $PKG/bin/bunzip2
 	ln -sv bzip2 $PKG/bin/bzcat
+
+	mv $PKG/usr/share/doc/{$name-$version,$name}
 }

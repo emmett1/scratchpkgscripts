@@ -16,5 +16,5 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	install -v -Dm644 doc/I18N-HOWTO $PKG/usr/share/doc/$name-$version/I18N-HOWTO
+	install -v -Dm644 doc/I18N-HOWTO $PKG/usr/share/doc/$name/I18N-HOWTO
 }

@@ -15,6 +15,6 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	mkdir -pv $PKG/usr/share/doc/$name-$version
-	cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} $PKG/usr/share/doc/$name-$version
+	mkdir -pv $PKG/usr/share/doc/$name
+	cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} $PKG/usr/share/doc/$name
 }

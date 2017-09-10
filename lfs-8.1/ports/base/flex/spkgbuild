@@ -11,8 +11,10 @@ source=(https://github.com/westes/flex/releases/download/v$version/$name-$versio
 build() {
 	cd $name-$version
 
-	HELP2MAN=/tools/bin/true \
-	./configure --prefix=/usr --docdir=/usr/share/doc/$name-$version
+	sed -i "/math.h/a #include <malloc.h>" src/flexdef.h
+
+	[ -d /tools ] && HELP2MAN=/tools/bin/true \
+	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
 
