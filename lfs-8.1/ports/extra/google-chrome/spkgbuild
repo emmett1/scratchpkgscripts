@@ -4,7 +4,7 @@
 # depends	: alsa-lib gconf gtk3 libxtst nss cups libarchive
 
 name=google-chrome
-version=60.0.3112.113
+version=61.0.3163.79
 release=1
 _channel=stable
 source=($name-${_channel}_${version}_amd64.deb::https://dl.google.com/linux/direct/$name-${_channel}_current_amd64.deb
