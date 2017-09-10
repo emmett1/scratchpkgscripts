@@ -13,8 +13,7 @@ build() {
 
 	./configure --prefix=/usr            \
 	            --enable-symcryptrun     \
-	            --enable-maintainer-mode \
-	            --docdir=/usr/share/doc/$name-$version
+	            --enable-maintainer-mode
 	make
 	make DESTDIR=$PKG install
 }

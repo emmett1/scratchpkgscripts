@@ -11,7 +11,7 @@ source=(http://ftp.gnome.org/pub/gnome/sources/gtkmm/${version:0:4}/gtkmm-$versi
 build() {
 	cd gtkmm-$version
 
-	sed -e '/^libdocdir =/ s/$(book_name)/gtkmm-2.24.5/' \
+	sed -e "/^libdocdir =/ s/\$(book_name)/$name/" \
 	    -i docs/Makefile.in
 
 	./configure --prefix=/usr

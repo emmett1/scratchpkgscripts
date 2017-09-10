@@ -21,7 +21,6 @@ build() {
 	            --disable-doxygen-docs         \
 	            --disable-xml-docs             \
 	            --disable-static               \
-	            --docdir=/usr/share/doc/$name-$version \
 	            --with-console-auth-dir=/run/console \
 	            --with-system-pid-file=/run/dbus/pid \
 	            --with-system-socket=/run/dbus/system_bus_socket

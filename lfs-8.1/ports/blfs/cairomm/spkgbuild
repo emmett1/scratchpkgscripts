@@ -11,7 +11,7 @@ source=(http://cairographics.org/releases/$name-$version.tar.gz)
 build() {
 	cd $name-$version
 
-	sed -e '/^libdocdir =/ s/$(book_name)/cairomm-1.12.2/' \
+	sed -e "/^libdocdir =/ s/\$(book_name)/$name/" \
 	    -i docs/Makefile.in
 
 	./configure --prefix=/usr
