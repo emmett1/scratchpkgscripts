@@ -22,6 +22,6 @@ build() {
 
 	make DESTDIR=$PKG MANDIR=/usr/share/man MANSUFFIX=ssl install
 
-	mv -v $PKG/usr/share/doc/$name{,-$version}
-	cp -vfr doc/* $PKG/usr/share/doc/$name-$version
+	mv -v $PKG/usr/share/doc/$name
+	cp -vfr doc/* $PKG/usr/share/doc/$name
 }

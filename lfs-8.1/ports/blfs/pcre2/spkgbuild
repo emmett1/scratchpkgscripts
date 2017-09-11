@@ -10,7 +10,6 @@ source=(ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/$name-$version.tar
 build() {
 	cd $name-$version
 	./configure --prefix=/usr                       \
-	            --docdir=/usr/share/doc/$name-$version \
 	            --enable-unicode                    \
 	            --enable-pcre2-16                   \
 	            --enable-pcre2-32                   \

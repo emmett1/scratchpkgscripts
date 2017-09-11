@@ -29,7 +29,7 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	install -v -dm755 $PKG/usr/share/doc/$name-$version
-	cp -rfv docs/* $PKG/usr/share/doc/$name-$version
+	install -v -dm755 $PKG/usr/share/doc/$name
+	cp -rfv docs/* $PKG/usr/share/doc/$name
 }
 

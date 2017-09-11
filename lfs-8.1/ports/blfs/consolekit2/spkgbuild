@@ -19,7 +19,6 @@ build() {
 	            --enable-pam-module  \
 	            --enable-polkit      \
 	            --with-xinitrc-dir=/etc/X11/app-defaults/xinitrc.d \
-	            --docdir=/usr/share/doc/ConsoleKit-$version           \
 	            --with-systemdsystemunitdir=no
 	make
 	make DESTDIR=$PKG install

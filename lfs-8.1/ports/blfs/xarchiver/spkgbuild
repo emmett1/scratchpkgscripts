@@ -15,8 +15,7 @@ build() {
 	patch -Np1 -i ../$name-$version-fixes-1.patch
 
 	./autogen.sh --prefix=/usr               \
-	             --libexecdir=/usr/lib/xfce4 \
-	             --docdir=/usr/share/doc/$name-$version
+	             --libexecdir=/usr/lib/xfce4
 	make
 	make DESTDIR=$PKG install
 }

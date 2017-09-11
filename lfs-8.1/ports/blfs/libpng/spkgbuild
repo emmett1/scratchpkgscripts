@@ -17,7 +17,7 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	mkdir -p $PKG/usr/share/doc/$name-$version
-	cp -v README libpng-manual.txt $PKG/usr/share/doc/$name-$version
+	mkdir -p $PKG/usr/share/doc/$name
+	cp -v README libpng-manual.txt $PKG/usr/share/doc/$name
 }
 

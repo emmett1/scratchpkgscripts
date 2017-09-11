@@ -17,8 +17,8 @@ build() {
 	            --with-readline=gnu
 	make -j1
 	make DESTDIR=$PKG \
-		install_doc_dir=/usr/share/doc/$name-$version   \
-		SLSH_DOC_DIR=/usr/share/doc/$name-$version/slsh \
+		install_doc_dir=/usr/share/doc/$name   \
+		SLSH_DOC_DIR=/usr/share/doc/$name/slsh \
 	install-all
 
 	chmod -v 755 $PKG/usr/lib/libslang.so.2.3.1 \

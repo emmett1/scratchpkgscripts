@@ -16,5 +16,5 @@ build() {
 	make DESTDIR=$PKG install
 
 	install -v -m644 -D doc/$name.txt \
-	    $PKG/usr/share/doc/$name-$version/$name.txt
+	    $PKG/usr/share/doc/$name/$name.txt
 }

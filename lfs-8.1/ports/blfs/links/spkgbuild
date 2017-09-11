@@ -14,7 +14,7 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	install -v -d -m755 $PKG/usr/share/doc/$name-$version
+	install -v -d -m755 $PKG/usr/share/doc/$name
 	install -v -m644 doc/links_cal/* KEYS BRAILLE_HOWTO \
-	    $PKG/usr/share/doc/$name-$version
+	    $PKG/usr/share/doc/$name
 }

@@ -12,8 +12,7 @@ build() {
 
   	./configure --prefix=/usr           \
 	            --sysconfdir=/etc       \
-	            --with-initscriptdir=no \
-	            --docdir=/usr/share/doc/$name-$version
+	            --with-initscriptdir=no
 	make
 	make DESTDIR=$PKG install
 }

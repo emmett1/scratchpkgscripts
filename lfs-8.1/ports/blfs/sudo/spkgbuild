@@ -19,7 +19,6 @@ build() {
             --with-secure-path         \
             --with-all-insults         \
             --with-env-editor          \
-            --docdir=/usr/share/doc/$name-$version \
             --with-passprompt="[sudo] password for %p "
 	make
 	make DESTDIR=$PKG install

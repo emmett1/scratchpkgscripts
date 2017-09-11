@@ -11,7 +11,7 @@ source=(http://ftp.gnu.org/gnu/autoconf/autoconf-$version.tar.gz
 build() {
 	cd autoconf-$version
 
-  	patch -Np1 -i ../autoconf-$version-consolidated_fixes-1.patch || exit 1
+  	patch -Np1 -i ../autoconf-$version-consolidated_fixes-1.patch
 	mv -v autoconf.texi autoconf213.texi
 	rm -v autoconf.info
 	./configure --prefix=/usr --program-suffix=2.13

@@ -7,13 +7,12 @@ name=nss
 version=3.32
 release=1
 source=(https://archive.mozilla.org/pub/security/nss/releases/NSS_3_32_RTM/src/$name-$version.tar.gz
-	#http://www.linuxfromscratch.org/patches/blfs/8.0/$name-$version-standalone-1.patch
-	http://ftp.osuosl.org/pub/blfs/8.1/n/$name-$version-standalone-1.patch)
+	http://www.linuxfromscratch.org/patches/blfs/8.1/$name-$version-standalone-1.patch)
 
 build() {
 	cd $name-$version
 
-  	patch -Np1 -i $SRC/$name-$version-standalone-1.patch || exit 1
+  	patch -Np1 -i $SRC/$name-$version-standalone-1.patch
 
 	cd nss
 

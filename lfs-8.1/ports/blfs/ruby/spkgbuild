@@ -11,8 +11,7 @@ build() {
 	cd $name-$version
 
 	./configure --prefix=/usr   \
-        	    --enable-shared \
-        	    --docdir=/usr/share/doc/$name-$version
+        	    --enable-shared
 	make
 	make DESTDIR=$PKG install
 }

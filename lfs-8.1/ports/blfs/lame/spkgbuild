@@ -19,5 +19,5 @@ build() {
 		--enable-mp3rtp \
 		--disable-static
 	make
-	make pkghtmldir=/usr/share/doc/$name-$version DESTDIR=$PKG install
+	make DESTDIR=$PKG install
 }

@@ -30,13 +30,12 @@ build() {
 	            --enable-libvorbis   \
 	            --enable-libvpx      \
 	            --enable-libx264     \
-	            --enable-libx265     \
-	            --docdir=/usr/share/doc/$name-$version
+	            --enable-libx265
 	make
 	gcc tools/qt-faststart.c -o tools/qt-faststart
 	make DESTDIR=$PKG install
 
 	install -v -m755    tools/qt-faststart $PKG/usr/bin
-	install -v -m755 -d           $PKG/usr/share/doc/$name-$version
-	install -v -m644    doc/*.txt $PKG/usr/share/doc/$name-$version
+	install -v -m755 -d           $PKG/usr/share/doc/$name
+	install -v -m644    doc/*.txt $PKG/usr/share/doc/$name
 }

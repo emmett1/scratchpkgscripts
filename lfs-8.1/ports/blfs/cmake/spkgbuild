@@ -18,8 +18,7 @@ build() {
 	            --system-libs       \
 	            --mandir=/share/man \
 	            --no-system-jsoncpp \
-            	    --no-system-librhash \
-	            --docdir=/share/doc/$name-$version
+            	    --no-system-librhash
 	make
 	make DESTDIR=$PKG install
 }

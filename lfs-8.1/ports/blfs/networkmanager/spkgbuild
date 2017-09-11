@@ -21,8 +21,7 @@ build() {
 	            --with-nmtui                   \
 	            --disable-ppp                  \
 	            --disable-json-validation      \
-	            --with-systemdsystemunitdir=no \
-            	    --docdir=/usr/share/doc/network-manager-$version
+	            --with-systemdsystemunitdir=no
 	make
 	make DESTDIR=$PKG install
 
