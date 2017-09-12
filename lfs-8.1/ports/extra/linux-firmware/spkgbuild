@@ -4,18 +4,22 @@
 # makedepends	: git
 
 name=linux-firmware
-version=20161122
+version=20170912
 release=1
-source=(http://distfiles.serverop.de/$name-$version.tar.xz)
+source=()
 
 NO_STRIP="yes"
 
 build() {
-    cd $name-$version
+	cd $SOURCE_DIR
+	
+	if cd $name; then
+		git fetch -q; git reset --hard origin/master
+	else
+		git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git $name
+		cd $name
+	fi
 
-    # Build/Package
-    make DESTDIR=$PKG FIRMWAREDIR=/lib/firmware install
-
-    # Cleanup
-    rm $PKG/lib/firmware/{Makefile,README,configure,GPL-{2,3}}
+	make DESTDIR=$PKG install
+	rm $PKG/lib/firmware/{Makefile,README,configure,GPL-3,*.txt,check_whence.py}
 }

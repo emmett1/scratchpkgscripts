@@ -1,7 +1,7 @@
 # description	: Contains a code documenter
 # homepage	: https://www.gtk.org/gtk-doc/
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: docbook-xml docbook-xsl itstool libxslt highlight python2
+# depends	: docbook-xml docbook-xsl itstool libxslt highlight python2 python3-six
 
 name=gtk-doc
 version=1.26
