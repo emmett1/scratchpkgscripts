@@ -22,7 +22,7 @@ extended = true
 
 [install]
 prefix = "/usr"
-docdir = "share/doc/rustc-1.19.0"
+docdir = "share/doc/rustc"
 channel = "stable"
 EOF
 
