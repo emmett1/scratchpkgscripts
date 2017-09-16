@@ -5,7 +5,7 @@
 # makedepends	: python3
 
 name=glib
-version=2.52.3
+version=2.54.0
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version::4}/$name-$version.tar.xz)
 

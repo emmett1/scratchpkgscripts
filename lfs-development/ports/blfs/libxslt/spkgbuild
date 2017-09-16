@@ -4,14 +4,13 @@
 # depends	: libxml2
 
 name=libxslt
-version=1.1.29
+version=1.1.30
 release=1
 source=(http://xmlsoft.org/sources/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
 
-	sed -i '/#include <xlocale.h>/d' libxslt/xsltlocale.h
 	./configure --prefix=/usr --disable-static
 	make
 	make DESTDIR=$PKG install

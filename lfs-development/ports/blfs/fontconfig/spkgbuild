@@ -4,7 +4,7 @@
 # depends	: freetype2
 
 name=fontconfig
-version=2.12.4
+version=2.12.5
 release=1
 source=(http://www.freedesktop.org/software/fontconfig/release/$name-$version.tar.bz2)
 
