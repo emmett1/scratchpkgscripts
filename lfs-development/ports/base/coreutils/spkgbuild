@@ -4,7 +4,7 @@
 # depends	: acl attr glib gmp
 
 name=coreutils
-version=8.27
+version=8.28
 release=1
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/lfs/development/$name-$version-i18n-1.patch)
@@ -12,9 +12,7 @@ source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz
 build() {
 	cd $name-$version
 
-	patch -Np1 -i ../$name-$version-i18n-1.patch || exit 1
-	
-	# Suppress a test which on some machines can loop forever
+	patch -Np1 -i ../$name-$version-i18n-1.patch
 	sed -i '/test.lock/s/^/#/' gnulib-tests/gnulib.mk
 
 	FORCE_UNSAFE_CONFIGURE=1 ./configure \
@@ -23,8 +21,7 @@ build() {
 	FORCE_UNSAFE_CONFIGURE=1 make
 	make DESTDIR=$PKG install
 
-	mkdir -pv $PKG/bin
-	mkdir -pv $PKG/usr/sbin
+	mkdir -pv $PKG/{bin,usr/sbin}
 	mv -v $PKG/usr/bin/{cat,chgrp,chmod,chown,cp,date,dd,df,echo} $PKG/bin
 	mv -v $PKG/usr/bin/{false,ln,ls,mkdir,mknod,mv,pwd,rm} $PKG/bin
 	mv -v $PKG/usr/bin/{rmdir,stty,sync,true,uname} $PKG/bin

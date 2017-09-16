@@ -11,7 +11,10 @@ source=(http://ftp.gnu.org/gnu/gperf/$name-$version.tar.gz)
 build() {
 	cd $name-$version
 
-	./configure --prefix=/usr --docdir=/usr/share/doc/$name-$version
+	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
+
+	mkdir -p $PKG/usr/share/doc/$name
+	mv $PKG/usr/share/doc/{$name.html,$name}
 }

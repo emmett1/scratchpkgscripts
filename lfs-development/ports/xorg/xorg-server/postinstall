@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ ! $(grep '/tmp/.ICE-unix dir 1777 root root' /etc/sysconfig/createfiles | awk '{print $1}') ]; then
-	echo "/tmp/.ICE-unix dir 1777 root root" >> /etc/sysconfig/createfiles
-fi
-
-if [ ! $(grep '/tmp/.X11-unix dir 1777 root root' /etc/sysconfig/createfiles | awk '{print $1}') ]; then
-	echo "/tmp/.X11-unix dir 1777 root root" >> /etc/sysconfig/createfiles
-fi

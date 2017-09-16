@@ -10,11 +10,10 @@ source=(http://www.infodrom.org/projects/$name/download/$name-$version.tar.gz)
 build() {
 	cd $name-$version
 
-	# fix problems that causes a segmentation fault under some conditions in klogd and fix an obsolete program construct
 	sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
 	sed -i 's/union wait/int/' syslogd.c
 
-	mkdir -p $PKG/{/sbin,etc,usr/share/man/man{5,8}}
+	mkdir -p $PKG/{sbin,etc,usr/share/man/man{5,8}}
 
 	make
 	make BINDIR=$PKG/sbin MANDIR=$PKG/usr/share/man install

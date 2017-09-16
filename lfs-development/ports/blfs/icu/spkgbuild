@@ -10,9 +10,9 @@ source=(http://download.icu-project.org/files/icu4c/$version/icu4c-${version//./
 build() {
 	cd icu/source
 
-	# fix xlocale.h error caused by glibc 2.26
-	sed s'@xlocale.h@locale.h@' -i i18n/digitlst.cpp
+	sed -i 's/xlocale/locale/' i18n/digitlst.cpp
 
 	./configure --prefix=/usr
+	make
 	make DESTDIR=$PKG install
 }

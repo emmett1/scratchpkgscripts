@@ -5,16 +5,18 @@
 name=nettle
 version=3.3
 release=1
-source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
+source=(https://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
 
 	./configure --prefix=/usr \
-		    --disable-static \
-		    --disable-documentation
-
+		    --disable-static
 	make
 	make DESTDIR=$PKG install
+
+	chmod   -v   755 $PKG/usr/lib/lib{hogweed,nettle}.so
+	install -v -m755 -d $PKG/usr/share/doc/$name
+	install -v -m644 nettle.html $PKG/usr/share/doc/$name
 }
 

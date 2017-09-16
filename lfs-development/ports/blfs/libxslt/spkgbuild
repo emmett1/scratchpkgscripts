@@ -11,6 +11,7 @@ source=(http://xmlsoft.org/sources/$name-$version.tar.gz)
 build() {
 	cd $name-$version
 
+	sed -i '/#include <xlocale.h>/d' libxslt/xsltlocale.h
 	./configure --prefix=/usr --disable-static
 	make
 	make DESTDIR=$PKG install

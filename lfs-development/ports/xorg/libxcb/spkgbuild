@@ -7,13 +7,13 @@
 name=libxcb
 version=1.12
 release=1
-source=(http://xcb.freedesktop.org/dist/$name-$version.tar.bz2
-	http://www.linuxfromscratch.org/patches/blfs/svn/$name-$version-python3-1.patch)
+source=(http://xcb.freedesktop.org/dist/libxcb-$version.tar.bz2
+	http://www.linuxfromscratch.org/patches/blfs/8.0/$name-$version-python3-1.patch)
 
 build() {
 	cd $name-$version
 
-	patch -Np1 -i ../$name-$version-python3-1.patch || exit 1
+	patch -Np1 -i ../$name-$version-python3-1.patch
 	
 	sed -i "s/pthread-stubs//" configure
 
@@ -29,3 +29,4 @@ build() {
 	make DESTDIR=$PKG install
 
 }
+

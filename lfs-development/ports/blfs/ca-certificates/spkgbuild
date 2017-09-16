@@ -4,13 +4,11 @@
 # depends	: openssl
 
 name=ca-certificates
-version=20170622
+version=20170903
 release=1
-source=(certdata.txt make-ca.sh-20170514)
-
-#certdata link = https://hg.mozilla.org/releases/mozilla-release/raw-file/default/security/nss/lib/ckfw/builtins/certdata.txt
+source=(certdata-$version.txt::http://anduin.linuxfromscratch.org/BLFS/other/certdata.txt
+	make-ca.sh-20170514)
 
 build() {
-	chmod +x make-ca.sh-20170514
-  	./make-ca.sh-20170514 -D $PKG
+  	bash make-ca.sh-20170514 -D $PKG -C certdata-$version.txt
 }

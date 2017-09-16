@@ -5,8 +5,11 @@
 name=dhcpcd
 version=6.11.5
 release=1
-source=(http://roy.marples.name/downloads/dhcpcd/$name-$version.tar.xz
-	http://anduin.linuxfromscratch.org/BLFS/blfs-bootscripts/blfs-bootscripts-20170611.tar.xz)
+
+BOOTSCRIPTS_VERSION=20170731
+
+source=(http://roy.marples.name/downloads/$name/$name-$version.tar.xz
+	http://anduin.linuxfromscratch.org/BLFS/blfs-bootscripts/blfs-bootscripts-$BOOTSCRIPTS_VERSION.tar.xz)
 
 build() {
 	cd $name-$version
@@ -16,7 +19,7 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	cd ../blfs-bootscripts-20170611
+	cd ../blfs-bootscripts-$BOOTSCRIPTS_VERSION
 
 	make DESTDIR=$PKG install-service-dhcpcd
 }

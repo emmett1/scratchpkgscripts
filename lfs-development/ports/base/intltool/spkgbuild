@@ -10,12 +10,11 @@ source=(http://launchpad.net/intltool/trunk/$version/+download/$name-$version.ta
 build() {
 	cd $name-$version
 
-	# fix a warning that is caused by perl-5.22 and later
 	sed -i 's:\\\${:\\\$\\{:' intltool-update.in
 
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
 
-	install -v -Dm644 doc/I18N-HOWTO $PKG/usr/share/doc/$name-$version/I18N-HOWTO
+	install -v -Dm644 doc/I18N-HOWTO $PKG/usr/share/doc/$name/I18N-HOWTO
 }

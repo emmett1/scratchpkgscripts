@@ -1,8 +1,8 @@
 # description	: The core of the X Window system
 # homepage	: http://xorg.freedesktop.org/
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: pixman libepoxy xkeyboard-config openssl
-# makedepends	: libgcrypt mesa
+# depends	: pixman libepoxy xkeyboard-config openssl nettle libxfont2 libinput
+# makedepends	: libgcrypt mesa xcmiscproto bigreqsproto randrproto renderproto fontsproto videoproto compositeproto recordproto scrnsaverproto resourceproto xf86driproto xineramaproto
 
 name=xorg-server
 version=1.19.3

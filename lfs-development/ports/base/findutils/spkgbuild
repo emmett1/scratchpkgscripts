@@ -11,7 +11,6 @@ source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
 build() {
 	cd $name-$version
 
-	# suppress a test which on some machines can loop forever
 	sed -i 's/test-lock..EXEEXT.//' tests/Makefile.in
 
 	./configure --prefix=/usr --localstatedir=/var/lib/locate

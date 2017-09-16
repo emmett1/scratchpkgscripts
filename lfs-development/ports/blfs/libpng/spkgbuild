@@ -3,10 +3,10 @@
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
 
 name=libpng
-version=1.6.31
-release=2
+version=1.6.32
+release=1
 source=(http://downloads.sourceforge.net/$name/$name-$version.tar.xz
-	http://downloads.sourceforge.net/project/apng/$name/libpng16/$name-$version-apng.patch.gz)
+	http://downloads.sourceforge.net/project/apng/libpng/libpng16/$name-$version-apng.patch.gz)
 
 build() {
 	cd $name-$version
@@ -17,7 +17,7 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	mkdir -p $PKG/usr/share/doc/$name-$version
-	cp -v README libpng-manual.txt $PKG/usr/share/doc/$name-$version
+	mkdir -p $PKG/usr/share/doc/$name
+	cp -v README libpng-manual.txt $PKG/usr/share/doc/$name
 }
 

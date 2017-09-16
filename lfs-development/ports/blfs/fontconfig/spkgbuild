@@ -16,8 +16,7 @@ build() {
 	./configure --prefix=/usr        \
 	            --sysconfdir=/etc    \
 	            --localstatedir=/var \
-	            --disable-docs       \
-	            --docdir=/usr/share/doc/$name-$version
+	            --disable-docs
 	make
 	make DESTDIR=$PKG install
 }

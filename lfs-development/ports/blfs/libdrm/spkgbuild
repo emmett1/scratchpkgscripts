@@ -5,7 +5,7 @@
 # makedepends	: util-macros
 
 name=libdrm
-version=2.4.82
+version=2.4.83
 release=1
 source=(http://dri.freedesktop.org/$name/$name-$version.tar.bz2)
 

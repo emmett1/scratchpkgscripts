@@ -12,7 +12,7 @@ source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version::4}/$name-$versio
 build() {
 	cd $name-$version
 
-	./configure --prefix=/usr --with-pcre=system
+	./configure --prefix=/usr --with-pcre=system --with-python=/usr/bin/python3
 	make
 	make DESTDIR=$PKG install
 }

@@ -2,10 +2,10 @@
 # homepage	: http://www.freedesktop.org/wiki/Software/udisks
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
 # depends	: libatasmart libblockdev libgudev libxslt polkit
-# makedepends	: gobject-introspection docbook-xsl
+# makedepends	: gobject-introspection
 
 name=udisks2
-version=2.7.1
+version=2.7.3
 release=1
 source=(https://github.com/storaged-project/udisks/releases/download/udisks-$version/udisks-$version.tar.bz2)
 
@@ -15,7 +15,8 @@ build() {
 	./configure --prefix=/usr        \
 	            --sysconfdir=/etc    \
 	            --localstatedir=/var \
-	            --disable-static
+	            --disable-static	 \
+		    --disable-man
 	make
 	make DESTDIR=$PKG install
 }

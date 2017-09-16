@@ -18,7 +18,8 @@ build() {
 		--disable-static
 	make
 	make DESTDIR=$PKG install
-
-	rm $PKG/usr/share/fonts/X11/TTF/{fonts.dir,fonts.scale}
+	
+	find $PKG -name 'fonts.dir' -delete
+	find $PKG -name 'fonts.scale' -delete
 }
 

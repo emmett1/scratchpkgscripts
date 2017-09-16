@@ -23,11 +23,6 @@ sed -e '$ s/$/0}/' \
     -i libmath.h
 EOF
 
-	mkdir -p $PKG/usr/lib
-	ln -sv /tools/lib/libncursesw.so.6 $PKG/usr/lib/libncursesw.so.6
-	ln -sfv libncurses.so.6 $PKG/usr/lib/libncurses.so
-
-	# Fix an issue in configure due to missing files in the early stages of LFS
 	sed -i -e '/flex/s/as_fn_error/: ;; # &/' configure
 
 	./configure --prefix=/usr           \
@@ -36,8 +31,4 @@ EOF
 	            --infodir=/usr/share/info
 	make
 	make DESTDIR=$PKG install
-
-	rm $PKG/usr/lib/libncursesw.so.6
-	rm $PKG/usr/lib/libncurses.so
-	rmdir $PKG/usr/lib
 }

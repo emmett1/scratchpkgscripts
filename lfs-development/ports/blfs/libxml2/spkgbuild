@@ -1,7 +1,7 @@
 # description	: Contains libraries and utilities used for parsing XML files
 # homepage	: http://www.xmlsoft.org/
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# makedepends	: python2
+# makedepends	: python3
 
 name=libxml2
 version=2.9.4
@@ -11,7 +11,12 @@ source=(http://xmlsoft.org/sources/$name-$version.tar.gz)
 build() {
 	cd $name-$version
 
-	./configure --prefix=/usr --disable-static --with-history
+	sed -i '/_PyVerify_fd/,+1d' python/types.c
+
+	./configure --prefix=/usr \
+		    --disable-static \
+		    --with-history \
+		    --with-python=/usr/bin/python3
 	make
 	make DESTDIR=$PKG install
 }

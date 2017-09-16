@@ -1,11 +1,11 @@
 # description	: Next generation of the python high-level scripting language
 # homepage	: http://www.python.org/
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: libffi openssl
+# depends	: libffi
 
 name=python3
 version=3.6.2
-release=2
+release=1
 source=(https://www.python.org/ftp/python/$version/Python-$version.tar.xz)
 
 build() {
@@ -23,6 +23,5 @@ build() {
 	chmod -v 755 $PKG/usr/lib/libpython${version::3}m.so
 	chmod -v 755 $PKG/usr/lib/libpython3.so
 
-	mv $PKG/usr/bin/2to3{,-python3}
+	rm $PKG/usr/bin/2to3
 }
-

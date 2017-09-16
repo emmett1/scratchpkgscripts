@@ -4,7 +4,7 @@
 # depends	: pcre2
 
 name=libbytesize
-version=0.10
+version=0.11
 release=1
 source=(http://github.com/storaged-project/$name/archive/$name-$version.tar.gz)
 
