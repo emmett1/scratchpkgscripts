@@ -11,7 +11,7 @@ source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 build() {
 	cd $name-$version
 
-	./configure --prefix=/usr --docdir=/usr/share/doc/$name-$version
+	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
 }

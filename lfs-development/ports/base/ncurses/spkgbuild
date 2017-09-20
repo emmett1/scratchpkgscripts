@@ -11,7 +11,6 @@ source=(http://ftp.gnu.org/gnu//$name/$name-$version.tar.gz)
 build() {
 	cd $name-$version
 
-	# Don't install a static library that is not handled by configure
 	sed -i '/LIBTOOL_INSTALL/d' c++/Makefile.in
 
 	./configure --prefix=/usr           \
@@ -38,6 +37,6 @@ build() {
 	echo "INPUT(-lncursesw)" > $PKG/usr/lib/libcursesw.so
 	ln -sfv libncurses.so      $PKG/usr/lib/libcurses.so
 
-	mkdir -pv       $PKG/usr/share/doc/$name-$version
-	cp -v -R doc/* $PKG/usr/share/doc/$name-$version
+	mkdir -pv       $PKG/usr/share/doc/$name
+	cp -v -R doc/* $PKG/usr/share/doc/$name
 }

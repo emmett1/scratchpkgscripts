@@ -15,5 +15,5 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	find $PKG -name 'perllocal.pod' | xargs rm
+	find $PKG -name perllocal.pod -delete
 }

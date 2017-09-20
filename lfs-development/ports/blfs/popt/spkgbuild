@@ -5,12 +5,12 @@
 name=popt
 version=1.16
 release=1
-source=(http://rpm5.org/files/popt/$name-$version.tar.gz)
+source=(http://rpm5.org/files/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
+
 	./configure --prefix=/usr --disable-static
 	make
 	make DESTDIR=$PKG install
 }
-

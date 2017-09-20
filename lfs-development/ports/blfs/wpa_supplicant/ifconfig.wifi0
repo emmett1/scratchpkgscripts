@@ -1,4 +1,4 @@
-ONBOOT="no"
+ONBOOT="yes"
 IFACE="wlan0"
 SERVICE="wpa"
 

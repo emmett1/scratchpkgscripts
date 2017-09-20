@@ -1,8 +1,6 @@
 # description	: Set of tools that manage logical partitions
 # homepage	: http://sourceware.org/lvm2/
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
 
 name=lvm2
 version=2.02.171

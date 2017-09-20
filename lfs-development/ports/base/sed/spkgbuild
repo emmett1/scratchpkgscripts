@@ -12,7 +12,6 @@ source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 build() {
 	cd $name-$version
 
-	# fix an issue in the LFS environment and remove a failing test
 	sed -i 's/usr/tools/'       build-aux/help2man
 	sed -i 's/panic-tests.sh//' Makefile.in
 
@@ -20,7 +19,6 @@ build() {
 	make
 	make html
 	make DESTDIR=$PKG install
-
-	install -d -m755           $PKG/usr/share/doc/$name-$version
-	install -m644 doc/sed.html $PKG/usr/share/doc/$name-$version
+	install -d -m755           $PKG/usr/share/doc/$name
+	install -m644 doc/sed.html $PKG/usr/share/doc/$name
 }

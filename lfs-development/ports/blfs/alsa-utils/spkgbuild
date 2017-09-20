@@ -6,8 +6,11 @@
 name=alsa-utils
 version=1.1.4
 release=1
+
+BOOTSCRIPTS_VERSION=20170731
+
 source=(ftp://ftp.alsa-project.org/pub/utils/$name-$version.tar.bz2
-	http://anduin.linuxfromscratch.org/BLFS/blfs-bootscripts/blfs-bootscripts-20170731.tar.xz)
+	http://anduin.linuxfromscratch.org/BLFS/blfs-bootscripts/blfs-bootscripts-$BOOTSCRIPTS_VERSION.tar.xz)
 
 build() {
 	cd $name-$version
@@ -19,7 +22,7 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	cd ../blfs-bootscripts-20170731
+	cd ../blfs-bootscripts-$BOOTSCRIPTS_VERSION
 
 	make DESTDIR=$PKG install-alsa
 }

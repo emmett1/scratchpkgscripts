@@ -12,12 +12,12 @@ build() {
 	cd mpc-$version
 
 	./configure --prefix=/usr    \
-	            --disable-static \
-	            --docdir=/usr/share/doc/libmpc-$version
+	            --disable-static
 	make
 	make html
 	make DESTDIR=$PKG install
 	make DESTDIR=$PKG install-html
 
-	mv $PKG/usr/share/info/{mpc,libmpc}.info
+	mv $PKG/usr/share/info/{mpc,$name}.info
+	mv $PKG/usr/share/doc/{mpc,$name}
 }

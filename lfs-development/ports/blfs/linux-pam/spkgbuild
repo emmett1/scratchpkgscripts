@@ -20,8 +20,7 @@ build() {
             --sysconfdir=/etc                \
             --libdir=/usr/lib                \
             --disable-regenerate-docu        \
-            --enable-securedir=/lib/security \
-	    --docdir=/usr/share/doc/Linux-PAM-$version
+            --enable-securedir=/lib/security
 	make
 	make DESTDIR=$PKG install
 

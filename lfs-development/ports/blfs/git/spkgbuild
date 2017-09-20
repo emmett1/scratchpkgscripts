@@ -1,7 +1,7 @@
 # description	: Version control system designed to handle everything from small to very large projects with speed and efficiency
 # homepage	: http://git-scm.com/
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: curl openssl perl-error
+# depends	: curl openssl
 # makedepends	: python2
 
 name=git
@@ -15,6 +15,9 @@ build() {
 	./configure --prefix=/usr --with-gitconfig=/etc/gitconfig
 	make
 	make DESTDIR=$PKG install
+
+	mkdir -p $PKG/usr/share/git/
+	install -m644 ./contrib/completion/git-prompt.sh $PKG/usr/share/git/git-prompt.sh
 
 	find $PKG \( -name perllocal.pod -o -name .packlist \) -delete
 }

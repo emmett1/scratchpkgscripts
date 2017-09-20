@@ -14,7 +14,6 @@ build() {
 	mkdir -pv $PKG/var/lib/hwclock
 
 	./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
-	            --docdir=/usr/share/doc/$name-$version \
 	            --disable-chfn-chsh  \
 	            --disable-login      \
 	            --disable-nologin    \

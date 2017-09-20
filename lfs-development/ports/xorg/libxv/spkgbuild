@@ -5,7 +5,7 @@
 # makedepends	: pkg-config
 
 name=libxv
-version=1.0.11
+version=1.0.10
 release=1
 source=(http://ftp.x.org/pub/individual/lib/libXv-$version.tar.bz2)
 

@@ -3,7 +3,7 @@
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
 
 name=hicolor-icon-theme
-version=0.15
+version=0.17
 release=1
 source=(http://icon-theme.freedesktop.org/releases/$name-$version.tar.xz)
 

@@ -8,14 +8,13 @@ name=kbd
 version=2.0.4
 release=1
 source=(https://www.kernel.org/pub/linux/utils/$name/$name-$version.tar.xz
-	http://www.linuxfromscratch.org/patches/lfs/development/$name-$version-backspace-1.patch)
+	http://www.linuxfromscratch.org/patches/lfs/8.1/$name-$version-backspace-1.patch)
 
 build() {
 	cd $name-$version
 
-	patch -Np1 -i ../$name-$version-backspace-1.patch || exit 1
+	patch -Np1 -i ../$name-$version-backspace-1.patch
 
-	# Remove the redundant resizecons program with its manpage
 	sed -i 's/\(RESIZECONS_PROGS=\)yes/\1no/g' configure
 	sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in
 
@@ -23,6 +22,6 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	mkdir -p       $PKG/usr/share/doc/$name-$version
-	cp -R -v docs/doc/* $PKG/usr/share/doc/$name-$version
+	mkdir -p       $PKG/usr/share/doc/$name
+	cp -R -v docs/doc/* $PKG/usr/share/doc/$name
 }

@@ -4,24 +4,26 @@
 # depends	: expat libx11 libsm libice
 
 name=dbus
-version=1.10.20
+version=1.10.22
 release=1
+
+BOOTSCRIPTS_VERSION=20170731
+
 source=(http://dbus.freedesktop.org/releases/$name/$name-$version.tar.gz
-	http://anduin.linuxfromscratch.org/BLFS/blfs-bootscripts/blfs-bootscripts-20170611.tar.xz)
+	http://anduin.linuxfromscratch.org/BLFS/blfs-bootscripts/blfs-bootscripts-$BOOTSCRIPTS_VERSION.tar.xz)
 
 build() {
 	cd $name-$version
 
-./configure --prefix=/usr                  \
-            --sysconfdir=/etc              \
-            --localstatedir=/var           \
-            --disable-doxygen-docs         \
-            --disable-xml-docs             \
-            --disable-static               \
-            --docdir=/usr/share/doc/$name-$version \
-            --with-console-auth-dir=/run/console \
-            --with-system-pid-file=/run/dbus/pid \
-            --with-system-socket=/run/dbus/system_bus_socket
+	./configure --prefix=/usr                  \
+	            --sysconfdir=/etc              \
+	            --localstatedir=/var           \
+	            --disable-doxygen-docs         \
+	            --disable-xml-docs             \
+	            --disable-static               \
+	            --with-console-auth-dir=/run/console \
+	            --with-system-pid-file=/run/dbus/pid \
+	            --with-system-socket=/run/dbus/system_bus_socket
 	make
 	make DESTDIR=$PKG install
 
@@ -41,7 +43,7 @@ build() {
 </busconfig>
 EOF
 
-	cd ../blfs-bootscripts-20170611
+	cd ../blfs-bootscripts-$BOOTSCRIPTS_VERSION
 
 	make DESTDIR=$PKG install-dbus
 }

@@ -14,8 +14,7 @@ build() {
 		--prefix=/usr \
 		--sysconfdir=/etc \
 		--localstatedir=/var \
-		--disable-static \
-		--docdir=/usr/share/doc/$name-$version
+		--disable-static
 	make
 	make DESTDIR=$PKG install
 }

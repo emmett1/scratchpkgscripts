@@ -8,8 +8,8 @@ name=js
 version=38.2.1
 release=1
 source=(#https://people.mozilla.org/~sstangl/mozjs-$version.rc0.tar.bz2
-	ftp://ftp.osuosl.org/pub/blfs/8.1/m/mozjs-$version.rc0.tar.bz2
-	http://www.linuxfromscratch.org/patches/blfs/svn/js38-$version-upstream_fixes-2.patch)
+	http://mirrors-usa.go-parts.com/blfs/svn/m/mozjs-$version.rc0.tar.bz2
+	http://www.linuxfromscratch.org/patches/blfs/8.1/js38-$version-upstream_fixes-2.patch)
 
 build() {
 	cd mozjs-${version::3}0.0

@@ -35,7 +35,7 @@ build() {
 	ln -sv gcc $PKG/usr/bin/cc
 
 	install -v -dm755 $PKG/usr/lib/bfd-plugins
-	ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/${version}/liblto_plugin.so \
+	ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/$version/liblto_plugin.so \
 	        $PKG/usr/lib/bfd-plugins/
 
 	mkdir -pv $PKG/usr/share/gdb/auto-load/usr/lib

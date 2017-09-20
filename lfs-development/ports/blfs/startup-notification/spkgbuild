@@ -14,4 +14,7 @@ build() {
 	./configure --prefix=/usr --disable-static
 	make
 	make DESTDIR=$PKG install
+
+	install -v -m644 -D doc/$name.txt \
+	    $PKG/usr/share/doc/$name/$name.txt
 }

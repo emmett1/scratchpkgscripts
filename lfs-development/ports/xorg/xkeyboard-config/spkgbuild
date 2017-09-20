@@ -5,7 +5,7 @@
 
 name=xkeyboard-config
 version=2.21
-release=2
+release=1
 source=(http://xorg.freedesktop.org/archive/individual/data/xkeyboard-config/xkeyboard-config-$version.tar.bz2)
 
 build() {

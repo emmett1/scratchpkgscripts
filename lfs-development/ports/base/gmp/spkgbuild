@@ -6,15 +6,14 @@
 name=gmp
 version=6.1.2
 release=1
-source=(http://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz)
+source=(http://ftp.gnu.org/gnu/gmp/$name-$version.tar.xz)
 
 build() {
 	cd $name-$version
 
 	./configure --prefix=/usr    \
 	            --enable-cxx     \
-	            --disable-static \
-	            --docdir=/usr/share/doc/$name-$version
+	            --disable-static
 	make
 	make html
 	make DESTDIR=$PKG install

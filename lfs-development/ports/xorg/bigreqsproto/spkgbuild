@@ -1,6 +1,6 @@
 # description	: X11 Big Requests extension wire protocol
 # homepage	: http://xorg.freedesktop.org/
-# maintainer	: emmett1, emmett1.2miligrams at gmail.com
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # makedepends	: util-macros
 
 name=bigreqsproto

@@ -4,13 +4,16 @@
 # depends	: libxml2
 
 name=libxslt
-version=1.1.29
-release=1
+version=1.1.30
+release=2
 source=(http://xmlsoft.org/sources/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
 
+	sed -i '/WITH_MODULES=.*--variable/ a \\t\tXML_CONFIG="$PKG_CONFIG libxml-2.0"' \
+	configure.in
+	autoreconf -fiv
 	./configure --prefix=/usr --disable-static
 	make
 	make DESTDIR=$PKG install

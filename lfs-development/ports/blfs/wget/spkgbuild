@@ -16,4 +16,6 @@ build() {
 	            --with-ssl=openssl
 	make
 	make DESTDIR=$PKG install
+
+	echo "ca-directory=/etc/ssl/certs" >> $PKG/etc/wgetrc
 }

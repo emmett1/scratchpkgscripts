@@ -1,0 +1,21 @@
+# description	: Library which provides access to hardware accelerated video processing
+# homepage	: https://01.org/linuxmedia/vaapi
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: mesa
+
+name=libva
+version=1.8.3
+release=1
+source=(https://github.com/01org/libva/releases/download/$version/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--localstatedir=/var \
+		--disable-static
+	make
+	make DESTDIR=$PKG install
+}

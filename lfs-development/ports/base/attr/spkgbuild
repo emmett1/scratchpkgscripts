@@ -12,13 +12,7 @@ source=(http://download.savannah.gnu.org/releases/$name/$name-$version.src.tar.g
 build() {
 	cd $name-$version
 
-	# Modify the documentation directory so that it is a versioned directory
-	sed -i -e 's|/@pkg_name@|&-@pkg_version@|' include/builddefs.in
-	
-	# Prevent installation of manual pages that were already installed by the man pages package
 	sed -i -e "/SUBDIRS/s|man[25]||g" man/Makefile
-
-	# Fix a problem in the test procedures caused by changes in perl-5.26
 	sed -i 's:{(:\\{(:' test/run
 
 	./configure --prefix=/usr \

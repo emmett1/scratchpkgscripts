@@ -2,7 +2,6 @@
 # homepage	: http://www.swig.org/
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
 # depends	: pcre
-# makedepends	: 
 
 name=swig
 version=3.0.12

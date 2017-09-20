@@ -6,16 +6,17 @@ name=autoconf2.13
 version=2.13
 release=1
 source=(http://ftp.gnu.org/gnu/autoconf/autoconf-$version.tar.gz
-	http://www.linuxfromscratch.org/patches/blfs/svn/autoconf-$version-consolidated_fixes-1.patch)
+	autoconf-$version-consolidated_fixes-1.patch)
 
 build() {
-	cd autoconf-2.13
+	cd autoconf-$version
 
-  	patch -Np1 -i ../autoconf-2.13-consolidated_fixes-1.patch || exit 1
+  	patch -Np1 -i ../autoconf-$version-consolidated_fixes-1.patch
 	mv -v autoconf.texi autoconf213.texi
 	rm -v autoconf.info
 	./configure --prefix=/usr --program-suffix=2.13
 	make
 	make DESTDIR=$PKG install
+
 }
 

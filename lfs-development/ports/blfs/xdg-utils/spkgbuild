@@ -1,7 +1,7 @@
 # description	: Command line tools that assist applications with a variety of desktop integration tasks
 # homepage	: https://www.freedesktop.org/wiki/Software/xdg-utils/
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: xset dbus
+# depends	: xset
 # makedepends	: xmlto lynx docbook-xml docbook-xsl
 
 name=xdg-utils

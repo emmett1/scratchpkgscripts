@@ -5,8 +5,8 @@
 # makedepends	: gobject-introspection
 
 name=gtk3
-version=3.22.18
-release=3
+version=3.22.21
+release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/gtk+/${version::4}/gtk+-$version.tar.xz)
 
 build() {
@@ -21,7 +21,7 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	mv $PKG/usr/bin/gtk-update-icon-cache{,-gtk3}
+	rm -fr $PKG/usr/bin/gtk-update-icon-cache
 
 	cat > $PKG/etc/gtk-3.0/settings.ini << "EOF"
 [Settings]

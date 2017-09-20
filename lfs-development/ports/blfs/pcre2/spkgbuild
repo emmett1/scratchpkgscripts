@@ -3,14 +3,13 @@
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
 
 name=pcre2
-version=10.23
+version=10.30
 release=1
 source=(ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
 	./configure --prefix=/usr                       \
-	            --docdir=/usr/share/doc/$name-$version \
 	            --enable-unicode                    \
 	            --enable-pcre2-16                   \
 	            --enable-pcre2-32                   \

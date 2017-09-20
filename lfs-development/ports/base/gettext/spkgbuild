@@ -11,13 +11,11 @@ source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 build() {
 	cd $name-$version
 
-	# suppress two invocations of test-lock which on some machines can loop forever
 	sed -i '/^TESTS =/d' gettext-runtime/tests/Makefile.in
 	sed -i 's/test-lock..EXEEXT.//' gettext-tools/gnulib-tests/Makefile.in
 
 	./configure --prefix=/usr    \
-	            --disable-static \
-	            --docdir=/usr/share/doc/$name-$version
+	            --disable-static
 	make
 	make DESTDIR=$PKG install
 

@@ -12,8 +12,7 @@ build() {
 	cd Thunar-$version
 
 	./configure --prefix=/usr \
-	            --sysconfdir=/etc \
-	            --docdir=/usr/share/doc/Thunar-$version
+	            --sysconfdir=/etc
 	make
 	make DESTDIR=$PKG install
 }

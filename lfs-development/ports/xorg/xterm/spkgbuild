@@ -1,11 +1,11 @@
 # description	: Terminal emulator for the X Window System
 # homepage	: http://invisible-island.net/xterm/
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: dejavu-fonts libxaw libxft libxkbfile xbitmaps luit
+# depends	: libxaw libxft libxkbfile xbitmaps luit
 
 name=xterm
 version=330
-release=1
+release=2
 source=(ftp://ftp.invisible-island.net/$name/$name-$version.tgz
 	${name}_remove_list)
 

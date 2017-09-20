@@ -11,7 +11,6 @@ source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name
 build() {
 	cd $name-$version
 
-	# Prevent a static library from being installed
 	sed -i '/install.*STALIBNAME/d' libcap/Makefile
 
 	make
