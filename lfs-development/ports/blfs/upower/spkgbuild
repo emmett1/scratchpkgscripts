@@ -5,7 +5,7 @@
 # makedepends	: gobject-introspection
 
 name=upower
-version=0.99.5
+version=0.99.6
 release=1
 source=(http://upower.freedesktop.org/releases/$name-$version.tar.xz)
 
@@ -16,8 +16,7 @@ build() {
 	            --sysconfdir=/etc    \
 	            --localstatedir=/var \
 	            --enable-deprecated  \
-	            --disable-static	 \
-		    --disable-man-pages
+	            --disable-static
 	make
 	make DESTDIR=$PKG install
 }
