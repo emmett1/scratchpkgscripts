@@ -4,16 +4,16 @@ post_install() {
 
 	/sbin/depmod
 
-	if [ ! "$(grep -w vboxdrv /etc/sysconfig/modules)" ]; then
+	if [ ! "$(grep -x vboxdrv /etc/sysconfig/modules)" ]; then
 		echo "vboxdrv" >> /etc/sysconfig/modules
 	fi
-	if [ ! "$(grep -w vboxnetadp /etc/sysconfig/modules)" ]; then
+	if [ ! "$(grep -x vboxnetadp /etc/sysconfig/modules)" ]; then
 		echo "vboxnetadp" >> /etc/sysconfig/modules
 	fi
-	if [ ! "$(grep -w vboxnetflt /etc/sysconfig/modules)" ]; then
+	if [ ! "$(grep -x vboxnetflt /etc/sysconfig/modules)" ]; then
 		echo "vboxnetflt" >> /etc/sysconfig/modules
 	fi
-	if [ ! "$(grep -w vboxpci /etc/sysconfig/modules)" ]; then
+	if [ ! "$(grep -x vboxpci /etc/sysconfig/modules)" ]; then
 		echo "vboxpci" >> /etc/sysconfig/modules
 	fi
 
@@ -24,23 +24,23 @@ post_install() {
 	else
 		msg "Read virtualbox readme to build virtualbox modules"
 	fi
-	msg "Run this command to install virtualbox Extension Packs:"
-	echo "	VBoxManage extpack install /opt/VirtualBox/ExtensionPacks/*.vbox-extpack"
+}
+
+pre_remove() {
+	rm -fr /opt/VirtualBox/src/vboxhost
 }
 
 post_remove() {
-	if [ "$(grep -w vboxdrv /etc/sysconfig/modules)" ]; then
+	if [ "$(grep -x vboxdrv /etc/sysconfig/modules)" ]; then
 		sed -i '/vboxdrv/d' /etc/sysconfig/modules
 	fi
-	if [ "$(grep -w vboxnetadp /etc/sysconfig/modules)" ]; then
+	if [ "$(grep -x vboxnetadp /etc/sysconfig/modules)" ]; then
 		sed -i '/vboxnetadp/d' /etc/sysconfig/modules
 	fi
-	if [ "$(grep -w vboxnetflt /etc/sysconfig/modules)" ]; then
+	if [ "$(grep -x vboxnetflt /etc/sysconfig/modules)" ]; then
 		sed -i '/vboxnetflt/d' /etc/sysconfig/modules
 	fi
-	if [ "$(grep -w vboxpci /etc/sysconfig/modules)" ]; then
+	if [ "$(grep -x vboxpci /etc/sysconfig/modules)" ]; then
 		sed -i '/vboxpci/d' /etc/sysconfig/modules
 	fi
-
-	rm -fr /opt/VirtualBox
 }

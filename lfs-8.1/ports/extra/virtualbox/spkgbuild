@@ -4,10 +4,10 @@
 # depends	: sdl qt5
 
 name=virtualbox
-version=5.1.24
+version=5.1.28
 release=1
 _name=Oracle_VM_VirtualBox_Extension_Pack
-_release=117012
+_release=117968
 
 [ "`uname -m`" == "i686"   ] && _ARCH=x86
 [ "`uname -m`" == "x86_64"   ] && _ARCH=amd64
@@ -43,11 +43,19 @@ build() {
 	echo "INSTALL_DIR="\"/opt/VirtualBox\" >> \
 		$PKG/etc/vbox/vbox.cfg
 
-	install -D -m 644 $SRC/${_name}-$version-${_release}.vbox-extpack \
-		$PKG/opt/VirtualBox/ExtensionPacks/${_name}-$version-${_release}.vbox-extpack
+	# ExtensionPacks
+	mkdir -p $PKG/opt/VirtualBox/ExtensionPacks/Oracle_VM_VirtualBox_Extension_Pack
+	tar -xf $SRC/${_name}-$version-${_release}.vbox-extpack \
+		-C $PKG/opt/VirtualBox/ExtensionPacks/Oracle_VM_VirtualBox_Extension_Pack
+	chown -R root:root $PKG/opt/VirtualBox/ExtensionPacks/Oracle_VM_VirtualBox_Extension_Pack
+	
 	mkdir -p $PKG/etc/ld.so.conf.d
 	echo /opt/VirtualBox > $PKG/etc/ld.so.conf.d/virtualbox.conf
 
 	# Icon
 	ln -s VBox.png $PKG/usr/share/pixmaps/virtualbox.png
+
+	# fix permission
+	chmod g-w $PKG/opt/VirtualBox
+	chmod g-w $PKG/opt/VirtualBox/components
 }
