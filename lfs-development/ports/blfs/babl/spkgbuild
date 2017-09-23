@@ -1,0 +1,16 @@
+# description	: Dynamic, any to any, pixel format translation library
+# homepage	: http://gegl.org/babl/
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# makedepends	: gobject-introspection
+
+name=babl
+version=0.1.30
+release=1
+source=(http://download.gimp.org/pub/$name/${version::3}/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
