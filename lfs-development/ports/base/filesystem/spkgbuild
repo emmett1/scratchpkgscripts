@@ -5,7 +5,7 @@
 # depends	: iana-etc
 
 name=filesystem
-version=8.1
+version=SVN
 release=1
 source=()
 
@@ -195,10 +195,10 @@ EOF
 echo $version > $PKG/etc/lfs-release
 
 cat > $PKG/etc/lsb-release << "EOF"
-DISTRIB_ID="Linux From Scratch"
-DISTRIB_RELEASE="8.1"
+DISTRIB_ID="Linux From Scratch SVN"
+DISTRIB_RELEASE="SVN"
 DISTRIB_CODENAME="Emmett1"
-DISTRIB_DESCRIPTION="Linux From Scratch"
+DISTRIB_DESCRIPTION="Linux From Scratch SVN"
 EOF
 
 	mkdir -pv $PKG/etc
