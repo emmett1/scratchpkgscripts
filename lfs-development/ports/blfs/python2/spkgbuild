@@ -4,7 +4,7 @@
 # depends	: libffi openssl
 
 name=python2
-version=2.7.13
+version=2.7.14
 release=1
 source=(https://www.python.org/ftp/python/$version/Python-$version.tar.xz)
 

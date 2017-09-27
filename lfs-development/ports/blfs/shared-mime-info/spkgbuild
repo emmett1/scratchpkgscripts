@@ -4,7 +4,7 @@
 # depends	: glib libxml2
 
 name=shared-mime-info
-version=1.8
+version=1.9
 release=1
 source=(http://freedesktop.org/~hadess/$name-$version.tar.xz)
 
