@@ -4,7 +4,7 @@
 # depends	: gdbm glibc
 
 name=perl
-version=5.26.0
+version=5.26.1
 release=1
 source=(http://www.cpan.org/src/5.0/$name-$version.tar.xz)
 

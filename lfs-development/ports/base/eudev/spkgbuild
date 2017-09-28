@@ -4,7 +4,7 @@
 # depends	: kmod
 
 name=eudev
-version=3.2.2
+version=3.2.4
 release=1
 source=(http://dev.gentoo.org/~blueness/$name/$name-$version.tar.gz
 	http://anduin.linuxfromscratch.org/LFS/udev-lfs-20140408.tar.bz2)

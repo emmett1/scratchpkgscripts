@@ -4,7 +4,7 @@
 # depends	: gzip ncurses perl bash
 
 name=texinfo
-version=6.4
+version=6.5
 release=1
 source=(http://ftp.gnu.org/gnu/texinfo/$name-$version.tar.xz)
 
