@@ -1,4 +1,4 @@
-# description	: Compiler that integrates C and C++ with languages including Perl, Python, Tcl, Ruby, PHP, Java, C#, D, Go, Lua, Octave, R, Scheme, Ocaml, Modula-3, Common Lisp, and Pike
+# description	: Generate scripting interfaces to C/C++ code
 # homepage	: http://www.swig.org/
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
 # depends	: pcre
