@@ -1,0 +1,29 @@
+# description	: Open source multimedia framework, designed and developed for television broadcasting
+# homepage	: 
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: qt5 frei0r-plugins
+# makedepends	: 
+
+name=mlt
+version=6.4.1
+release=1
+source=(https://downloads.sourceforge.net/mlt/mlt-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	
+	sed -i 's/xlocale.h/locale.h/' src/framework/mlt_property.h
+
+	# Disable PulseAudio (taken from tsaop, crux's kf5 port)
+	sed -i 's|-D__LINUX_PULSE__||' src/modules/rtaudio/Makefile 
+
+	./configure --prefix=/usr            \
+	            --enable-gpl             \
+	            --enable-gpl3            \
+	            --enable-opengl          \
+	            --disable-gtk2           \
+	            --qt-libdir=/usr/lib     \
+	            --qt-includedir=/usr/include/qt5
+	make
+	make DESTDIR=$PKG install
+}
