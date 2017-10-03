@@ -1,0 +1,24 @@
+# description	: Library which allows you to access the data held on the MusicBrainz server
+# homepage	: 
+# maintainer	: 
+# backup	: 
+# conflict	: 
+# depends	: libxml2 neon
+# makedepends	: cmake
+# noextract	: 
+
+name=libmusicbrainz
+version=5.1.0
+release=1
+source=(https://github.com/metabrainz/libmusicbrainz/releases/download/release-$version/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	
+	mkdir build
+	cd    build
+	
+	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+	make
+	make DESTDIR=$PKG install
+}
