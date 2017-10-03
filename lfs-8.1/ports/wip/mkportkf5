@@ -1,0 +1,46 @@
+#!/bin/bash
+
+while read -r line; do
+
+    # Get the file name, ignoring comments and blank lines
+    if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi
+    file=$(echo $line | cut -d" " -f2)
+    
+    pkg=$(echo $file|sed 's|^.*/||')          # Remove directory
+    #packagedir=$(echo $pkg|sed 's|\.tar.*||') # Package directory
+    packagedir=$(echo $line | awk '{print $2}' | rev | cut -d '-' -f2- | rev) # Package directory
+    
+    #echo $file
+    #echo $pkg
+    echo $packagedir
+    
+    mkdir -pv $packagedir
+    
+    echo "# description	: KDE Frameworks packages
+# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
+# depends	: 
+# makedepends	: 
+
+name=$packagedir
+version=5.37.0
+release=1
+source=(http://download.kde.org/stable/frameworks/\${version::4}/\$name-\$version.tar.xz)
+
+build() {
+	cd \$name-\$version
+
+	export CXXFLAGS='-isystem /usr/include/openssl-1.0'
+
+	mkdir build
+	cd    build
+
+	cmake -DCMAKE_INSTALL_PREFIX=/usr	\\
+	      -DCMAKE_PREFIX_PATH=/usr		\\
+	      -DCMAKE_BUILD_TYPE=Release	\\
+	      -DBUILD_TESTING=OFF		\\
+	      -Wno-dev ..
+	make
+	make DESTDIR=\$PKG install
+}" > $packagedir/spkgbuild
+    
+done < frameworks-5.37.0.md5
