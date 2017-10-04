@@ -3,10 +3,10 @@
 # depends	: 
 # makedepends	: 
 
-name=milou
-version=5.10.5
-release=2
-source=(http://download.kde.org/stable/plasma/$version/$name-$version.tar.xz)
+name=dolphin
+version=17.08.0
+release=1
+source=(http://download.kde.org/stable/applications/$version/src/$name-$version.tar.xz)
 
 build() {
 	cd $name-$version
@@ -20,10 +20,4 @@ build() {
 		 -Wno-dev ..
 	make
 	make DESTDIR=$PKG install
-
-	(cd $PKG/usr/share/plasma/plasmoids
-		for j in $(find -name \*.js); do
-			ln -sfv ../code/$(basename $j) $(dirname $j)/../ui/
-		done
-	)
 }

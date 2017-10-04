@@ -2,14 +2,14 @@
 # homepage	: https://github.com/libfuse/libfuse
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 
-name=fuse
+name=fuse2
 version=2.9.7
 release=1
-source=(https://github.com/libfuse/libfuse/releases/download/$name-$version/$name-$version.tar.gz
+source=(https://github.com/libfuse/libfuse/releases/download/fuse-$version/fuse-$version.tar.gz
 	fuse.conf)
 
 build() {
-	cd $name-$version
+	cd fuse-$version
 
 	./configure --prefix=/usr    \
 	            --disable-static \
