@@ -6,7 +6,7 @@
 
 name=transmission-qt
 version=2.92
-release=1
+release=2
 source=(https://github.com/transmission/transmission-releases/raw/master/transmission-$version.tar.xz
 	http://www.linuxfromscratch.org/patches/blfs/8.1/transmission-$version-openssl-1.1.0-1.patch)
 
@@ -15,6 +15,9 @@ build() {
 
 	# fix a build issue when using OpenSSL-1.1.0f
 	patch -Np1 -i ../transmission-$version-openssl-1.1.0-1.patch
+	
+	# fix icon
+	sed -i '/^Icon=/ s/$/-qt/' qt/transmission-qt.desktop
 
 	./configure --prefix=/usr
 	make
