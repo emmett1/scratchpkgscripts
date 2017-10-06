@@ -1,7 +1,6 @@
 # description	: KF5 archive tool
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: kpty kiconthemes karchive kservice ki18n kcoreaddons kwidgetsaddons kconfig qt5 gcc glibc libarchive kparts kio kitemmodels kbookmarks solid kjobwidgets kxmlgui ktextwidgets kitemviews kcompletion kconfigwidgets kcodecs kauth sonnet kcrash kdbusaddons
-# makedepends	: extra-cmake-modules
+# depends	: kparts kpty libarchive kitemmodels hicolor-icon-theme
+# makedepends	: extra-cmake-modules kdoctools python3
 
 name=ark
 version=17.08.0

@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Thumbnailers for various graphics file formats
+# depends	: libkexiv2 libkdcraw kio
+# makedepends	: extra-cmake-modules
 
 name=kdegraphics-thumbnailers
 version=17.08.0

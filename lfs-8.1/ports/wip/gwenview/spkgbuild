@@ -1,11 +1,6 @@
-# description	: Fast and easy-to-use image viewer for KDE
-# homepage	: 
-# maintainer	: 
-# backup	: 
-# conflict	: 
-# depends	: exiv2 lcms2 libkdcraw
-# makedepends	: 
-# noextract	: 
+# description	: A fast and easy to use image viewer
+# depends	: exiv2 lcms2 kactivities baloo libkdcraw kparts kitemmodels
+# makedepends	: extra-cmake-modules kdoctools python3
 
 name=gwenview
 version=17.08.0

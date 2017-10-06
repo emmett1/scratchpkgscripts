@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Addons to QtCore
+# depends	: qt5 shared-mime-info
+# makedepends	: extra-cmake-modules
 
 name=kcoreaddons
 version=5.37.0

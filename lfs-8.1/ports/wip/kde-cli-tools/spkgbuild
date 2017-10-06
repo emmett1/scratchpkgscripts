@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Tools based on KDE Frameworks 5 to better interact with the system
+# depends	: kdesu kcmutils kinit
+# makedepends	: extra-cmake-modules python3 kdoctools
 
 name=kde-cli-tools
 version=5.10.5

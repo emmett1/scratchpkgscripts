@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Support for application crash analysis and bug report from apps
+# depends	: kcoreaddons kwindowsystem
+# makedepends	: extra-cmake-modules mesa qt5
 
 name=kcrash
 version=5.37.0

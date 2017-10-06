@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: KDE Integration for QtWebKit
+# depends	: qtwebkit kparts
+# makedepends	: extra-cmake-modules python3
 
 name=kdewebkit
 version=5.37.0

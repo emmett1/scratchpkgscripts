@@ -1,6 +1,4 @@
 # description	: Minimalistic plugin API for video effects
-# homepage	: 
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: gavl
 
 name=frei0r-plugins

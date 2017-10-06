@@ -1,8 +1,6 @@
-# description	: KF5 based video editor
-# homepage	: 
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: mlt v4l-utils
-# makedepends	: 
+# description	: A non-linear video editor for Linux using the MLT video framework
+# depends	: mlt
+# makedepends	: extra-cmake-modules kdoctools python3 v4l-utils
 
 name=kdenlive
 version=17.08.0

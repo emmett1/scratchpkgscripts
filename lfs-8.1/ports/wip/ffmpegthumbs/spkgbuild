@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: FFmpeg-based thumbnail creator for video files
+# depends	: ffmpeg kio
+# makedepends	: extra-cmake-modules
 
 name=ffmpegthumbs
 version=17.08.0

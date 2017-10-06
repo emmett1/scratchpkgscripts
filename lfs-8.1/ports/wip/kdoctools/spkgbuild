@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: docbook-xml docbook-xsl
+# description	: Documentation generation from docbook
+# depends	: karchive docbook-xsl
+# makedepends	: extra-cmake-modules ki18n python3 perl-uri
 
 name=kdoctools
 version=5.37.0

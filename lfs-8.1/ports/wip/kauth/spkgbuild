@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Abstraction to system policy and authentication features
+# depends	: kcoreaddons polkit-qt
+# makedepends	: extra-cmake-modules qt5
 
 name=kauth
 version=5.37.0

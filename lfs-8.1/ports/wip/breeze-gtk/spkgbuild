@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Breeze widget theme for GTK 2 and 3
+# depends	: qt5
+# makedepends	: extra-cmake-modules
 
 name=breeze-gtk
 version=5.10.5

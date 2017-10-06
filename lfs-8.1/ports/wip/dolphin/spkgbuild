@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: KDE File Manager
+# depends	: baloo knewstuff kio-extras kcmutils kparts kinit
+# makedepends	: extra-cmake-modules kdoctools python3
 
 name=dolphin
 version=17.08.0

@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
+# depends	: frameworkintegration kdecoration breeze-icons kwayland
+# makedepends	: extra-cmake-modules frameworkintegration kdecoration kcmutils plasma-framework python3
 
 name=breeze
 version=5.10.5

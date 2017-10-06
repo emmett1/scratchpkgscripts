@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Plugin based library to create window decorations
+# depends	: qt5
+# makedepends	: extra-cmake-modules
 
 name=kdecoration
 version=5.10.5

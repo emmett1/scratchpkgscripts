@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Integration of Frameworks widgets in Qt Designer/Creator
+# depends	: kplotting kio
+# makedepends	: extra-cmake-modules qt5 kdoctools python3
 
 name=kdesignerplugin
 version=5.37.0

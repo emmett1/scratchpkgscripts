@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: System service to manage user's activities and track the usage patterns
+# depends	: kio
+# makedepends	: extra-cmake-modules boost python3
 
 name=kactivitymanagerd
 version=5.10.5

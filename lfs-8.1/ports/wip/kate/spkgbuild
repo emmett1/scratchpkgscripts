@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Advanced Text Editor
+# depends	: ktexteditor kactivities hicolor-icon-theme knewstuff threadweaver kitemmodels
+# makedepends	: extra-cmake-modules kdoctools python3 plasma-framework
 
 name=kate
 version=17.08.0

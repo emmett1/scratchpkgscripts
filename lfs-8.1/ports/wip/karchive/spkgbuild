@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Qt 5 addon providing access to numerous types of archives
+# depends	: qt5
+# makedepends	: extra-cmake-modules
 
 name=karchive
 version=5.37.0

@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: KDE and Plasma resources management GUI
+# depends	: knewstuff kdeclarative kitemmodels qt5 hicolor-icon-theme kirigami2
+# makedepends	: extra-cmake-modules python3 plasma-framework
 
 name=discover
 version=5.10.5

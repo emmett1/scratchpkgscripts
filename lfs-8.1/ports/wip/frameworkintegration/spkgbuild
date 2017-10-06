@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Framework providing components to allow applications to integrate with a KDE Workspace
+# depends	: kpackage knewstuff
+# makedepends	: extra-cmake-modules python3 qt5
 
 name=frameworkintegration
 version=5.37.0

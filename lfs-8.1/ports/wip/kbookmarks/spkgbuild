@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Support for bookmarks and the XBEL format
+# depends	: kxmlgui
+# makedepends	: extra-cmake-modules qt5 python3
 
 name=kbookmarks
 version=5.37.0

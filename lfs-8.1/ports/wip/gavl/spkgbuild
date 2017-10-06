@@ -1,6 +1,4 @@
 # description	: Low level library that handles the details of audio and video formats
-# homepage	: 
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: libpng
 
 name=gavl

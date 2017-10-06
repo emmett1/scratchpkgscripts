@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: A library for accessing the usage data collected by the activities system
+# depends	: kactivities
+# makedepends	: extra-cmake-modules boost qt5
 
 name=kactivities-stats
 version=5.37.0

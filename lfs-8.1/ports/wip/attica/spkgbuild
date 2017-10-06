@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Qt5 library that implements the Open Collaboration Services API
+# depends	: qt5
+# makedepends	: extra-cmake-modules
 
 name=attica
 version=5.37.0

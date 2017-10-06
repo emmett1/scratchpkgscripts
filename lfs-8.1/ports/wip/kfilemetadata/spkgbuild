@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: A library for extracting file metadata
+# depends	: ki18n karchive exiv2 poppler taglib ffmpeg
+# makedepends	: extra-cmake-modules python3 qt5
 
 name=kfilemetadata
 version=5.37.0

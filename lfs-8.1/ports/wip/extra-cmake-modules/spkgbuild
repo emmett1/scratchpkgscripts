@@ -1,7 +1,6 @@
-# description	: Extra CMake modules used by KDE Frameworks 5 and other packages
-# homepage	: 
-# maintainer	: 
-# makedepends	: cmake
+# description	: Extra modules and scripts for CMake
+# depends	; cmake
+# makedepends	: qt5
 
 name=extra-cmake-modules
 version=5.37.0

@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Qt wrapper for Bluez 5 DBus API
+# depends	: qt5 bluez
+# makedepends	: extra-cmake-modules mesa
 
 name=bluez-qt
 version=5.37.0

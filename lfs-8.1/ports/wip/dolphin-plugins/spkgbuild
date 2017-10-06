@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Extra Dolphin plugins
+# depends	: dolphin kdelibs4support
+# makedepends	: extra-cmake-modules kdoctools ktexteditor kdesignerplugin
 
 name=dolphin-plugins
 version=17.08.0
