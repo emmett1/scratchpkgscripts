@@ -4,13 +4,14 @@
 # depends	: freetype2
 
 name=fontconfig
-version=2.12.5
+version=2.12.6
 release=1
 source=(http://www.freedesktop.org/software/fontconfig/release/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
 
+	# make sure the system regenerates src/fcobjshash.h
 	rm -f src/fcobjshash.h
 
 	./configure --prefix=/usr        \
