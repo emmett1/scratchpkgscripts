@@ -1,7 +1,0 @@
---2017-09-30 22:20:50--  https://archive.mozilla.org/pub/firefox/releases/56.0/source/firefox-56.0.source.tar.xz
-Resolving archive.mozilla.org... 54.192.158.61
-Connecting to archive.mozilla.org|54.192.158.61|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 255389204 (244M) [application/x-tar]
-Saving to: ‘/var/spkg/sources/firefox-56.0.source.tar.xz.partial’
-
