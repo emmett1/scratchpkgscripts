@@ -1,14 +1,14 @@
 # description	: Stand-alone browser based on the Mozilla codebase
 # homepage	: https://www.mozilla.org/firefox/
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: alsa-lib gtk2 gtk3 nss icu libevent libvpx sqlite dbus-glib graphite2 harfbuzz
-# makedepends	: unzip zip autoconf2.13 yasm rustc
+# depends	: alsa-lib gtk2 gtk3 nss nspr icu libevent libvpx sqlite dbus-glib graphite2 harfbuzz
+# makedepends	: unzip zip autoconf2.13 yasm rustc gconf
 
 name=firefox
-version=55.0.3
+version=56.0
 release=1
 source=(https://archive.mozilla.org/pub/firefox/releases/$version/source/$name-$version.source.tar.xz
-	http://www.linuxfromscratch.org/patches/blfs/8.1/$name-$version-system_graphite2_harfbuzz-1.patch)
+	http://www.linuxfromscratch.org/patches/blfs/svn/$name-$version-system_graphite2_harfbuzz-1.patch)
 
 build() {
 	cd $name-$version
@@ -45,7 +45,14 @@ ac_add_options --disable-pulseaudio
 ac_add_options --enable-alsa
 
 # If you have installed GConf, comment out this line
-ac_add_options --disable-gconf
+#ac_add_options --disable-gconf
+
+# Stylo is the new CSS code, including the rust 'style'
+# package. It is enabled by default, but cannot find the
+# headers for system nspr, pixman. If you enable stylo you
+# must comment out system-nspr system-pixman and
+# system-cairo, and you must also have installed clang.
+ac_add_options --disable-stylo
 
 # Comment out following options if you have not installed
 # recommended dependencies:
@@ -83,7 +90,8 @@ ac_add_options --enable-url-classifier
 
 # From firefox-40, using system cairo causes firefox to crash
 # frequently when it is doing background rendering in a tab.
-#ac_add_options --enable-system-cairo
+# This appears to again work in firefox-56
+ac_add_options --enable-system-cairo
 ac_add_options --enable-system-ffi
 ac_add_options --enable-system-pixman
 
@@ -113,7 +121,7 @@ EOF
 	install -d $PKG/usr/share/applications
 	install -d $PKG/usr/share/pixmaps
 
-cat > $PKG/usr/share/applications/firefox.desktop << "EOF" &&
+cat > $PKG/usr/share/applications/firefox.desktop << "EOF"
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser

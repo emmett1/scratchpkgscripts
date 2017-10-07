@@ -2,7 +2,7 @@
 # homepage	: http://mesa3d.sourceforge.net/
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
 # depends	: libdrm python2 wayland libxshmfence libxdamage libxext libxfixes
-# makedepends	: libvdpau python2-mako libx11 glproto dri2proto dri3proto presentproto
+# makedepends	: libvdpau python2-mako libx11 glproto dri2proto dri3proto presentproto wayland-protocols
 
 name=mesa
 version=17.2.1
@@ -21,7 +21,7 @@ build() {
         	    --enable-osmesa                 \
         	    --enable-xa                     \
         	    --enable-glx-tls                \
-	            --with-egl-platforms="drm,x11,wayland"  \
+	            --with-platforms="drm,x11,wayland"  \
 	            --with-gallium-drivers=$GLL_DRV
 	make
 	make DESTDIR=$PKG install
