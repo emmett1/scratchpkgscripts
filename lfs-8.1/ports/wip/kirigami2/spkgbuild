@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: A QtQuick based components set
+# depends	: qtquickcontrols2
+# makedepends	: extra-cmake-modules qt5 plasma-framework
 
 name=kirigami2
 version=5.37.0

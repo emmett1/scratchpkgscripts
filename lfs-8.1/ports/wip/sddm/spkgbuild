@@ -1,8 +1,6 @@
 # description	: Lightweight display manager based upon Qt and QML
-# homepage	: http://github.com/sddm/sddm
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: linux-pam upower consolekit2
-# makedepends	: cmake extra-cmake-modules
+# depends	: linux-pam upower consolekit2 qt5 xorg-server
+# makedepends	: extra-cmake-modules
 
 name=sddm
 version=0.15.0

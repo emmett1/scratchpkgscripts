@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Embedded JS
+# depends	: qt5 ki18n kjs
+# makedepends	: extra-cmake-modules kdoctools python3
 
 name=kjsembed
 version=5.37.0

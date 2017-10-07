@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: An easy to use, but flexible, composited Window Manager
+# depends	: kscreenlocker xcb-util-cursor hicolor-icon-theme plasma-framework kcmutils breeze kinit
+# makedepends	: extra-cmake-modules qt5 kdoctools python3
 
 name=kwin
 version=5.10.5

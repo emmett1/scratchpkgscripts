@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Plasma applet written in QML for managing network connections
+# depends	: plasma-workspace modemmanager-qt networkmanager-qt qca
+# makedepends	: extra-cmake-modules kdoctools python3 kdesignerplugin
 
 name=plasma-nm
 version=5.10.5

@@ -1,7 +1,5 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Additional wallpapers for the Plasma Workspace
+# makedepends	: extra-cmake-modules qt5
 
 name=plasma-workspace-wallpapers
 version=5.10.5

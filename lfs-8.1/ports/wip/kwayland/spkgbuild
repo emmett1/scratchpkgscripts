@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Qt-style Client and Server library wrapper for the Wayland libraries
+# depends	: qt5 wayland
+# makedepends	: extra-cmake-modules
 
 name=kwayland
 version=5.37.0

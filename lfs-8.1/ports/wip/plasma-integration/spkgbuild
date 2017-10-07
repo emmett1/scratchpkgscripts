@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Qt Platform Theme integration plugins for the Plasma workspaces
+# depends	: kio kwayland libxcursor noto-fonts
+# makedepends	: extra-cmake-modules python3 breeze
 
 name=plasma-integration
 version=5.10.5

@@ -1,7 +1,6 @@
-# description	: KF5 based terminal emulator
-# depends	: 
-# makedepends	: 
-# noextract	: 
+# description	: KDE's terminal emulator
+# depends	: knotifyconfig kpty kparts kinit
+# makedepends	: extra-cmake-modules kdoctools python3
 
 name=konsole
 version=17.08.0

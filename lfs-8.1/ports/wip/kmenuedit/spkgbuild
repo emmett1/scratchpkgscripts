@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: KDE menu editor
+# depends	: khotkeys
+# makedepends	: extra-cmake-modules kdoctools python kdesignerplugin
 
 name=kmenuedit
 version=5.10.5

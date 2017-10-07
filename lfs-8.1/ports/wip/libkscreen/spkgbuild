@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: KDE screen management software
+# depends	: kwayland libxrandr qt5
+# makedepends	: extra-cmake-modules
 
 name=libkscreen
 version=5.10.5

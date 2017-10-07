@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Plasma library and runtime components based upon KF5 and Qt5
+# depends	: qt5 kactivities kdeclarative kwayland
+# makedepends	: extra-cmake-modules kdoctools python3
 
 name=plasma-framework
 version=5.37.0

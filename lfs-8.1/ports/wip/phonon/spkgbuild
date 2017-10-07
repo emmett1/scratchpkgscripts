@@ -1,8 +1,6 @@
 # description	: Multimedia API for KDE
-# homepage	: 
-# maintainer	: 
 # depends	: glib qt5
-# makedepends	: cmake extra-cmake-modules
+# makedepends	: extra-cmake-modules
 
 name=phonon
 version=4.9.1

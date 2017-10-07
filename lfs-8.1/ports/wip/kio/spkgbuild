@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Resource and network access abstraction
+# depends	: solid kjobwidgets kbookmarks libxslt kwallet desktop-file-utils
+# makedepends	: extra-cmake-modules kdoctools python3 qt5
 
 name=kio
 version=5.37.0

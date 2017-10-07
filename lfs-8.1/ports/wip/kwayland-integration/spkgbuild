@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Provides integration plugins for various KDE frameworks for the wayland windowing system
+# depends	: kwindowsystem kidletime kwayland
+# makedepends	: extra-cmake-modules
 
 name=kwayland-integration
 version=5.10.5

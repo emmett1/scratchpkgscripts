@@ -1,6 +1,4 @@
 # description	: Google Noto TTF fonts
-# homepage	: https://www.google.com/get/noto/
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: fontconfig
 
 name=noto-fonts

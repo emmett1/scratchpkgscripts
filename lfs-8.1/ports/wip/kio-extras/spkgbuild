@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Additional components to increase the functionality of KIO
+# depends	: kio kdnssd exiv2 libmtp kpty kactivities
+# makedepends	: extra-cmake-modules kdoctools gperf taglib khtml
 
 name=kio-extras
 version=17.08.0

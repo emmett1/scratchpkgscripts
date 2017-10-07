@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: KHTML APIs
+# depends	: giflib kparts kjs
+# makedepends	: extra-cmake-modules python3 gperf
 
 name=khtml
 version=5.37.0

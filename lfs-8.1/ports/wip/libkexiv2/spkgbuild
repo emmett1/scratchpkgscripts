@@ -1,11 +1,6 @@
-# description	: KDE wrapper around the Exiv2 library for manipulating image metadata
-# homepage	: 
-# maintainer	: 
-# backup	: 
-# conflict	: 
-# depends	: exiv2
-# makedepends	: 
-# noextract	: 
+# description	: A library to manipulate pictures metadata
+# depends	: exiv2 qt5
+# makedepends	: extra-cmake-modules
 
 name=libkexiv2
 version=17.08.0

@@ -1,7 +1,5 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: The Oxygen Icon Theme
+# makedepends	: extra-cmake-modules qt5
 
 name=oxygen-icons5
 version=5.37.0

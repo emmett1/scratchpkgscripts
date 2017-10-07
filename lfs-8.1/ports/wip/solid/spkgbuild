@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Hardware integration and detection
+# depends	: qt5 upower udisks2
+# makedepends	: extra-cmake-modules
 
 name=solid
 version=5.37.0

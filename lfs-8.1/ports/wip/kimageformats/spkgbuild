@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Image format plugins for Qt5
+# depends	: qt5
+# makedepends	: extra-cmake-modules karchive mesa
 
 name=kimageformats
 version=5.37.0

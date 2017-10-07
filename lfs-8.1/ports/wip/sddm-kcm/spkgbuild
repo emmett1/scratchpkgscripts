@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: KDE Config Module for SDDM
+# depends	: sddm libxcursor knewstuff
+# makedepends	: extra-cmake-modules kdoctools python3
 
 name=sddm-kcm
 version=5.10.5

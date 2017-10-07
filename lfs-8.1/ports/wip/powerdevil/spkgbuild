@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Manages the power consumption settings of a Plasma Shell
+# depends	: plasma-workspace bluez-qt networkmanager-qt libkscreen
+# makedepends	: extra-cmake-modules kdoctools python3 kdesignerplugin
 
 name=powerdevil
 version=5.10.5

@@ -1,6 +1,4 @@
 # description	: Library that allows easy use of sophisticated DVD navigation features
-# homepage	: 
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: libdvdread
 
 name=libdvdnav

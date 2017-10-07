@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Add support for global workspace shortcuts
+# depends	: kdbusaddons kconfig kcrash
+# makedepends	: extra-cmake-modules qt5
 
 name=kglobalaccel
 version=5.37.0

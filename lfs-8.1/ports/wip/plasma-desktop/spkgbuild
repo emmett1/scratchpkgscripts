@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: KDE Plasma Desktop
+# depends	: polkit-kde-agent-1 libcanberra libxkbfile kmenuedit systemsettings ksysguard kpeople baloo qt5 kactivities-stats
+# makedepends	: extra-cmake-modules kdoctools boost xf86-input-evdev xf86-input-synaptics xorg-server python3 kdesignerplugin
 
 name=plasma-desktop
 version=5.10.5

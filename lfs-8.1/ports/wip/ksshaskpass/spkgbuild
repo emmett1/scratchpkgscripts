@@ -1,7 +1,6 @@
-# description	: KDE Plasma packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: ssh-add helper that uses kwallet and kpassworddialog
+# depends	: kwallet
+# makedepends	: extra-cmake-modules kdoctools python3
 
 name=ksshaskpass
 version=5.10.5

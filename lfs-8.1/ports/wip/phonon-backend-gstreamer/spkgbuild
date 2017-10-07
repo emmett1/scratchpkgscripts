@@ -1,7 +1,6 @@
 # description	: Phonon backend which utilizes the GStreamer media framework
-# homepage	: 
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: gstreamer libxml2 phonon gst-plugins-base
+# makedepends	: extra-cmake-modules
 
 name=phonon-backend-gstreamer
 version=4.9.0

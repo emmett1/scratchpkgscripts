@@ -1,11 +1,6 @@
-# description	: KDE wrapper around the libraw library for manipulating image metadata
-# homepage	: 
-# maintainer	: 
-# backup	: 
-# conflict	: 
-# depends	: libraw
-# makedepends	: 
-# noextract	: 
+# description	: A C++ interface used to decode RAW picture
+# depends	: libraw qt5
+# makedepends	: extra-cmake-modules
 
 name=libkdcraw
 version=17.08.0

@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Widgets for tracking KJob instances
+# depends	: qt5 kcoreaddons kwidgetsaddons
+# makedepends	: extra-cmake-modules
 
 name=kjobwidgets
 version=5.37.0

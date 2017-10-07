@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Framework that lets applications manage user installable packages of non-binary assets
+# depends	: karchive ki18n kcoreaddons
+# makedepends	: extra-cmake-modules qt5 python3 kdoctools
 
 name=kpackage
 version=5.37.0

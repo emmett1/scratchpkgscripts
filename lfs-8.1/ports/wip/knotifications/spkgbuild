@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Abstraction for system notifications
+# depends	: phonon libdbusmenu-qt kwindowsystem kconfig kcodecs kcoreaddons
+# makedepends	: extra-cmake-modules qt5 python3
 
 name=knotifications
 version=5.37.0

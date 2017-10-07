@@ -1,6 +1,4 @@
 # description	: Qt based web browser engine
-# homepage	: http://qt-project.org/
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: icu libjpeg-turbo libpng libwebp libxslt qt5 ruby sqlite gst-plugins-base
 
 name=qtwebkit

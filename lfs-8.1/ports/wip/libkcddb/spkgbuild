@@ -1,11 +1,6 @@
-# description	: Library used to retrieve audio CD meta data from the internet
-# homepage	: 
-# maintainer	: 
-# backup	: 
-# conflict	: 
-# depends	: libmusicbrainz
-# makedepends	: 
-# noextract	: 
+# description	: KDE CDDB library
+# depends	: kio libmusicbrainz5
+# makedepends	: extra-cmake-modules kdoctools python3
 
 name=libkcddb
 version=17.08.0

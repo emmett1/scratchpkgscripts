@@ -1,5 +1,6 @@
-# description	: KF5 based Sound Mixer application
-# depends	: alsa-lib
+# description	: KDE volume control program
+# depends	: kdelibs4support libcanberra hicolor-icon-theme
+# makedepends	: cmake extra-cmake-modules python3 kdoctools kdelibs4support plasma-framework libcanberra kdesignerplugin
 
 name=kmix
 version=17.08.0

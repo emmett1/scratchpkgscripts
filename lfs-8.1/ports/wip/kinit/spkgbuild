@@ -1,7 +1,6 @@
-# description	: KDE Frameworks packages
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: 
-# makedepends	: 
+# description	: Process launcher to speed up launching KDE applications
+# depends	: kio
+# makedepends	: extra-cmake-modules python3 kdoctools
 
 name=kinit
 version=5.37.0

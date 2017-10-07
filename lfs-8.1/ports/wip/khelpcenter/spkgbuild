@@ -1,5 +1,6 @@
-# description	: An application to show KDE Applications' documentation
-# depends	: grantlee libxml2 xapian
+# description	: Application to show KDE Applications' documentation
+# depends	: khtml kdoctools xapian grantlee kinit
+# makedepends	: extra-cmake-modules python3
 
 name=khelpcenter
 version=17.08.0
