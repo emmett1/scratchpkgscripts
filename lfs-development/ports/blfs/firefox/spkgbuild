@@ -1,11 +1,9 @@
 # description	: Stand-alone browser based on the Mozilla codebase
-# homepage	: https://www.mozilla.org/firefox/
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: alsa-lib gtk2 gtk3 nss nspr icu libevent libvpx sqlite dbus-glib graphite2 harfbuzz
 # makedepends	: unzip zip autoconf2.13 yasm rustc gconf
 
 name=firefox
-version=56.0
+version=56.0.1
 release=1
 source=(https://archive.mozilla.org/pub/firefox/releases/$version/source/$name-$version.source.tar.xz
 	http://www.linuxfromscratch.org/patches/blfs/svn/$name-$version-system_graphite2_harfbuzz-1.patch)
@@ -105,7 +103,7 @@ ac_add_options --with-system-zlib
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
 EOF
 
-	patch -Np1 -i ../$name-$version-system_graphite2_harfbuzz-1.patch 1
+	patch -Np1 -i $SRC/$name-$version-system_graphite2_harfbuzz-1.patch
 
 	echo "AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ" > google-key
 	echo "d2284a20-0505-4927-a809-7ffaf4d91e55" > mozilla-key
