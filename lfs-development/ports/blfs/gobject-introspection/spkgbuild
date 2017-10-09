@@ -1,10 +1,8 @@
 # description	: Used to describe the program APIs and collect them in a uniform, machine readable format
-# homepage	: https://wiki.gnome.org/Projects/GObjectIntrospection
-# maintainer	: emmett1, emmett1.2miligrams at gmail.com
 # depends	: glib python2
 
 name=gobject-introspection
-version=1.54.0
+version=1.54.1
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version::4}/$name-$version.tar.xz)
 
