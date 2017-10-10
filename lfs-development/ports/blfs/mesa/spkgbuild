@@ -1,11 +1,9 @@
 # description	: OpenGL compatible 3D graphics library
-# homepage	: http://mesa3d.sourceforge.net/
-# maintainer	: emmett1, emmett1.2miligrams at gmail.com
 # depends	: libdrm python2 wayland libxshmfence libxdamage libxext libxfixes
 # makedepends	: libvdpau python2-mako libx11 glproto dri2proto dri3proto presentproto wayland-protocols
 
 name=mesa
-version=17.2.1
+version=17.2.2
 release=1
 source=(https://mesa.freedesktop.org/archive/$name-$version.tar.xz)
 
@@ -14,8 +12,7 @@ build() {
 
 	GLL_DRV="i915,svga"
 
-	./autogen.sh CFLAGS='-O2' CXXFLAGS='-O2'    \
-	            --prefix=/usr	            \
+	./configure --prefix=/usr	            \
 	            --sysconfdir=/etc               \
 	            --enable-texture-float          \
         	    --enable-osmesa                 \

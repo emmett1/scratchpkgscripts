@@ -1,10 +1,8 @@
 # description	: Keyboard configuration database for the X Window System
-# homepage	: https://www.freedesktop.org/wiki/Software/XKeyboardConfig
-# maintainer	: emmett1, emmett1.2miligrams at gmail.com
 # makedepends	: intltool xkbcomp
 
 name=xkeyboard-config
-version=2.21
+version=2.22
 release=1
 source=(http://xorg.freedesktop.org/archive/individual/data/xkeyboard-config/xkeyboard-config-$version.tar.bz2)
 
