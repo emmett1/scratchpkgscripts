@@ -4,7 +4,7 @@
 # optdepends	: colord cups docbook-utils gtk-doc json-glib libxkbcommon
 
 name=gtk3
-version=3.22.22
+version=3.22.24
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/gtk+/${version::4}/gtk+-$version.tar.xz)
 
