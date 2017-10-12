@@ -1,11 +1,9 @@
 # description	: Cross-platform application framework that is widely used for developing application
-# homepage	: http://qt-project.org/
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: sqlite ca-certificates glib icu jasper libjpeg-turbo libmng libpng libinput libxrender libsm libxi libtiff libxkbcommon mesa mtdev openssl-1.0 pcre2 wayland xcb-util-image xcb-util-keysyms xcb-util-renderutil xcb-util-wm
 # makedepends	: alsa-lib python2 gst-plugins-base 
 
 name=qt5
-version=5.9.1
+version=5.9.2
 release=2
 source=(http://download.qt.io/archive/qt/${version::3}/$version/single/qt-everywhere-opensource-src-$version.tar.xz)
 
@@ -14,8 +12,6 @@ build() {
 	   
 	QT5PREFIX=/usr
 	QT5BINDIR=$QT5PREFIX/lib/qt5/bin
-
-	CXXFLAGS=-fno-delete-null-pointer-checks
 
 	echo "INCLUDEPATH += /usr/include/openssl-1.0" >>           \
 	                     qtbase/src/network/network.pro
@@ -116,16 +112,6 @@ Categories=Qt;Development;Debugger;
 EOF
 
 install -d $PKG/etc/profile.d
-
-#cat > $PKG/etc/profile.d/qt5.sh << EOF
-# Begin /etc/profile.d/qt5.sh
-
-#QT5DIR=/usr
-#export QT5DIR
-#pathappend $QT5DIR/bin/qt5
-
-# End /etc/profile.d/qt5.sh
-#EOF
 
 cat > $PKG/etc/profile.d/qt5.sh << EOf
 # Begin /etc/profile.d/qt5.sh
