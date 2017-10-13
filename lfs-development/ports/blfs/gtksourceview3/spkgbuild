@@ -1,11 +1,10 @@
 # description	: Libraries used for extending the GTK+ text functions to include syntax highlighting
-# homepage	: https://wiki.gnome.org/Projects/GtkSourceView
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: gtk3
 # makedepends	: gobject-introspection
+# optdepends	: vala valgrind gtk-doc itstool fop glade
 
 name=gtksourceview3
-version=3.24.4
+version=3.24.5
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/gtksourceview/${version::4}/gtksourceview-$version.tar.xz)
 

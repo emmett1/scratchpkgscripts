@@ -1,10 +1,8 @@
 # description	: Contains libraries and utilities used for parsing XML files
-# homepage	: http://www.xmlsoft.org/
-# maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# makedepends	: python3
+# makedepends	: python3 icu
 
 name=libxml2
-version=2.9.5
+version=2.9.6
 release=1
 source=(http://xmlsoft.org/sources/$name-$version.tar.gz)
 
@@ -14,6 +12,7 @@ build() {
 	./configure --prefix=/usr \
 		    --disable-static \
 		    --with-history \
+		    --with-icu \
 		    --with-python=/usr/bin/python3
 	make
 	make DESTDIR=$PKG install

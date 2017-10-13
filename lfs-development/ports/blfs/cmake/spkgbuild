@@ -1,10 +1,8 @@
 # description	: Modern toolset used for generating Makefiles
-# homepage	: http://www.cmake.org/
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: curl libarchive
 
 name=cmake
-version=3.9.3
+version=3.9.4
 release=1
 source=(http://www.cmake.org/files/v${version:0:3}/$name-$version.tar.gz)
 
