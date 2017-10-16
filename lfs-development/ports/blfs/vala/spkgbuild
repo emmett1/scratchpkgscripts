@@ -1,10 +1,8 @@
 # description	: New programming language that aims to bring modern programming language features to GNOME developers
-# homepage	: https://wiki.gnome.org/Projects/Vala
-# maintainer	: emmett1, emmett1.2miligrams at gmail.com
 # depends	: glib
 
 name=vala
-version=0.38.1
+version=0.38.2
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version:0:4}/$name-$version.tar.xz)
 

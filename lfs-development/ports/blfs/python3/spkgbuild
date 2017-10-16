@@ -1,10 +1,8 @@
 # description	: Next generation of the python high-level scripting language
-# homepage	: http://www.python.org/
-# maintainer	: emmett1, emmett1.2miligrams at gmail.com
 # depends	: libffi
 
 name=python3
-version=3.6.2
+version=3.6.3
 release=1
 source=(https://www.python.org/ftp/python/$version/Python-$version.tar.xz)
 
