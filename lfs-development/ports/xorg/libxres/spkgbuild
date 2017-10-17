@@ -5,7 +5,7 @@
 # makedepends	: compositeproto damageproto resourceproto scrnsaverproto util-macros
 
 name=libxres
-version=1.0.7
+version=1.2.0
 release=1
 source=(http://ftp.x.org/pub/individual/lib/libXres-$version.tar.bz2)
 

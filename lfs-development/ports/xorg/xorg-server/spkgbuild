@@ -3,7 +3,7 @@
 # makedepends	: libgcrypt mesa xcmiscproto bigreqsproto randrproto renderproto fontsproto videoproto compositeproto recordproto scrnsaverproto resourceproto xf86driproto xineramaproto
 
 name=xorg-server
-version=1.19.4
+version=1.19.5
 release=1
 source=(http://ftp.x.org/pub/individual/xserver/$name-$version.tar.bz2)
 

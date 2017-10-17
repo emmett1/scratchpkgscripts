@@ -6,9 +6,8 @@
 name=linux-firmware
 version=20170912
 release=1
+options=(!strip)
 source=()
-
-NO_STRIP="yes"
 
 build() {
 	cd $SOURCE_DIR

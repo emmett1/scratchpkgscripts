@@ -6,11 +6,10 @@
 name=dropbox
 version=36.4.22
 release=1
+options=(!strip)
 source=(https://d1ilhw0800yew8.cloudfront.net/client/$name-lnx.x86_64-$version.tar.gz
 	dropbox.desktop
 	dropbox.png)
-
-NO_STRIP="yes"
 
 build() {
 	install -d $PKG/opt

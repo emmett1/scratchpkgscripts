@@ -1,18 +1,15 @@
 # description	: A proprietary music streaming service
-# homepage	: http://www.spotify.com
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: alsa-lib gtk2 glib nss libxtst libx11 openssl libcurl-compat gconf
 # makedepends	: libarchive
 
 name=spotify
-version=1.0.59.395
-_anotherversion=.ge6ca9946
-_amd64_release=18
+version=1.0.64.407
+_anotherversion=.g9bd02c2d
+_amd64_release=26
 release=1
+options=(!strip)
 source=(http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_${version}${_anotherversion}-${_amd64_release}_amd64.deb
 	spotify)
-
-NO_STRIP="yes"
 
 build() {
 
