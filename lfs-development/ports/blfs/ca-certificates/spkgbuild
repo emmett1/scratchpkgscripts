@@ -1,14 +1,11 @@
 # description	: Certificate Authority certificates, the Public Key Infrastructure
-# homepage	: https://www.mozilla.org/en-US/about/governance/policies/security-group/certs/
-# maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: openssl
+# depends	: openssl ca-certificates-utils
 
 name=ca-certificates
 version=20170903
-release=1
-source=(certdata-$version.txt::http://anduin.linuxfromscratch.org/BLFS/other/certdata.txt
-	make-ca.sh-20170514)
+release=2
+source=(certdata-$version.txt::http://anduin.linuxfromscratch.org/BLFS/other/certdata.txt)
 
 build() {
-  	bash make-ca.sh-20170514 -D $PKG -C certdata-$version.txt
+  	/usr/sbin/make-ca -D $PKG -C certdata-$version.txt
 }

@@ -1,0 +1,13 @@
+# description	: CA certificates (utilities)
+# depends	: openssl
+# makedepends	: p11-kit
+
+name=ca-certificates-utils
+version=0.6
+release=1
+source=(https://github.com/djlucas/make-ca/archive/v$version/make-ca-$version.tar.gz)
+
+build() {
+	cd make-ca-$version
+	make DESTDIR=$PKG install
+}
