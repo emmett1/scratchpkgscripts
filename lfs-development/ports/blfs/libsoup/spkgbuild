@@ -1,11 +1,9 @@
 # description	: HTTP client/server library for GNOME
-# homepage	: https://wiki.gnome.org/Projects/libsoup
-# maintainer	: emmett1, emmett1.2miligrams at gmail.com
 # depends	: glib-networking libxml2 sqlite
 # makedepends	: gobject-introspection vala
 
 name=libsoup
-version=2.60.0
+version=2.60.1
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version:0:4}/$name-$version.tar.xz)
 

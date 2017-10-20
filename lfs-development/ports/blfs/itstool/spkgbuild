@@ -1,10 +1,8 @@
 # description	: Extracts messages from XML files and outputs PO template files and vice versa
-# homepage	: http://itstool.org/
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: docbook-xml python2 libxml2
 
 name=itstool
-version=2.0.2
+version=2.0.4
 release=1
 source=(http://files.itstool.org/$name/$name-$version.tar.bz2)
 

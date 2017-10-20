@@ -4,15 +4,12 @@
 # depends	: glibc ncurses readline
 
 name=bash
-version=4.4
+version=4.4.12
 release=1
-source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz
-	http://www.linuxfromscratch.org/patches/lfs/8.1/$name-$version-upstream_fixes-1.patch)
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
-
-	patch -Np1 -i ../$name-$version-upstream_fixes-1.patch
 
 	./configure --prefix=/usr                       \
 	            --without-bash-malloc               \
