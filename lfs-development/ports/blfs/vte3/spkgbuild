@@ -1,11 +1,9 @@
 # description	: Termcap file implementation for terminal emulators
-# homepage	: https://wiki.gnome.org/Apps/Terminal/VTE
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: gtk3 pcre2 gnutls
 # makedepends	: gobject-introspection libxml2
 
 name=vte3
-version=0.48.3
+version=0.50.1
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/vte/${version::4}/vte-$version.tar.xz)
 
