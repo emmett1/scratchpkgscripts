@@ -1,0 +1,30 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM="make-4.2.1"
+TARBALL="$PROGRAM.tar.bz2"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	./configure --prefix=/tools --without-guile
+	make
+	make install
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

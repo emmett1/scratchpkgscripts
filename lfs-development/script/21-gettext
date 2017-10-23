@@ -1,0 +1,37 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM="gettext-0.19.8.1"
+TARBALL="$PROGRAM.tar.xz"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	cd gettext-tools
+	EMACS="no" ./configure --prefix=/tools --disable-shared
+
+	make -C gnulib-lib
+	make -C intl pluralx.c
+	make -C src msgfmt
+	make -C src msgmerge
+	make -C src xgettext
+
+	cp -v src/{msgfmt,msgmerge,xgettext} /tools/bin
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

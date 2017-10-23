@@ -1,0 +1,30 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM="linux-4.13.8"
+TARBALL="$PROGRAM.tar.xz"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	make mrproper
+	make INSTALL_HDR_PATH=dest headers_install
+	cp -rv dest/include/* /tools/include
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

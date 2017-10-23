@@ -1,0 +1,40 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM="libstdc++-7.2.0"
+TARBALL="gcc-7.2.0.tar.xz"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	mkdir -v build
+	cd       build
+	
+	../libstdc++-v3/configure           \
+		--host=$LFS_TGT                 \
+		--prefix=/tools                 \
+		--disable-multilib              \
+		--disable-nls                   \
+		--disable-libstdcxx-threads     \
+		--disable-libstdcxx-pch         \
+		--with-gxx-include-dir=/tools/$LFS_TGT/include/c++/7.2.0
+	make
+	make install
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

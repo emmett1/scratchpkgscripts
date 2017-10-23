@@ -1,0 +1,6 @@
+#!/bin/bash
+
+strip --strip-debug /tools/lib/*
+/usr/bin/strip --strip-unneeded /tools/{,s}bin/*
+
+rm -rvf /tools/{,share}/{info,man,doc}

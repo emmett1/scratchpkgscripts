@@ -1,0 +1,29 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM=""
+SOURCE_DIR="/mnt/lfs/sources"
+TARBALL="$PROGRAM.tar.bz2"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	
+          
+   }
+}
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

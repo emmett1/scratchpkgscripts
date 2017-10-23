@@ -1,0 +1,37 @@
+#!/bin/bash -e
+
+. build-properties
+
+PROGRAM="ncurses-6.0"
+TARBALL="$PROGRAM.tar.gz"
+
+cd $SOURCE_DIR
+
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	sed -i s/mawk// configure
+	
+	./configure --prefix=/tools \
+				--with-shared   \
+				--without-debug \
+				--without-ada   \
+				--enable-widec  \
+				--enable-overwrite
+	make
+	make install
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi
