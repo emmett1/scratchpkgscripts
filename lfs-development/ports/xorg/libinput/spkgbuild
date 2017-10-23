@@ -1,24 +1,23 @@
 # description	: library that handles input devices for display servers and other applications that need to directly deal with input devices
 # depends	: libevdev mtdev
+# makedepends	: meson ninja
 
 name=libinput
-version=1.8.3
+version=1.9.0
 release=1
 source=(http://www.freedesktop.org/software/libinput/libinput-$version.tar.xz)
 
 build() {
 	cd libinput-$version
 
-  	./configure \
-		--prefix=/usr		\
-		--sysconfdir=/etc	\
-		--localstatedir=/var	\
-		--disable-static	\
-		--disable-libwacom      \
-            	--disable-debug-gui     \
-            	--disable-tests         \
-            	--disable-documentation \
-            	--with-udev-dir=/lib/udev
-	make
-	make DESTDIR=$PKG install
+  	meson --prefix /usr \
+	      -Dudev-dir=/lib/udev  \
+	      -Ddebug-gui=false     \
+	      -Dtests=false         \
+	      -Ddocumentation=false \
+	      -Dlibwacom=false      \
+	      build
+	cd build
+	ninja
+	DESTDIR=$PKG ninja install
 }

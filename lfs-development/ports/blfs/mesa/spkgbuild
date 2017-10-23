@@ -3,7 +3,7 @@
 # makedepends	: libvdpau python2-mako libx11 glproto dri2proto dri3proto presentproto wayland-protocols
 
 name=mesa
-version=17.2.2
+version=17.2.3
 release=1
 source=(https://mesa.freedesktop.org/archive/$name-$version.tar.xz)
 
@@ -12,7 +12,8 @@ build() {
 
 	GLL_DRV="i915,svga"
 
-	./configure --prefix=/usr	            \
+	./configure CFLAGS='-O2' CXXFLAGS='-O2'     \
+		    --prefix=/usr	            \
 	            --sysconfdir=/etc               \
 	            --enable-texture-float          \
         	    --enable-osmesa                 \
