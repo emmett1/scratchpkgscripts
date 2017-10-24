@@ -1,16 +1,15 @@
-# description	: Documentation tool for consistent and usable documentation in Ruby
-# depends	: ruby
+# description	: Listens to file modifications and notifies you about the changes
+# depends	: ruby-rb-inotify
 
-_name=yard
+_name=sass-listen
 name=ruby-$_name
-version=0.9.9
+version=4.0.0
 release=1
 options=(!emptydirs)
-source=(${name}-${version}.tar.gz::https://github.com/lsegal/yard/archive/v${version}.tar.gz)
+source=(${name}-${version}.tar.gz::https://github.com/sass/listen/archive/v${version}.tar.gz)
 
 build() {
-	cd ${_name}-${version}
-
+	cd listen-$version
 	gem build ${_name}.gemspec
 	local _gemdir="$(gem env gemdir)"
 	gem install --ignore-dependencies --no-user-install -i "${PKG}${_gemdir}" -n "${PKG}/usr/bin" ${_name}-${version}.gem

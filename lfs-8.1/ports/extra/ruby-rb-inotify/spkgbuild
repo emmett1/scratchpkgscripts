@@ -1,16 +1,15 @@
-# description	: Documentation tool for consistent and usable documentation in Ruby
-# depends	: ruby
+# description	: Thorough inotify wrapper for Ruby using FFI
+# depends	: ruby ruby-ffi
 
-_name=yard
+_name=rb-inotify
 name=ruby-$_name
-version=0.9.9
+version=0.9.10
 release=1
 options=(!emptydirs)
-source=(${name}-${version}.tar.gz::https://github.com/lsegal/yard/archive/v${version}.tar.gz)
+source=(${name}-${version}.tar.gz::https://github.com/guard/rb-inotify/archive/v${version}.tar.gz)
 
 build() {
-	cd ${_name}-${version}
-
+	cd $_name-$version
 	gem build ${_name}.gemspec
 	local _gemdir="$(gem env gemdir)"
 	gem install --ignore-dependencies --no-user-install -i "${PKG}${_gemdir}" -n "${PKG}/usr/bin" ${_name}-${version}.gem

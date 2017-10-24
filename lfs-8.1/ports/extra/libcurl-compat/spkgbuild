@@ -1,10 +1,8 @@
 # description	: An URL retrieval library (without versioned symbols)
-# homepage	: https://curl.haxx.se/
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: curl glibc openssl zlib
 
 name=libcurl-compat
-version=7.54.1
+version=7.56.0
 release=1
 source=(https://curl.haxx.se/download/curl-$version.tar.gz)
 
@@ -21,15 +19,13 @@ build() {
 	    --with-gssapi \
 	    --with-random='/dev/urandom' \
 	    --with-ca-bundle='/etc/ssl/ca-bundle.crt'
-
-	sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
 	make -C lib
 	make -C lib DESTDIR=$PKG install
 
-	mv $PKG/usr/lib/libcurl{,-compat}.so.4.4.0
+	mv $PKG/usr/lib/libcurl{,-compat}.so.4.5.0
 	rm $PKG/usr/lib/libcurl.{a,so}*
-	for vers in 3 4.0.0 4.1.0 4.2.0 4.3.0; do
-	    ln -s libcurl-compat.so.4.4.0 $PKG/usr/lib/libcurl.so.${vers}
+	for vers in 3 4.0.0 4.1.0 4.2.0 4.3.0 4.4.0; do
+	    ln -s libcurl-compat.so.4.5.0 $PKG/usr/lib/libcurl.so.${vers}
 	done
 
 	# conflict with package curl
