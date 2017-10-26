@@ -1,6 +1,6 @@
 # description	: A flat and light theme with a modern look
 # depends	: gdk-pixbuf glib gtk-engine-murrine
-# makedepends	: git ruby-sass ruby-rb-fsevent
+# makedepends	: git ruby-sass ruby-rb-fsevent ruby-sass-listen
 
 name=numix-themes-blue-git
 version=2.6.6.r18.f25d7e0
