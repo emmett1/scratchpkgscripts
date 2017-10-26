@@ -1,6 +1,5 @@
 # description	: CA certificates (utilities)
 # depends	: openssl
-# makedepends	: p11-kit
 
 name=ca-certificates-utils
 version=0.6
