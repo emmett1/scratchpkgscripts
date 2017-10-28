@@ -1,5 +1,5 @@
 # description	: KDE Plasma Workspace
-# depends	: kjsembed knotifyconfig libxdamage libksysguard ktexteditor qt5 kde-cli-tools xrdb xsetroot kactivitymanagerd xmessage xprop milou prison kwin plasma-integration kdelibs4support kxmlrpcclient kidletime kxmlgui
+# depends	: kjsembed knotifyconfig libxdamage libksysguard ktexteditor qt5 kde-cli-tools xrdb xsetroot kactivitymanagerd xmessage xprop milou prison kwin plasma-integration kdelibs4support kxmlrpcclient kidletime kxmlgui phonon-backend-gstreamer
 # makedepends	: extra-cmake-modules kdoctools baloo krunner kxmlrpcclient networkmanager-qt kdesignerplugin
 
 name=plasma-workspace
