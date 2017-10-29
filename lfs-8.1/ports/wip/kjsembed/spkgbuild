@@ -10,7 +10,7 @@ source=(http://download.kde.org/stable/frameworks/${version::4}/portingAids/$nam
 build() {
 	cd $name-$version
 
-	export CXXFLAGS='-isystem /usr/include/openssl-1.0'
+	export CXXFLAGS="${CXXFLAGS} -isystem /usr/include/openssl-1.0"
 
 	mkdir build
 	cd    build

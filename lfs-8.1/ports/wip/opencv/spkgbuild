@@ -1,6 +1,4 @@
 # description	: Graphics libraries mainly aimed at real-time computer vision
-# homepage	: 
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: ffmpeg gst-plugins-base gtk3 jasper libjpeg-turbo libpng libtiff libwebp python2 v4l-utils xine-lib
 # makedepends	: libarchive cmake
 # noextract	: ippicv_2017u2_lnx_intel64_20170418.tgz opencv_contrib-3.3.0.tar.gz

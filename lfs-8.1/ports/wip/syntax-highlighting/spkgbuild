@@ -12,7 +12,7 @@ build() {
 
 	sed -i.orig 's|w-|w\\-|' data/syntax/rest.xml
 
-	export CXXFLAGS='-isystem /usr/include/openssl-1.0'
+	export CXXFLAGS="${CXXFLAGS} -isystem /usr/include/openssl-1.0"
 
 	mkdir build
 	cd    build
