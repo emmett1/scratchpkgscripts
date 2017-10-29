@@ -1,12 +1,9 @@
 # description	: Unified high level API for communicating with mobile broadband modems
-# homepage	: https://www.freedesktop.org/wiki/Software/ModemManager/
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: libgudev libmbim libqmi polkit
 # makedepends	: gobject-introspection vala
-# depends :  
 
 name=modemmanager
-version=1.6.8
+version=1.6.10
 release=1
 source=(http://www.freedesktop.org/software/ModemManager/ModemManager-$version.tar.xz)
 

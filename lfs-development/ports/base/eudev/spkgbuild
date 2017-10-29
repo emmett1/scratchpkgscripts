@@ -5,9 +5,9 @@
 
 name=eudev
 version=3.2.4
-release=1
+release=2
 source=(http://dev.gentoo.org/~blueness/$name/$name-$version.tar.gz
-	http://anduin.linuxfromscratch.org/LFS/udev-lfs-20140408.tar.bz2)
+	http://anduin.linuxfromscratch.org/LFS/udev-lfs-20171027.tar.bz2)
 
 build() {
 	cd $name-$version
@@ -49,13 +49,13 @@ fi
 	fi
 
 	cd $SRC
-	make -f udev-lfs-20140408/Makefile.lfs DESTDIR=$PKG install
+	# fix wrong date
+	sed -i 's/20140408/20171027/' udev-lfs-20171027/Makefile.lfs 
+	make -f udev-lfs-20171027/Makefile.lfs DESTDIR=$PKG install
 
 	if [ -d /tools ];then
 		LD_LIBRARY_PATH=/tools/lib $PKG/sbin/udevadm hwdb --update --root=$PKG
 	else
 		$PKG/sbin/udevadm hwdb --update --root=$PKG
 	fi
-
-	mv $PKG/usr/share/doc/{udev-20140408,udev}
 }
