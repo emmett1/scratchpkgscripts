@@ -1,10 +1,8 @@
 # description	: Expose the kernel's API for use by Glibc
-# homepage	: https://www.kernel.org/
-# maintainer	: emmett1, emmett1.2miligrams at gmail.com
 # depends	: bc inetutils kmod
 
 name=linux-headers
-version=4.13.3
+version=4.13.8
 release=1
 source=(https://www.kernel.org/pub/linux/kernel/v4.x/linux-$version.tar.xz)
 
