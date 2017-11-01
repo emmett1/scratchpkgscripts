@@ -1,10 +1,8 @@
 # description	: Network related gio modules for GLib
-# homepage	: https://git.gnome.org/browse/glib-networking
-# maintainer	: emmett1, emmett1.2miligrams at gmail.com
 # depends	: glib gnutls gsettings-desktop-schemas ca-certificates p11-kit
 
 name=glib-networking
-version=2.54.0
+version=2.54.1
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version:0:4}/$name-$version.tar.xz)
 

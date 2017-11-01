@@ -1,10 +1,8 @@
 # description	: Implementation of the iCalendar protocols and data formats
-# homepage	: https://github.com/libical/libical
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # makedepends	: cmake
 
 name=libical
-version=2.0.0
+version=3.0.0
 release=1
 source=(https://github.com/libical/$name/releases/download/v$version/$name-$version.tar.gz)
 
