@@ -1,18 +1,18 @@
 # description	: The main C library
 # homepage	: http://www.gnu.org/software/libc
 # maintainer	: emmett1, emmett1.2miligrams at gmail.com
-# depends	: linux-headers
+# depends	: linux-api-headers
 
 name=glibc
 version=2.26
 release=1
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz
-	http://www.linuxfromscratch.org/patches/lfs/8.1/$name-$version-fhs-1.patch)
+	http://www.linuxfromscratch.org/patches/lfs/development/$name-$version-fhs-1.patch)
 
 build() {
 	cd $name-$version
 
-	patch -Np1 -i ../$name-$version-fhs-1.patch || exit 1
+	patch -Np1 -i ../$name-$version-fhs-1.patch
 
 	mkdir -p $PKG/usr/lib
 	ln -sfv /tools/lib/gcc $PKG/usr/lib
@@ -52,9 +52,7 @@ build() {
 	cp -v ../nscd/nscd.conf $PKG/etc/nscd.conf
 	mkdir -p $PKG/var/cache/nscd
 
-	mkdir -p $PKG/usr/lib/locale
-
-	make install_root=$PKG localedata/install-locales
+	mkdir -pv $PKG/usr/lib/locale
 
 	cat > $PKG/etc/nsswitch.conf << "EOF"
 # Begin /etc/nsswitch.conf
@@ -79,13 +77,11 @@ cat > $PKG/etc/ld.so.conf << "EOF"
 /usr/local/lib
 /opt/lib
 
-EOF
-
-cat >> $PKG/etc/ld.so.conf << "EOF"
 # Add an include directory
 include /etc/ld.so.conf.d/*.conf
 
 EOF
+
 mkdir -p $PKG/etc/ld.so.conf.d
 
 rm -v $PKG/usr/lib/gcc
