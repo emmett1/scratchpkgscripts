@@ -1,10 +1,8 @@
 # description	: Library which provides access to hardware accelerated video processing
-# homepage	: https://01.org/linuxmedia/vaapi
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
-# depends	: mesa
+# depends	: mesa libdrm
 
 name=libva
-version=1.8.3
+version=2.0.0
 release=1
 source=(https://github.com/01org/libva/releases/download/$version/$name-$version.tar.bz2)
 

@@ -1,12 +1,10 @@
 # description	: Libraries relating to cryptography
-# homepage	: https://www.openssl.org
-# maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 
 name=openssl-1.0
-version=1.0.2l
+version=1.0.2m
 release=1
 source=(https://openssl.org/source/openssl-$version.tar.gz
-	http://www.linuxfromscratch.org/patches/blfs/8.1/openssl-$version-compat_versioned_symbols-1.patch)
+	http://www.linuxfromscratch.org/patches/blfs/svn/openssl-$version-compat_versioned_symbols-1.patch)
 
 build() {
 	cd openssl-$version
