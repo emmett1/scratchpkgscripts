@@ -7,7 +7,7 @@
 name=conky
 version=1.10.6
 release=1
-source=(https://github.com/brndnmtthws/conky/archive/v${version}.tar.gz
+source=($name-$version.tar.gz::https://github.com/brndnmtthws/conky/archive/v${version}.tar.gz
 	lua53.patch)
 
 build() {
