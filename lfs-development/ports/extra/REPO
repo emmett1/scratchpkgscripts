@@ -107,6 +107,7 @@ d:cmus
 d:strace
 d:ruby-sass
 d:xfce4-cpugraph-plugin
+d:httpup
 d:smplayer
 d:ruby-maruku
 f:9f45af0fe5373fa0c35acab33719d320:wifite-git/.md5sum
@@ -381,6 +382,8 @@ f:cbf058253ae0861b00faa6b67fbd6f94:ruby-sass/.md5sum
 f:7e70f4d8c5fa78a0e39202b7528b07c1:ruby-sass/spkgbuild
 f:5c5946e532bef5c8c0880c127f6b9443:xfce4-cpugraph-plugin/.md5sum
 f:80e784901d1fc80a4bc86074e8879048:xfce4-cpugraph-plugin/spkgbuild
+f:3a52d5da02e35f162608d4f614af0a9a:httpup/.md5sum
+f:104bd8736df788f14ba756c643589431:httpup/spkgbuild
 f:a1d8d676154cd3af251c1974f9dd90ec:smplayer/.md5sum
 f:1ac9644ae6a46687bebf3585c46fa43a:smplayer/spkgbuild
 f:3f87dbbbce3c0be9317e91bd3fde13d7:ruby-maruku/.md5sum
