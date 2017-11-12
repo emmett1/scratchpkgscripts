@@ -5,7 +5,7 @@
 
 name=gparted
 version=0.30.0
-release=1
+release=2
 source=(http://downloads.sourceforge.net/$name/$name-$version.tar.gz)
 
 build() {
@@ -17,14 +17,14 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	sed -i 's:/usr/sbin/gparted:/usr/bin/gparted_polkit:' \
+	sed -i 's:/usr/bin/gparted:/usr/bin/gparted_polkit:' \
         	                             $PKG/usr/share/applications/gparted.desktop
 
 mkdir -p $PKG/usr/bin
 cat > $PKG/usr/bin/gparted_polkit << "EOF"
 #!/bin/bash
 
-pkexec /usr/sbin/gparted $@
+pkexec /usr/bin/gparted $@
 EOF
 chmod -v 0755 $PKG/usr/bin/gparted_polkit
 
