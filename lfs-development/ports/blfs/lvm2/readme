@@ -1,11 +1,13 @@
-
-Kernel Configuration
+Kernel Configuration:
 
 Enable the following options in the kernel configuration and recompile the kernel:
 
-	Note:
 
-	There are several other Device Mapper options in the kernel beyond those listed below. In order to get reasonable results if running the regression tests, all must be enabled either internally or as a module. The tests will all time out if Magic SysRq key is not enabled.
+Note:
+
+There are several other Device Mapper options in the kernel beyond those listed below. In order
+to get reasonable results if running the regression tests, all must be enabled either internally
+or as a module. The tests will all time out if Magic SysRq key is not enabled.
 
 Device Drivers --->
   [*] Multiple devices driver support (RAID and LVM) ---> [CONFIG_MD]

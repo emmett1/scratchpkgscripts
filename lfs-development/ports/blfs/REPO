@@ -351,8 +351,8 @@ f:316d43ca5b26c6164be87e3c3b3fb3b5:json-glib/.md5sum
 f:99ffb5073f9f894e281cb255b2c53846:json-glib/spkgbuild
 f:c50ccfc20965a49138857c6022492359:xdg-utils/.md5sum
 f:7ff7f53ce83e42270ae8df28a0d3b782:xdg-utils/spkgbuild
-f:3b594ac07ca0812dc84329567c77cb0a:cmake/.md5sum
-f:42505b2327bb6501e6e0dd6400c673ff:cmake/spkgbuild
+f:e84033c364dc0847d73884d82bae8128:cmake/.md5sum
+f:ed05c860ce8dae4cb29468d16cc296f2:cmake/spkgbuild
 f:91bad53d8dbe89f5cc1567fa1ba6e880:xfwm4/.md5sum
 f:b122c02639ffed617e338d0ae3783535:xfwm4/spkgbuild
 f:7f55bdc58d71ab06483caf52286b67da:libusb/.md5sum
@@ -490,8 +490,8 @@ f:cc9742a533fb253ccd34ab36c69da9a4:exo/.md5sum
 f:2f7c9ab1b6aff043caef390e790fcebe:exo/spkgbuild
 f:4161cb2df1eb44373a8bd9f50f202b43:libgudev/.md5sum
 f:4abbc8501e574b730b20838dcbfea05a:libgudev/spkgbuild
-f:fb3b67beac536b0ffba2844a8893b297:libxslt/.md5sum
-f:e50094e482db87852c17c99762044276:libxslt/spkgbuild
+f:df3e217ae7c97222e295de4de17b5175:libxslt/.md5sum
+f:f45043b2a73ea8f47fa8055d3bf21a9e:libxslt/spkgbuild
 f:38961f20b2b6da663620c6de188844d4:libevent/.md5sum
 f:cc61b3fabf694e67c6dc1b216d391193:libevent/spkgbuild
 f:68e82f5a32654c778bb5d9f9a1a036a1:unrar/.md5sum
@@ -547,9 +547,9 @@ f:4ac89432d643026516a177b7611a383a:mesa/spkgbuild
 f:5332fd51860d3e24d6f54b1f3e66470b:networkmanager/.md5sum
 f:108d48d71e13da42968bf00764207eb4:networkmanager/spkgbuild
 f:1bf7ac3c00b48ecf7154f5ed94217e60:networkmanager/networkmanager.install
-f:e327448fb11e824f84914648bb4861a4:lvm2/.md5sum
-f:80cc93c84c01f60241e9d8ef720deb9f:lvm2/readme
-f:2b296035a69f66a3f0fe5c8403f1f391:lvm2/spkgbuild
+f:4625cd277d0e8674ab579b8e30982f80:lvm2/.md5sum
+f:79f918e12bdf1d565d517193c3fe709f:lvm2/readme
+f:5372d7cee5a0435832a950d34fc614d3:lvm2/spkgbuild
 f:4fc0fbc5cfd7e430660864d6c92192d4:pnmixer/.md5sum
 f:ca725e376d30958b7ca55c05481c2247:pnmixer/spkgbuild
 f:05daf7ee7628e8b45a6921ea9a5efa0e:icon-naming-utils/.md5sum
@@ -560,8 +560,8 @@ f:d17469d145406aa146540e3b02f1c0f7:perl-uri/.md5sum
 f:f5f9afe14f5d99210f97524d192eaefa:perl-uri/spkgbuild
 f:245883264153c86ed685130acf49f1e2:x265/.md5sum
 f:88e61cb2ba93850b352736b17025680e:x265/spkgbuild
-f:8e6c7b1c505cd184a28c0611cae70780:lxterminal/.md5sum
-f:ce2afb091617259e5b9af766084634af:lxterminal/spkgbuild
+f:b3dbcb521b6698c249c4c80e956f9067:lxterminal/.md5sum
+f:32bc1e52192c29ec98036d963975ce9f:lxterminal/spkgbuild
 f:eb04e98f3a84cccf70b0b89cdc2c5707:imagemagick7/.md5sum
 f:0fc841d6fc8b660e785c20f8c203e6eb:imagemagick7/spkgbuild
 f:10e5f32ec342451259d9359b343b4cfd:gnupg/.md5sum
@@ -876,8 +876,8 @@ f:06c7dc0377312fed1eb092b85e3e2fa6:libvpx/.md5sum
 f:8466dbe91226a6a2310d12c507c09e97:libvpx/spkgbuild
 f:7e050f9853448991f98af01d92d65875:libksba/.md5sum
 f:22ae117f240badd5a8a29de89242db1f:libksba/spkgbuild
-f:c3e7ab1d828699e1301d854b050bc79e:libass/.md5sum
-f:45c327e1708185eb9c6b77e13e88ffd5:libass/spkgbuild
+f:02b2cc87fa8697238691696479b4ff69:libass/.md5sum
+f:6efdf530cdb7752d2084f0562f3688dd:libass/spkgbuild
 f:f5df1a9159695797458f00e5063cec3a:pangomm/.md5sum
 f:35c221b31f53908a29f0deb564ef5f29:pangomm/spkgbuild
 f:b13962e6d4d8cb0d28e339f56843e2a9:libfm-extra/.md5sum
@@ -929,8 +929,8 @@ f:242c2404adabce72694baf5288fb2972:libvdpau/spkgbuild
 f:c85d5d911401f1a1f34448a7df0fb0d9:mousepad/.md5sum
 f:a876e3e8b3dbcd2ca860377e96db76c7:mousepad/spkgbuild
 f:7b9e085af14a93e97deecd3094e22992:mousepad/mousepad.install
-f:ee3ab588c636a79e9760f2fb8da2d0e7:libxml2/.md5sum
-f:ff033e2786c90ed37c31390476ced01a:libxml2/spkgbuild
+f:2196fbc8081dc96b639dd8e47da16952:libxml2/.md5sum
+f:a08a0160d28af38270aef4e1cddf41eb:libxml2/spkgbuild
 f:34bb76cd50effdab0090d231e23fc21e:dbus/.md5sum
 f:fed95af5c43bf65b318c53ecb9b25f33:dbus/dbus.install
 f:214f983689b66dfff562c2b5e41adcb1:dbus/spkgbuild

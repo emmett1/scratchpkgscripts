@@ -2,13 +2,14 @@
 # makedepends	: python3 icu
 
 name=libxml2
-version=2.9.6
+version=2.9.7
 release=1
 source=(http://xmlsoft.org/sources/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
 
+	sed -i '/_PyVerify_fd/,+1d' python/types.c
 	./configure --prefix=/usr \
 		    --disable-static \
 		    --with-history \

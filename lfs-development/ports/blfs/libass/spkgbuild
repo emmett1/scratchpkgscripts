@@ -2,9 +2,10 @@
 # homepage	: https://github.com/libass/libass/
 # maintainer	: Emmett1, emmett1.2miligrams at gmail.com
 # depends	: freetype2 fribidi fontconfig
+# makedepends	: nasm
 
 name=libass
-version=0.13.7
+version=0.14.0
 release=1
 source=(https://github.com/$name/$name/releases/download/$version/$name-$version.tar.xz)
 
