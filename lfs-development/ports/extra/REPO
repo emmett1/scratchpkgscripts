@@ -184,9 +184,9 @@ f:eb0f5adcb02776375ee21d6a7089d5d6:aircrack-ng/spkgbuild
 f:f55e646248f25de2e8f835b3bb7dcc08:aircrack-ng/9a1846507ff043c397257206ff21adae90a122f4.patch
 f:211d4a0dd829794b97d63ff7cc7fb20d:ruby-ffi/.md5sum
 f:a96ed1c5836cf8b8405bef8a7cc1d1b9:ruby-ffi/spkgbuild
-f:7ae4c60565c34f5011f1a9426e13becc:spotify/.md5sum
+f:ad8753cc9d426924d1b8bb64e4e706b4:spotify/.md5sum
 f:cfef2f72647980c639201c6ab39e8534:spotify/spotify
-f:01dd353ef98a0885dfafc94ecd42e831:spotify/spkgbuild
+f:4650e50cdeb10ee24bdf3bcb4efa6dcf:spotify/spkgbuild
 f:7eea826bbcd2c86628deec50d44f5493:viewnior/.md5sum
 f:4ec4f0c88c48c611a5fd72cd11754cdc:viewnior/spkgbuild
 f:37300b8aad679501cd2f7621ec415210:ffmpegthumbnailer/.md5sum
@@ -321,7 +321,7 @@ f:4a4cdaede8333b4eaca9af3b5eddbf96:nitrogen/spkgbuild
 f:64936564074863e7a601c549906bc86e:obmenu/.md5sum
 f:db2ec97b137da18d941a333f7b586215:obmenu/spkgbuild
 f:d41d8cd98f00b204e9800998ecf8427e:scratchpkg/.md5sum
-f:c1c5a2291669b80fd8597f45cfa80149:scratchpkg/spkgbuild
+f:48b1dcb4b05b8ff3d06eede993b376fd:scratchpkg/spkgbuild
 f:206f18250cbccdcfcd308f1d79a4ab20:htop/.md5sum
 f:77fd6f7b0b05c18829a0af126902eff7:htop/spkgbuild
 f:228ab017dda8fb1ccc2cc36022eac304:libconfig/.md5sum
@@ -384,7 +384,7 @@ f:5c5946e532bef5c8c0880c127f6b9443:xfce4-cpugraph-plugin/.md5sum
 f:80e784901d1fc80a4bc86074e8879048:xfce4-cpugraph-plugin/spkgbuild
 f:3a52d5da02e35f162608d4f614af0a9a:httpup/.md5sum
 f:104bd8736df788f14ba756c643589431:httpup/spkgbuild
-f:a1d8d676154cd3af251c1974f9dd90ec:smplayer/.md5sum
-f:1ac9644ae6a46687bebf3585c46fa43a:smplayer/spkgbuild
+f:89ed321c18a695b7c3d0a981bd199b62:smplayer/.md5sum
+f:c2fa779bee0c8110b5692ee8dbaf6c3c:smplayer/spkgbuild
 f:3f87dbbbce3c0be9317e91bd3fde13d7:ruby-maruku/.md5sum
 f:b4ee5474f39c538f9f1dc64e20d3baf2:ruby-maruku/spkgbuild
