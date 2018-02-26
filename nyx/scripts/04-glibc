@@ -1,0 +1,47 @@
+#!/bin/bash -e
+
+. build-properties
+. pkgversion
+
+PROGRAM="glibc-${GLIBC_VER}"
+TARBALL="$PROGRAM.tar.*"
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	mkdir -v build
+	cd       build
+	
+	../configure                             \
+		  --prefix=/tools                    \
+		  --host=$LFS_TGT                    \
+		  --build=$(../scripts/config.guess) \
+		  --enable-kernel=3.2             \
+		  --with-headers=/tools/include      \
+		  libc_cv_forced_unwind=yes          \
+		  libc_cv_c_cleanup=yes
+	make
+	make install
+	
+	echo 'int main(){}' > dummy.c
+	$LFS_TGT-gcc dummy.c
+	readelf -l a.out | grep ': /tools'
+	rm -v dummy.c a.out
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+[ $PIPESTATUS = 0 ] || exit $PIPESTATUS
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

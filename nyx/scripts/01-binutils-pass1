@@ -1,0 +1,44 @@
+#!/bin/bash -e
+
+. build-properties
+. pkgversion
+
+PROGRAM="binutils-${BINUTILS_VER}"
+TARBALL="$PROGRAM.tar.*"
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	mkdir -v build
+	cd       build
+	
+	../configure --prefix=/tools            \
+				 --with-sysroot=$LFS        \
+				 --with-lib-path=/tools/lib \
+				 --target=$LFS_TGT          \
+				 --disable-nls              \
+				 --disable-werror
+	make
+	case $(uname -m) in
+	  x86_64) mkdir -v /tools/lib && ln -sv lib /tools/lib64 ;;
+	esac
+
+	make install
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+[ $PIPESTATUS = 0 ] || exit $PIPESTATUS
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

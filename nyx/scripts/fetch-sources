@@ -1,0 +1,8 @@
+#!/bin/bash
+
+. build-properties
+. pkgversion
+
+src=(
+http://ftp.gnu.org/gnu/binutils/binutils-2.30.tar.xz
+http://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz

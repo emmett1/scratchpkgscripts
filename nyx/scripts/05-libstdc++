@@ -1,0 +1,42 @@
+#!/bin/bash -e
+
+. build-properties
+. pkgversion
+
+PROGRAM="gcc-${GCC_VER}"
+TARBALL="$PROGRAM.tar.*"
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	mkdir -v build
+	cd       build
+	
+	../libstdc++-v3/configure           \
+		--host=$LFS_TGT                 \
+		--prefix=/tools                 \
+		--disable-multilib              \
+		--disable-nls                   \
+		--disable-libstdcxx-threads     \
+		--disable-libstdcxx-pch         \
+		--with-gxx-include-dir=/tools/$LFS_TGT/include/c++/${GCC_VER}
+	make
+	make install
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+[ $PIPESTATUS = 0 ] || exit $PIPESTATUS
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

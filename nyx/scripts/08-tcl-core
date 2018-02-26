@@ -1,0 +1,36 @@
+#!/bin/bash -e
+
+. build-properties
+. pkgversion
+
+PROGRAM="tcl${TCLCORE_VER}"
+TARBALL="$PROGRAM-src.tar.*"
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	cd unix
+	./configure --prefix=/tools
+	make
+	make install
+	chmod -v u+w /tools/lib/libtcl8.6.so
+	make install-private-headers
+	ln -sv tclsh8.6 /tools/bin/tclsh
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+[ $PIPESTATUS = 0 ] || exit $PIPESTATUS
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

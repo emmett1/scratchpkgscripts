@@ -1,0 +1,23 @@
+# dont execute this file !!!
+
+export MAKEFLAGS="-j6"
+export LFS="/mnt/lfs"
+export LFS_TGT=$(uname -m)-lfs-linux-gnu
+
+PATH=/tools/bin:/bin:/usr/bin
+
+export LOG_DIR="$(dirname $(dirname $(realpath $0)))/log"
+export SOURCE_DIR="$(dirname $(dirname $(realpath $0)))/sources"
+
+if [ ! -d ${LOG_DIR} ]
+then
+   install -dm755 ${LOG_DIR} || { echo "Cannot create ${LOG_DIR}"; exit 1; }
+fi
+
+if [ ! -e "/tools" ]
+then
+  echo "You must create /tools"; exit 1
+fi
+
+touch "/tools/.test" 2>/dev/null || { echo "Cannot write to /tools"; exit 1; }
+rm -f "/tools/.test"
