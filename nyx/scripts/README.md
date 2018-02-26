@@ -1,4 +1,5 @@
-#### This is toolchain build script for LFS based on SVN book
+## This is toolchain build script for LFS based on SVN book
+### How to use:
 
 1. create $LFS directory (/mnt/lfs is default, you can change it in build-properties)
 
