@@ -34,5 +34,5 @@ $(dirname $0)/31-xz
 $(dirname $0)/cleaning
 
 echo "Toolchain build complete"
-echo "Dont forget to run 'sudo chown -v emmett:emmett /mnt/lfs/tools'"
+echo "Dont forget to run 'sudo chown -v 0:0 /mnt/lfs/tools'"
 echo "to change toolchain permission to root"
