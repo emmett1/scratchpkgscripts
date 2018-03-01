@@ -33,6 +33,8 @@ $(dirname $0)/30-util-linux
 $(dirname $0)/31-xz
 $(dirname $0)/cleaning
 
+echo "*******************************************************"
 echo "Toolchain build complete"
-echo "Dont forget to run 'sudo chown -v 0:0 /mnt/lfs/tools'"
+echo "Dont forget to run 'sudo chown -Rv 0:0 /mnt/lfs'"
 echo "to change toolchain permission to root"
+echo "*******************************************************"

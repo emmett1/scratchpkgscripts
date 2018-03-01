@@ -1,7 +1,7 @@
 #!/bin/bash
 
-. build-properties
-. pkgversion
+. $(dirname $0)/build-properties
+. $(dirname $0)/pkgversion
 
 src=(
 http://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_VER}.tar.xz
@@ -12,7 +12,7 @@ https://ftp.gnu.org/gnu/mpc/mpc-${MPC_VER}.tar.gz
 https://www.kernel.org/pub/linux/kernel/v4.x/linux-${LINUX_VER}.tar.xz
 http://ftp.gnu.org/gnu/glibc/glibc-${GLIBC_VER}.tar.xz
 https://downloads.sourceforge.net/tcl/tcl${TCLCORE_VER}-src.tar.gz
-http://prdownloads.sourceforge.net/expect/expect${EXPECT_VER}.tar.gz
+https://sourceforge.net/projects/expect/files/Expect/${EXPECT_VER}/expect${EXPECT_VER}.tar.gz
 http://ftp.gnu.org/gnu/dejagnu/dejagnu-${DEJAGNU_VER}.tar.gz
 http://ftp.gnu.org/gnu//ncurses/ncurses-${NCURSES_VER}.tar.gz
 http://ftp.gnu.org/gnu/bash/bash-${BASH_VER}.tar.gz

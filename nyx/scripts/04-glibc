@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
-. build-properties
-. pkgversion
+. $(dirname $0)/build-properties
+. $(dirname $0)/pkgversion
 
 PROGRAM="glibc-${GLIBC_VER}"
 TARBALL="$PROGRAM.tar.*"
