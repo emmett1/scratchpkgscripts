@@ -61,3 +61,17 @@ for i in ${src[@]}; do
 		fi
 	fi
 done
+
+echo
+echo "Checking sources, plese wait..."
+for s in ${src[@]}; do
+	tarballname=$(echo $s | rev | cut -d / -f 1 | rev)
+	case $tarballname in
+		*.tar.*)
+			tar -tf $SOURCE_DIR/$tarballname &>/dev/null
+			[ $? = 0 ] || echo "$tarballname is broken!"
+		;;
+	esac
+done
+
+exit 0
