@@ -35,6 +35,10 @@ http://ftp.gnu.org/gnu/tar/tar-${TAR_VER}.tar.xz
 http://ftp.gnu.org/gnu/texinfo/texinfo-${TEXINFO_VER}.tar.xz
 https://www.kernel.org/pub/linux/utils/util-linux/v${UTILLINUX_VER::4}/util-linux-${UTILLINUX_VER}.tar.xz
 http://tukaani.org/xz/xz-${XZ_VER}.tar.xz
+https://openssl.org/source/openssl-${OPENSSL_VER}.tar.gz
+http://anduin.linuxfromscratch.org/BLFS/other/certdata.txt
+https://ftp.gnu.org/gnu/wget/wget-${WGET_VER}.tar.gz
+http://zlib.net/zlib-${ZLIB_VER}.tar.xz
 )
 
 for i in ${src[@]}; do

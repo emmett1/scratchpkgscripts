@@ -8,7 +8,7 @@ fi
 LFS=$1
 
 if [ -z $1 ]; then
-	msgerr "Please set directory for chroot!"
+	msgerr "Please set directory to chroot!"
 	exit 1
 fi
 

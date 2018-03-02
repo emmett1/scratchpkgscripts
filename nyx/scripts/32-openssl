@@ -1,0 +1,36 @@
+#!/bin/bash -e
+
+. $(dirname $0)/build-properties
+. $(dirname $0)/pkgversion
+
+PROGRAM="openssl-${OPENSSL_VER}"
+TARBALL="$PROGRAM.tar.gz"
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	./config --prefix=/tools             \
+             --openssldir=/tools/etc/ssl \
+             --libdir=lib                \
+             shared                      \
+             no-ssl3-method
+    make
+    make -j1 MANDIR=/tools/share/man MANSUFFIX=ssl install
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+[ $PIPESTATUS = 0 ] || exit $PIPESTATUS
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

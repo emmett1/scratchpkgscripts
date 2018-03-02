@@ -31,8 +31,13 @@ $(dirname $0)/28-tar
 $(dirname $0)/29-texinfo
 $(dirname $0)/30-util-linux
 $(dirname $0)/31-xz
+$(dirname $0)/32-openssl
+$(dirname $0)/33-certs
+$(dirname $0)/34-zlib
+$(dirname $0)/35-wget
 $(dirname $0)/cleaning
 
+echo
 echo "*******************************************************"
 echo "Toolchain build complete"
 echo "Dont forget to run 'sudo chown -Rv 0:0 /mnt/lfs'"

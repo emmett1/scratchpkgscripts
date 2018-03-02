@@ -9,6 +9,8 @@ PATH=/tools/bin:/bin:/usr/bin
 export LOG_DIR="$(dirname $(dirname $(realpath $0)))/log"
 export SOURCE_DIR="$(dirname $(dirname $(realpath $0)))/sources"
 
+export LC_ALL=C
+
 if [ ! -d ${LOG_DIR} ]
 then
    install -dm755 ${LOG_DIR} || { echo "Cannot create ${LOG_DIR}"; exit 1; }

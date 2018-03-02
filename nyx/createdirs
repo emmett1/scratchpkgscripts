@@ -1,13 +1,13 @@
 #!/bin/bash -e
 
-NYX=/mnt/nyx
+NYX=/mnt/lfs
 
 ln -sfv $NYX/tools /
 
 mkdir -pv $NYX/{dev,proc,sys,run}
 
-mknod -m 600 $NYX/dev/console c 5 1
-mknod -m 666 $NYX/dev/null c 1 3
+mknod -m 600 $NYX/dev/console c 5 1 || true
+mknod -m 666 $NYX/dev/null c 1 3 || true
 
 mkdir -pv $NYX/{bin,boot,etc/opt,home,lib/firmware,mnt,opt}
 mkdir -pv $NYX/{media/{floppy,cdrom},sbin,srv,var}
@@ -20,18 +20,19 @@ mkdir -pv  $NYX/usr/libexec
 mkdir -pv $NYX/usr/{,local/}share/man/man{1..8}
 mkdir -pv $NYX/lib64
 
-mkdir -v $NYX/var/{log,mail,spool}
-ln -sv /run $NYX/var/run
-ln -sv /run/lock $NYX/var/lock
+mkdir -pv $NYX/var/{log,mail,spool}
+ln -svf /run $NYX/var/run
+ln -svf /run/lock $NYX/var/lock
 mkdir -pv $NYX/var/{opt,cache,lib/{color,misc,locate},local}
 
-ln -sv /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} $NYX/bin
-ln -sv /tools/bin/{install,perl} $NYX/usr/bin
-ln -sv /tools/lib/libgcc_s.so{,.1} $NYX/usr/lib
-ln -sv /tools/lib/libstdc++.{a,so{,.6}} $NYX/usr/lib
-ln -sv bash $NYX/bin/sh
+ln -svf /tools/bin/{bash,cat,dd,echo,ln,pwd,rm,stty} $NYX/bin
+ln -svf /tools/bin/{install,perl} $NYX/usr/bin
+ln -svf /tools/lib/libgcc_s.so{,.1} $NYX/usr/lib
+ln -svf /tools/lib/libstdc++.{a,so{,.6}} $NYX/usr/lib
+ln -svf bash $NYX/bin/sh
 
-ln -sv /proc/self/mounts $NYX/etc/mtab
+ln -svf /proc/self/mounts $NYX/etc/mtab
+echo "nameserver 8.8.8.8" > $NYX/etc/resolv.conf
 
 cat > $NYX/etc/passwd << "EOF"
 root:x:0:0:root:/root:/bin/bash
