@@ -1,0 +1,39 @@
+#!/bin/bash -e
+
+[ -f /tools/$0 ] && exit 0
+
+. $(dirname $0)/build-properties
+. $(dirname $0)/build-properties-extra
+. $(dirname $0)/pkgversion
+
+PROGRAM="check-${CHECK_VER}"
+TARBALL="$PROGRAM.tar.gz"
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	./configure \
+		--prefix=/tools \
+		--build=${CLFS_HOST} \
+		--host=${CLFS_TARGET} \
+		--libdir=/tools/lib64
+	make
+	make install
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+[ $PIPESTATUS = 0 ] && echo "$PROGRAM" > /tools/$0 || exit $PIPESTATUS
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

@@ -1,0 +1,40 @@
+# dont execute this file !!!
+
+export MAKEFLAGS="-j6"
+export CLFS="/mnt/clfs"
+export LFS_TGT=$(uname -m)-lfs-linux-gnu
+
+PATH=/cross-tools/bin:/bin:/usr/bin
+
+export CLFS_HOST=$(echo ${MACHTYPE} | sed -e 's/-[^-]*/-cross/')
+export CLFS_TARGET="x86_64-unknown-linux-gnu"
+export CLFS_TARGET32="i686-pc-linux-gnu"
+
+export BUILD32="-m32"
+export BUILD64="-m64"
+
+export LOG_DIR="$(dirname $(dirname $(realpath $0)))/log"
+export SOURCE_DIR="$(dirname $(dirname $(realpath $0)))/sources"
+
+export LC_ALL=C
+
+if [ ! -d ${LOG_DIR} ]
+then
+   install -dm755 ${LOG_DIR} || { echo "Cannot create ${LOG_DIR}"; exit 1; }
+fi
+
+if [ ! -e "/tools" ]
+then
+  echo "You must create /tools"; exit 1
+fi
+
+touch "/tools/.test" 2>/dev/null || { echo "Cannot write to /tools"; exit 1; }
+rm -f "/tools/.test"
+
+if [ ! -e "/cross-tools" ]
+then
+  echo "You must create /cross-tools"; exit 1
+fi
+
+touch "/cross-tools/.test" 2>/dev/null || { echo "Cannot write to /cross-tools"; exit 1; }
+rm -f "/cross-tools/.test"

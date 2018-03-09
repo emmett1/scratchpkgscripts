@@ -1,0 +1,77 @@
+#!/bin/bash
+
+. $(dirname $0)/build-properties
+. $(dirname $0)/pkgversion
+
+src=(
+ftp://ftp.astron.com/pub/file/file-${FILE_VER}.tar.gz
+https://www.kernel.org/pub/linux/kernel/v4.x/linux-${LINUX_VER}.tar.xz
+http://www.kernel.org/pub/linux/kernel/v4.x/patch-${LINUX_VER}.21.xz
+http://ftp.gnu.org/gnu/m4/m4-${M4_VER}.tar.xz
+http://ftp.gnu.org/gnu//ncurses/ncurses-${NCURSES_VER}.tar.gz
+http://sourceforge.net/projects/pkgconfiglite/files/${PKGCONFIG_VER}/pkg-config-lite-${PKGCONFIG_VER}.tar.gz
+http://ftp.gnu.org/gnu/gmp/gmp-${GMP_VER}.tar.xz
+http://www.mpfr.org/mpfr-${MPFR_VER}/mpfr-${MPFR_VER}.tar.xz
+http://patches.clfs.org/sysvinit/mpfr-${MPFR_VER}-fixes-1.patch
+https://ftp.gnu.org/gnu/mpc/mpc-${MPC_VER}.tar.gz
+http://isl.gforge.inria.fr/isl-${ISL_VER}.tar.xz
+http://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_VER}.tar.bz2
+http://ftp.gnu.org/gnu/gcc/gcc-${GCC_VER}/gcc-${GCC_VER}.tar.bz2
+http://patches.clfs.org/sysvinit/gcc-${GCC_VER}-specs-1.patch
+http://ftp.gnu.org/gnu/glibc/glibc-${GLIBC_VER}.tar.xz
+http://zlib.net/zlib-${ZLIB_VER}.tar.xz
+http://ftp.gnu.org/gnu/bash/bash-${BASH_VER}.tar.gz
+http://patches.clfs.org/sysvinit/bash-${BASH_VER}-branch_update-1.patch
+http://www.bzip.org/${BZIP_VER}/bzip2-${BZIP_VER}.tar.gz
+https://github.com/libcheck/check/releases/download/${CHECK_VER}/check-${CHECK_VER}.tar.gz
+http://ftp.gnu.org/gnu/coreutils/coreutils-${COREUTILS_VER}.tar.xz
+http://ftp.gnu.org/gnu/findutils/findutils-${FINDUTILS_VER}.tar.gz
+http://ftp.gnu.org/gnu/gawk/gawk-${GAWK_VER}.tar.xz
+http://ftp.gnu.org/gnu/gettext/gettext-${GETTEXT_VER}.tar.xz
+http://ftp.gnu.org/gnu/grep/grep-${GREP_VER}.tar.xz
+http://ftp.gnu.org/gnu/gzip/gzip-${GZIP_VER}.tar.xz
+http://ftp.gnu.org/gnu/make/make-${MAKE_VER}.tar.bz2
+http://ftp.gnu.org/gnu/patch/patch-${PATCH_VER}.tar.xz
+http://ftp.gnu.org/gnu/sed/sed-${SED_VER}.tar.xz
+http://ftp.gnu.org/gnu/tar/tar-${TAR_VER}.tar.xz
+http://ftp.gnu.org/gnu/texinfo/texinfo-${TEXINFO_VER}.tar.xz
+https://www.kernel.org/pub/linux/utils/util-linux/v${UTILLINUX_VER::4}/util-linux-${UTILLINUX_VER}.tar.xz
+ftp://ftp.vim.org/pub/vim/unix/vim-${VIM_VER}.tar.bz2
+http://patches.clfs.org/sysvinit/vim-${VIM_VER}-branch_update-1.patch
+http://tukaani.org/xz/xz-${XZ_VER}.tar.xz
+)
+
+for i in ${src[@]}; do
+
+	tarballname=$(echo $i | rev | cut -d / -f 1 | rev)
+	WGETCMD="wget --passive-ftp --no-directories --tries=3 --waitretry=3 --output-document=$SOURCE_DIR/$tarballname.partial"
+	WGETRESUME="wget -c --passive-ftp --no-directories --tries=3 --waitretry=3 --output-document=$SOURCE_DIR/$tarballname.partial"
+	
+	[ -d $SOURCE_DIR ] || mkdir -p $SOURCE_DIR
+	
+	if [ -f $SOURCE_DIR/$tarballname ]; then
+		echo "Source file $tarballname found."
+	else
+		if [ -f $SOURCE_DIR/$tarballname.partial ]; then
+			echo "Resuming $i."
+			$WGETRESUME $i && mv $SOURCE_DIR/$tarballname.partial $SOURCE_DIR/$tarballname || exit 1
+		else
+			echo "Downloading $i."
+			$WGETCMD $i && mv $SOURCE_DIR/$tarballname.partial $SOURCE_DIR/$tarballname || exit 1
+		fi
+	fi
+done
+
+echo
+echo "Checking broken sources, plese wait..."
+for s in ${src[@]}; do
+	tarballname=$(echo $s | rev | cut -d / -f 1 | rev)
+	case $tarballname in
+		*.tar.*)
+			tar -tf $SOURCE_DIR/$tarballname &>/dev/null
+			[ $? = 0 ] || echo "$tarballname is broken!"
+		;;
+	esac
+done
+
+exit 0
