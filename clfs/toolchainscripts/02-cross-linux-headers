@@ -1,7 +1,5 @@
 #!/bin/bash -e
 
-[ -f /tools/$0 ] && exit 0
-
 . $(dirname $0)/build-properties
 . $(dirname $0)/pkgversion
 
@@ -19,7 +17,9 @@ fi
 { time \
    {
 
-	xzcat ${SOURCE_DIR}/patch-${LINUX_VER}.21.xz | patch -Np1 -i -
+	if [ -f ${SOURCE_DIR}/patch-${LINUX_VER}.21.xz ]; then
+		xzcat ${SOURCE_DIR}/patch-${LINUX_VER}.21.xz | patch -Np1 -i -
+	fi
 
 	make mrproper
 	make ARCH=x86_64 headers_check

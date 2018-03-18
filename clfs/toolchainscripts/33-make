@@ -1,7 +1,5 @@
 #!/bin/bash -e
 
-[ -f /tools/$0 ] && exit 0
-
 . $(dirname $0)/build-properties
 . $(dirname $0)/build-properties-extra
 . $(dirname $0)/pkgversion

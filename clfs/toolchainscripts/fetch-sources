@@ -6,7 +6,6 @@
 src=(
 ftp://ftp.astron.com/pub/file/file-${FILE_VER}.tar.gz
 https://www.kernel.org/pub/linux/kernel/v4.x/linux-${LINUX_VER}.tar.xz
-http://www.kernel.org/pub/linux/kernel/v4.x/patch-${LINUX_VER}.21.xz
 http://ftp.gnu.org/gnu/m4/m4-${M4_VER}.tar.xz
 http://ftp.gnu.org/gnu//ncurses/ncurses-${NCURSES_VER}.tar.gz
 http://sourceforge.net/projects/pkgconfiglite/files/${PKGCONFIG_VER}/pkg-config-lite-${PKGCONFIG_VER}.tar.gz

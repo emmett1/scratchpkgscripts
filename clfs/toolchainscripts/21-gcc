@@ -1,7 +1,5 @@
 #!/bin/bash -e
 
-[ -f /tools/$0 ] && exit 0
-
 . $(dirname $0)/build-properties
 . $(dirname $0)/build-properties-extra
 . $(dirname $0)/pkgversion
@@ -45,7 +43,7 @@ fi
 		--enable-install-libiberty
 	make AS_FOR_TARGET="${AS}" \
 		LD_FOR_TARGET="${LD}"
-	make install
+	make -j1 install
           
    }
 } 2>&1 | tee ${LOG_DIR}/$0.log

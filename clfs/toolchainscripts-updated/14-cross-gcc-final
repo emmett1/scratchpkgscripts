@@ -1,0 +1,58 @@
+#!/bin/bash -e
+
+. $(dirname $0)/build-properties
+. $(dirname $0)/pkgversion
+
+PROGRAM="gcc-${GCC_VER}"
+TARBALL="$PROGRAM.tar.xz"
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	patch -Np1 -i ${SOURCE_DIR}/gcc-7.1.0-specs-1.patch
+	
+	echo -en '\n#undef STANDARD_STARTFILE_PREFIX_1\n#define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"\n' >> gcc/config/linux.h
+	echo -en '\n#undef STANDARD_STARTFILE_PREFIX_2\n#define STANDARD_STARTFILE_PREFIX_2 ""\n' >> gcc/config/linux.h
+
+	mkdir -v build
+	cd build
+
+	AR=ar \
+	LDFLAGS="-Wl,-rpath,/cross-tools/lib" \
+	../configure \
+		--prefix=/cross-tools \
+		--build=${CLFS_HOST} \
+		--target=${CLFS_TARGET} \
+		--host=${CLFS_HOST} \
+		--with-sysroot=${CLFS} \
+		--with-local-prefix=/tools \
+		--with-native-system-header-dir=/tools/include \
+		--disable-static \
+		--enable-languages=c,c++ \
+		--with-mpc=/cross-tools \
+		--with-mpfr=/cross-tools \
+		--with-gmp=/cross-tools \
+		--with-isl=/cross-tools
+		make all-gcc all-target-libgcc
+		make install-gcc install-target-libgcc
+	make AS_FOR_TARGET="${CLFS_TARGET}-as" \
+    LD_FOR_TARGET="${CLFS_TARGET}-ld"
+    make install
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+[ $PIPESTATUS = 0 ] && echo "$PROGRAM" > /tools/$0 || exit $PIPESTATUS
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

@@ -1,0 +1,36 @@
+#!/bin/bash -e
+
+. $(dirname $0)/build-properties
+. $(dirname $0)/build-properties-extra
+. $(dirname $0)/pkgversion
+
+PROGRAM="make-${MAKE_VER}"
+TARBALL="$PROGRAM.tar.bz2"
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	# work around an error caused by glibc-2.27
+	sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c
+	
+	./configure --prefix=/tools
+	make
+	make install
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+[ $PIPESTATUS = 0 ] && echo "$PROGRAM" > /tools/$0 || exit $PIPESTATUS
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi

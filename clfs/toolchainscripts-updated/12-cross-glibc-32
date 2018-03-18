@@ -1,0 +1,44 @@
+#!/bin/bash -e
+
+. $(dirname $0)/build-properties
+. $(dirname $0)/pkgversion
+
+PROGRAM="glibc-${GLIBC_VER}"
+TARBALL="$PROGRAM.tar.xz"
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
+	rm -rf $DIRECTORY || true
+	tar xf $TARBALL
+	cd $DIRECTORY
+fi
+
+{ time \
+   {
+
+	mkdir -v build
+	cd build
+	
+	BUILD_CC="gcc" CC="${CLFS_TARGET}-gcc ${BUILD32}" \
+	AR="${CLFS_TARGET}-ar" RANLIB="${CLFS_TARGET}-ranlib" \
+	../configure \
+		--prefix=/tools \
+		--host=${CLFS_TARGET32} \
+		--build=${CLFS_HOST} \
+		--enable-kernel=4.9 \
+		--with-binutils=/cross-tools/bin \
+		--with-headers=/tools/include \
+		--enable-obsolete-rpc
+	make
+	make install
+          
+   }
+} 2>&1 | tee ${LOG_DIR}/$0.log
+
+[ $PIPESTATUS = 0 ] && echo "$PROGRAM" > /tools/$0 || exit $PIPESTATUS
+
+cd $SOURCE_DIR
+if [ "$TARBALL" != "" ]; then
+	rm -rf $DIRECTORY
+fi
